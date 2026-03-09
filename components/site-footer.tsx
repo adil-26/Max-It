@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 const services = [
   'Custom Software Development',
@@ -25,9 +26,18 @@ export default function SiteFooter() {
     <footer className="relative border-t border-white/10 bg-black/55">
       <div className="mx-auto grid w-full max-w-[1440px] gap-10 px-4 py-12 sm:px-8 lg:grid-cols-4 lg:px-20">
         <div>
-          <p className="font-display text-lg uppercase tracking-[0.14em] text-foreground">
-            MAX IT <span className="text-primary">CONSULTING LLC</span>
-          </p>
+          <div className="flex items-center gap-3">
+            <Image
+              src="/max-it-logo.png"
+              alt="MAX IT CONSULTING LLC logo"
+              width={40}
+              height={40}
+              className="size-10 rounded-lg border border-border/70 object-cover"
+            />
+            <p className="font-display text-lg uppercase tracking-[0.14em] text-foreground">
+              MAX IT <span className="text-primary">CONSULTING LLC</span>
+            </p>
+          </div>
           <p className="mt-4 max-w-xs text-sm text-muted-foreground">
             Technology staffing and consulting partner helping organizations build high-performance teams and modern digital platforms.
           </p>

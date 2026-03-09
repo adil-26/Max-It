@@ -1,9 +1,11 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Button } from '@/components/ui/button'
+import ThemeToggle from '@/components/theme-toggle'
 
 const navItems = [
   { href: '/services', label: 'Services' },
@@ -34,7 +36,9 @@ export default function Header() {
     <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-4">
       <div
         className={`glass-panel mx-auto max-w-[1440px] transition-all duration-300 ${
-          scrolled ? 'border-white/20 bg-black/55 shadow-[0_14px_48px_-30px_rgba(0,0,0,0.9)]' : ''
+          scrolled
+            ? 'border-border/80 bg-background/85 shadow-[0_14px_48px_-30px_rgba(15,23,42,0.35)] dark:shadow-[0_14px_48px_-30px_rgba(0,0,0,0.9)]'
+            : ''
         }`}
       >
         <div
@@ -42,8 +46,20 @@ export default function Header() {
             scrolled ? 'h-16' : 'h-20'
           }`}
         >
-          <Link href="/" className="font-display text-sm uppercase tracking-[0.16em] text-foreground sm:text-base">
-            MAX IT <span className="text-primary">CONSULTING LLC</span>
+          <Link
+            href="/"
+            className="flex items-center gap-2.5 text-foreground"
+          >
+            <Image
+              src="/max-it-logo.png"
+              alt="MAX IT CONSULTING LLC logo"
+              width={36}
+              height={36}
+              className="size-9 rounded-lg border border-border/70 object-cover"
+            />
+            <span className="font-display text-[11px] uppercase tracking-[0.14em] sm:text-sm">
+              MAX IT <span className="text-primary">CONSULTING LLC</span>
+            </span>
           </Link>
 
           <nav className="hidden items-center gap-1 lg:flex">
@@ -66,6 +82,7 @@ export default function Header() {
           </nav>
 
           <div className="hidden items-center gap-2 lg:flex">
+            <ThemeToggle />
             <Link href="/contact">
               <Button className="font-display uppercase tracking-[0.12em]">Hire Talent</Button>
             </Link>
@@ -76,15 +93,18 @@ export default function Header() {
             </Link>
           </div>
 
-          <button
-            type="button"
-            onClick={() => setMenuOpen((prev) => !prev)}
-            className="rounded-md border border-white/20 px-3 py-2 text-xs uppercase tracking-[0.16em] text-foreground lg:hidden"
-            aria-expanded={menuOpen}
-            aria-label="Toggle navigation"
-          >
-            Menu
-          </button>
+          <div className="flex items-center gap-2 lg:hidden">
+            <ThemeToggle />
+            <button
+              type="button"
+              onClick={() => setMenuOpen((prev) => !prev)}
+              className="rounded-md border border-border/80 bg-background/75 px-3 py-2 text-xs uppercase tracking-[0.16em] text-foreground"
+              aria-expanded={menuOpen}
+              aria-label="Toggle navigation"
+            >
+              Menu
+            </button>
+          </div>
         </div>
 
         {menuOpen && (

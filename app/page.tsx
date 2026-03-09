@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import Header from '@/components/header'
 import FuturisticBackground from '@/components/futuristic-background'
 import HeroWaveRibbon from '@/components/hero-wave-ribbon'
 import BrandShieldOrb from '@/components/brand-shield-orb'
 import BrandShield3D from '@/components/brand-shield-3d'
-import HeroNetworkGlobe from '@/components/hero-network-globe'
 import SplineBlock from '@/components/spline-block'
 import SiteFooter from '@/components/site-footer'
 import { Button } from '@/components/ui/button'
@@ -178,7 +178,18 @@ export default function HomePage() {
               url={splineHeroUrl}
               title="Spline Hero Network Globe"
               className="h-[420px] md:h-[500px]"
-              fallback={<HeroNetworkGlobe />}
+              fallback={
+                <div className="glass-panel relative h-[420px] overflow-hidden p-2 md:h-[500px]">
+                  <Image
+                    src="/hero-reference.png"
+                    alt="3D technology network hero"
+                    fill
+                    priority
+                    className="rounded-xl border border-border/60 object-cover"
+                    sizes="(max-width: 1024px) 100vw, 560px"
+                  />
+                </div>
+              }
             />
           </div>
 
