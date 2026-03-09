@@ -27,13 +27,10 @@ export default function SiteFooter() {
             <Image
               src="/max-it-logo.png"
               alt="MAX IT CONSULTING LLC logo"
-              width={40}
-              height={40}
-              className="size-10 rounded-lg border border-border/70 object-cover"
+              width={190}
+              height={66}
+              className="h-14 w-auto rounded-md border border-border/70 bg-white/95 p-1 object-contain"
             />
-            <p className="font-display text-lg uppercase tracking-[0.14em] text-foreground">
-              MAX IT <span className="text-primary">CONSULTING LLC</span>
-            </p>
           </div>
           <p className="mt-4 max-w-xs text-sm text-muted-foreground">
             Trusted technology partner helping businesses with IT consulting, software development, cybersecurity, cloud, and staffing services.

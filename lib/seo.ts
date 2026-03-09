@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 export const siteName = 'MAX IT CONSULTING LLC'
 export const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, '') ||
-  'https://www.maxitconsult.com'
+  'https://maxitconsultingllc.com'
 export const siteDescription =
   'MAX IT CONSULTING LLC provides IT consulting, business consulting, software development, US recruitment, and IT staffing services.'
 export const defaultOgImage = '/placeholder.jpg'

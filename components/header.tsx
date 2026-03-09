@@ -48,18 +48,16 @@ export default function Header() {
         >
           <Link
             href="/"
-            className="flex items-center gap-2.5 text-foreground"
+            className="flex items-center text-foreground"
           >
             <Image
               src="/max-it-logo.png"
               alt="MAX IT CONSULTING LLC logo"
-              width={36}
-              height={36}
-              className="size-9 rounded-lg border border-border/70 object-cover"
+              width={170}
+              height={60}
+              priority
+              className="h-11 w-auto rounded-md border border-border/70 bg-white/95 p-1 object-contain sm:h-12"
             />
-            <span className="font-display text-[11px] uppercase tracking-[0.14em] sm:text-sm">
-              MAX IT <span className="text-primary">CONSULTING LLC</span>
-            </span>
           </Link>
 
           <nav className="hidden items-center gap-1 lg:flex">
