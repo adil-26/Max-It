@@ -2,23 +2,20 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 const services = [
-  'Custom Software Development',
-  'Business Intelligence & Analytics',
-  'Process Consulting',
-  'IT Staffing & Outsourcing',
-  'SAP Services',
-  'Automation & RPA',
+  'IT Strategy and Consulting',
+  'Digital Transformation',
+  'Cloud Solutions',
+  'Cybersecurity',
+  'Software Development',
+  'US Recruitment and IT Staffing',
 ]
 
 const industries = [
-  'Oil & Gas',
-  'Retail & Consumer',
-  'Agroindustry',
-  'Banking & Financial Services',
-  'Energy & Utilities',
-  'Healthcare & Pharma',
-  'Government & Education',
-  'Media & Technology',
+  'Healthcare',
+  'Marketing',
+  'Retail',
+  'Telecom',
+  'Finance',
 ]
 
 export default function SiteFooter() {
@@ -39,7 +36,7 @@ export default function SiteFooter() {
             </p>
           </div>
           <p className="mt-4 max-w-xs text-sm text-muted-foreground">
-            Technology staffing and consulting partner helping organizations build high-performance teams and modern digital platforms.
+            Trusted technology partner helping businesses with IT consulting, software development, cybersecurity, cloud, and staffing services.
           </p>
         </div>
 
@@ -67,7 +64,8 @@ export default function SiteFooter() {
             <p>25 Oak Tavern Cir</p>
             <p>Branchburg, NJ 08876</p>
             <p>USA</p>
-            <p className="pt-2">info@maxitconsultingllc.com</p>
+            <p className="pt-2">info@maxitconsult.com</p>
+            <p>+1 908 449 3000</p>
           </div>
           <div className="mt-5 flex flex-wrap gap-3 text-xs uppercase tracking-[0.12em]">
             <Link href="/contact" className="rounded-md border border-white/20 px-3 py-2 text-foreground hover:bg-white/10">

@@ -3,22 +3,20 @@ import type { Metadata } from 'next'
 export const siteName = 'MAX IT CONSULTING LLC'
 export const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, '') ||
-  'https://www.maxitconsultingllc.com'
+  'https://www.maxitconsult.com'
 export const siteDescription =
-  'Max IT Consulting LLC provides IT staffing, technology recruiting, and consulting services for companies across the United States.'
+  'MAX IT CONSULTING LLC provides IT consulting, business consulting, software development, US recruitment, and IT staffing services.'
 export const defaultOgImage = '/placeholder.jpg'
 
 export const defaultKeywords = [
   'Max IT Consulting LLC',
   'IT staffing',
   'IT consulting',
-  'technology staffing',
-  'IT recruiters',
-  'staffing agency USA',
-  'contract staffing',
-  'permanent hiring',
-  'cloud engineers',
-  'software developers',
+  'business consulting',
+  'software development',
+  'US recruitment',
+  'digital transformation',
+  'cloud solutions',
   'cybersecurity hiring',
 ]
 
@@ -91,7 +89,9 @@ export const organizationJsonLd = {
   '@type': 'Organization',
   name: siteName,
   url: siteUrl,
-  email: 'info@maxitconsultingllc.com',
+  email: 'info@maxitconsult.com',
+  telephone: '+1-908-449-3000',
+  foundingDate: '2021',
   address: {
     '@type': 'PostalAddress',
     streetAddress: '25 Oak Tavern Cir',
