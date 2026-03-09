@@ -120,6 +120,8 @@ const testimonials = [
   },
 ]
 
+const revealPattern = ['reveal-zoom', 'reveal-tilt', 'reveal-fade'] as const
+
 const splineHeroUrl = process.env.NEXT_PUBLIC_SPLINE_HERO_URL
 const splineServicesUrl = process.env.NEXT_PUBLIC_SPLINE_SERVICES_URL
 const splineHiringUrl = process.env.NEXT_PUBLIC_SPLINE_HIRING_URL
@@ -258,34 +260,30 @@ export default function HomePage() {
         </section>
 
         <section className="mx-auto w-full max-w-[1440px] px-4 py-14 sm:px-8 lg:px-20">
-          <div className="mb-8">
-            <p className="text-xs uppercase tracking-[0.2em] text-primary">Industry Portfolio</p>
-            <h2 className="mt-2 text-3xl sm:text-4xl">Industries we currently support</h2>
-          </div>
-
-          <div className="hidden md:block">
-            <div className="glass-panel marquee-pause showcase-mask overflow-hidden py-6">
-              <div className="marquee-track marquee-track-slow items-stretch">
-                {[...industries, ...industries].map((industry, idx) => (
-                  <article
-                    key={`${industry.title}-${idx}`}
-                    className="mx-3 min-w-[320px] rounded-xl border border-white/15 bg-black/30 p-6"
-                  >
-                    <p className="text-xs uppercase tracking-[0.16em] text-secondary">Sector</p>
-                    <p className="mt-2 font-display text-2xl uppercase tracking-[0.06em] text-foreground">
-                      {industry.title}
-                    </p>
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{industry.text}</p>
-                  </article>
-                ))}
-              </div>
+          <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <p className="text-xs uppercase tracking-[0.2em] text-primary">Industry Portfolio</p>
+              <h2 className="mt-2 text-3xl sm:text-4xl">Industries we currently support</h2>
+            </div>
+            <div className="reveal-fade flex items-center gap-2 rounded-full border border-primary/35 bg-background/80 px-3 py-2">
+              <Image src="/icon.svg" alt="MAX IT icon" width={20} height={20} className="h-5 w-5" />
+              <span className="text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
+                MAX IT Industry Coverage
+              </span>
             </div>
           </div>
 
-          <div className="grid gap-4 md:hidden">
-            {industries.map((industry) => (
-              <article key={industry.title} className="glass-panel rounded-xl p-5">
-                <p className="text-xs uppercase tracking-[0.16em] text-secondary">Sector</p>
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {industries.map((industry, idx) => (
+              <article
+                key={industry.title}
+                className={`glass-panel ${revealPattern[idx % revealPattern.length]} rounded-xl border border-primary/20 p-5 transition duration-300 hover:-translate-y-1 hover:border-primary/45`}
+                style={{ animationDelay: `${idx * 90}ms` }}
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <p className="text-xs uppercase tracking-[0.16em] text-secondary">Sector</p>
+                  <Image src="/icon.svg" alt="MAX IT icon" width={18} height={18} className="h-[18px] w-[18px] opacity-85" />
+                </div>
                 <p className="mt-2 font-display text-2xl uppercase tracking-[0.06em] text-foreground">
                   {industry.title}
                 </p>
@@ -296,19 +294,30 @@ export default function HomePage() {
         </section>
 
         <section className="mx-auto w-full max-w-[1440px] px-4 py-14 sm:px-8 lg:px-20">
-          <div className="mb-8">
-            <p className="text-xs uppercase tracking-[0.2em] text-primary">Delivery Capabilities</p>
-            <h2 className="mt-2 text-3xl sm:text-4xl">Specialties and focus areas</h2>
+          <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <p className="text-xs uppercase tracking-[0.2em] text-primary">Delivery Capabilities</p>
+              <h2 className="mt-2 text-3xl sm:text-4xl">Specialties and focus areas</h2>
+            </div>
+            <div className="reveal-zoom flex items-center gap-2 rounded-full border border-primary/35 bg-background/80 px-3 py-2">
+              <Image src="/icon.svg" alt="MAX IT icon" width={20} height={20} className="h-5 w-5" />
+              <span className="text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
+                Core Delivery Areas
+              </span>
+            </div>
           </div>
 
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {jobCategories.map((category, idx) => (
               <article
                 key={category}
-                className="glass-panel reveal-up rounded-xl border p-5 transition duration-300 hover:-translate-y-1 hover:border-primary/45"
+                className={`glass-panel ${revealPattern[idx % revealPattern.length]} rounded-xl border border-primary/20 p-5 transition duration-300 hover:-translate-y-1 hover:border-primary/45`}
                 style={{ animationDelay: `${idx * 60}ms` }}
               >
-                <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground">Area</p>
+                <div className="flex items-center justify-between gap-3">
+                  <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground">Area</p>
+                  <Image src="/icon.svg" alt="MAX IT icon" width={18} height={18} className="h-[18px] w-[18px] opacity-85" />
+                </div>
                 <h3 className="mt-2 font-display text-2xl uppercase tracking-[0.06em]">{category}</h3>
               </article>
             ))}
@@ -333,9 +342,17 @@ export default function HomePage() {
         </section>
 
         <section className="mx-auto w-full max-w-[1440px] px-4 py-14 sm:px-8 lg:px-20">
-          <div className="mb-8">
-            <p className="text-xs uppercase tracking-[0.2em] text-primary">Working Method</p>
-            <h2 className="mt-2 text-3xl sm:text-4xl">How we deliver measurable outcomes</h2>
+          <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <p className="text-xs uppercase tracking-[0.2em] text-primary">Working Method</p>
+              <h2 className="mt-2 text-3xl sm:text-4xl">How we deliver measurable outcomes</h2>
+            </div>
+            <div className="reveal-tilt flex items-center gap-2 rounded-full border border-primary/35 bg-background/80 px-3 py-2">
+              <Image src="/icon.svg" alt="MAX IT icon" width={20} height={20} className="h-5 w-5" />
+              <span className="text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
+                Structured Execution
+              </span>
+            </div>
           </div>
 
           <div className="grid gap-6 xl:grid-cols-[1fr_360px]">
@@ -343,10 +360,13 @@ export default function HomePage() {
               {processSteps.map((step, idx) => (
                 <article
                   key={step}
-                  className="glass-panel reveal-up p-5"
+                  className={`glass-panel ${revealPattern[idx % revealPattern.length]} border border-primary/20 p-5`}
                   style={{ animationDelay: `${idx * 80}ms` }}
                 >
-                  <p className="text-xs uppercase tracking-[0.2em] text-secondary">Phase {idx + 1}</p>
+                  <div className="flex items-center justify-between gap-3">
+                    <p className="text-xs uppercase tracking-[0.2em] text-secondary">Phase {idx + 1}</p>
+                    <Image src="/icon.svg" alt="MAX IT icon" width={18} height={18} className="h-[18px] w-[18px] opacity-85" />
+                  </div>
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{step}</p>
                 </article>
               ))}
@@ -376,21 +396,37 @@ export default function HomePage() {
         </section>
 
         <section className="mx-auto w-full max-w-[1440px] px-4 py-14 sm:px-8 lg:px-20">
-          <div className="mb-8">
-            <p className="text-xs uppercase tracking-[0.2em] text-primary">Leadership</p>
-            <h2 className="mt-2 text-3xl sm:text-4xl">People behind MAX IT CONSULTING LLC</h2>
+          <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <p className="text-xs uppercase tracking-[0.2em] text-primary">Leadership</p>
+              <h2 className="mt-2 text-3xl sm:text-4xl">People behind MAX IT CONSULTING LLC</h2>
+            </div>
+            <div className="reveal-fade relative h-12 w-[170px] rounded-md border border-border/70 bg-white/95 p-1">
+              <Image
+                src="/max-it-logo.png"
+                alt="MAX IT CONSULTING LLC logo"
+                fill
+                className="object-contain"
+                sizes="170px"
+              />
+            </div>
           </div>
 
-          <div className="glass-panel overflow-hidden py-6">
-            <div className="marquee-track marquee-track-slow">
-              {[...testimonials, ...testimonials].map((item, idx) => (
-                <article key={`${item.company}-${idx}`} className="mx-3 min-w-[320px] rounded-xl border border-white/15 bg-black/30 p-6">
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {testimonials.map((item, idx) => (
+              <article
+                key={item.company}
+                className={`glass-panel ${revealPattern[idx % revealPattern.length]} rounded-xl border border-primary/20 bg-gradient-to-br from-background/95 via-background/88 to-secondary/5 p-6`}
+                style={{ animationDelay: `${idx * 110}ms` }}
+              >
+                <div className="flex items-center justify-between gap-3">
                   <p className="text-xs uppercase tracking-[0.16em] text-secondary">{item.company}</p>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.quote}</p>
-                  <p className="mt-4 text-xs uppercase tracking-[0.14em] text-foreground">{item.person}</p>
-                </article>
-              ))}
-            </div>
+                  <Image src="/icon.svg" alt="MAX IT icon" width={18} height={18} className="h-[18px] w-[18px] opacity-85" />
+                </div>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.quote}</p>
+                <p className="mt-4 text-xs uppercase tracking-[0.14em] text-foreground">{item.person}</p>
+              </article>
+            ))}
           </div>
         </section>
 

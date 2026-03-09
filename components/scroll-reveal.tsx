@@ -7,18 +7,19 @@ export default function ScrollReveal() {
   const pathname = usePathname()
 
   useEffect(() => {
+    const revealSelector = '.reveal-up, .reveal-zoom, .reveal-tilt, .reveal-fade'
     const queryRevealElements = () =>
-      Array.from(document.querySelectorAll<HTMLElement>('.reveal-up'))
+      Array.from(document.querySelectorAll<HTMLElement>(revealSelector))
     const forEachRevealInNode = (node: Node, run: (element: HTMLElement) => void) => {
       if (!(node instanceof HTMLElement)) {
         return
       }
 
-      if (node.matches('.reveal-up')) {
+      if (node.matches(revealSelector)) {
         run(node)
       }
 
-      node.querySelectorAll<HTMLElement>('.reveal-up').forEach(run)
+      node.querySelectorAll<HTMLElement>(revealSelector).forEach(run)
     }
 
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
