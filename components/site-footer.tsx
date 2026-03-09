@@ -1,7 +1,24 @@
 import Link from 'next/link'
 
-const services = ['IT Staffing', 'IT Consulting', 'Contract Hiring', 'Managed Talent']
-const industries = ['Finance', 'Healthcare', 'Retail', 'Telecom', 'Technology', 'Insurance', 'Government']
+const services = [
+  'Custom Software Development',
+  'Business Intelligence & Analytics',
+  'Process Consulting',
+  'IT Staffing & Outsourcing',
+  'SAP Services',
+  'Automation & RPA',
+]
+
+const industries = [
+  'Oil & Gas',
+  'Retail & Consumer',
+  'Agroindustry',
+  'Banking & Financial Services',
+  'Energy & Utilities',
+  'Healthcare & Pharma',
+  'Government & Education',
+  'Media & Technology',
+]
 
 export default function SiteFooter() {
   return (
@@ -9,10 +26,10 @@ export default function SiteFooter() {
       <div className="mx-auto grid w-full max-w-[1440px] gap-10 px-4 py-12 sm:px-8 lg:grid-cols-4 lg:px-20">
         <div>
           <p className="font-display text-lg uppercase tracking-[0.14em] text-foreground">
-            Max IT <span className="text-primary">Consulting LLC</span>
+            MAX IT <span className="text-primary">CONSULTING LLC</span>
           </p>
           <p className="mt-4 max-w-xs text-sm text-muted-foreground">
-            Premium IT staffing and consulting partner helping organizations build high-performance technology teams.
+            Technology staffing and consulting partner helping organizations build high-performance teams and modern digital platforms.
           </p>
         </div>
 
@@ -46,16 +63,15 @@ export default function SiteFooter() {
             <Link href="/contact" className="rounded-md border border-white/20 px-3 py-2 text-foreground hover:bg-white/10">
               Contact
             </Link>
-            <Link href="/jobs" className="rounded-md border border-white/20 px-3 py-2 text-foreground hover:bg-white/10">
-              Jobs
+            <Link href="/services" className="rounded-md border border-white/20 px-3 py-2 text-foreground hover:bg-white/10">
+              Services
             </Link>
           </div>
         </div>
       </div>
       <div className="border-t border-white/10 py-4 text-center text-xs uppercase tracking-[0.14em] text-muted-foreground">
-        Copyright {new Date().getFullYear()} Max IT Consulting LLC. All rights reserved.
+        Copyright {new Date().getFullYear()} MAX IT CONSULTING LLC. All rights reserved.
       </div>
     </footer>
   )
 }
-

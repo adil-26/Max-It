@@ -1,8 +1,18 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import Header from '@/components/header'
 import FuturisticBackground from '@/components/futuristic-background'
 import SiteFooter from '@/components/site-footer'
 import { Button } from '@/components/ui/button'
+import { createPageMetadata } from '@/lib/seo'
+
+export const metadata: Metadata = createPageMetadata({
+  title: 'IT Jobs for Candidates',
+  description:
+    'Discover IT job opportunities and career resources for software, cloud, cybersecurity, and data professionals across the US.',
+  path: '/candidates',
+  keywords: ['IT jobs USA', 'technology careers', 'software engineer jobs'],
+})
 
 const categories = [
   'Software Development',

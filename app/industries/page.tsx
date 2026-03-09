@@ -1,6 +1,16 @@
+import type { Metadata } from 'next'
 import Header from '@/components/header'
 import FuturisticBackground from '@/components/futuristic-background'
 import SiteFooter from '@/components/site-footer'
+import { createPageMetadata } from '@/lib/seo'
+
+export const metadata: Metadata = createPageMetadata({
+  title: 'Industry-Specific IT Staffing',
+  description:
+    'Max IT Consulting LLC supports finance, healthcare, retail, telecom, insurance, government, and technology teams with specialized IT hiring.',
+  path: '/industries',
+  keywords: ['industry IT staffing', 'healthcare IT recruiters', 'finance technology hiring'],
+})
 
 const industries = [
   {

@@ -1,8 +1,18 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import Header from '@/components/header'
 import FuturisticBackground from '@/components/futuristic-background'
 import { Button } from '@/components/ui/button'
 import SiteFooter from '@/components/site-footer'
+import { createPageMetadata } from '@/lib/seo'
+
+export const metadata: Metadata = createPageMetadata({
+  title: 'About Max IT Consulting LLC',
+  description:
+    'Learn about Max IT Consulting LLC, our mission, and how we deliver high-quality IT staffing and consulting solutions for US businesses.',
+  path: '/about',
+  keywords: ['about Max IT Consulting', 'IT recruiting partner', 'technology staffing agency'],
+})
 
 const values = [
   {

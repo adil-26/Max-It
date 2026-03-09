@@ -2,6 +2,17 @@ import type { Metadata } from 'next'
 import { Rajdhani, Space_Grotesk } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { AuthProvider } from '@/lib/auth-context'
+import ScrollReveal from '@/components/scroll-reveal'
+import {
+  absoluteUrl,
+  defaultKeywords,
+  defaultOgImage,
+  organizationJsonLd,
+  siteDescription,
+  siteName,
+  siteUrl,
+  websiteJsonLd,
+} from '@/lib/seo'
 import './globals.css'
 
 const spaceGrotesk = Space_Grotesk({
@@ -16,10 +27,51 @@ const rajdhani = Rajdhani({
 })
 
 export const metadata: Metadata = {
-  title: 'Max IT Consulting LLC | IT Staffing and Consulting',
-  description:
-    'Max IT Consulting LLC connects businesses with top IT talent across the United States.',
-  generator: 'Max IT Consulting LLC',
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: `${siteName} | IT Staffing and Consulting`,
+    template: `%s | ${siteName}`,
+  },
+  description: siteDescription,
+  applicationName: siteName,
+  generator: siteName,
+  keywords: defaultKeywords,
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    title: `${siteName} | IT Staffing and Consulting`,
+    description: siteDescription,
+    url: absoluteUrl('/'),
+    siteName,
+    locale: 'en_US',
+    images: [
+      {
+        url: defaultOgImage,
+        width: 1200,
+        height: 630,
+        alt: `${siteName} preview image`,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${siteName} | IT Staffing and Consulting`,
+    description: siteDescription,
+    images: [defaultOgImage],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   icons: {
     icon: [
       {
@@ -45,8 +97,17 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en-US">
       <body className={`${spaceGrotesk.variable} ${rajdhani.variable} font-sans antialiased`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+        <ScrollReveal />
         <AuthProvider>{children}</AuthProvider>
         <Analytics />
       </body>

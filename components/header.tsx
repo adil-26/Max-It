@@ -43,7 +43,7 @@ export default function Header() {
           }`}
         >
           <Link href="/" className="font-display text-sm uppercase tracking-[0.16em] text-foreground sm:text-base">
-            Max IT <span className="text-primary">Consulting LLC</span>
+            MAX IT <span className="text-primary">CONSULTING LLC</span>
           </Link>
 
           <nav className="hidden items-center gap-1 lg:flex">
@@ -122,4 +122,3 @@ export default function Header() {
     </header>
   )
 }
-

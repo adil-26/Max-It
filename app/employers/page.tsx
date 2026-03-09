@@ -1,8 +1,18 @@
+import type { Metadata } from 'next'
 import Header from '@/components/header'
 import FuturisticBackground from '@/components/futuristic-background'
 import SiteFooter from '@/components/site-footer'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { createPageMetadata } from '@/lib/seo'
+
+export const metadata: Metadata = createPageMetadata({
+  title: 'Hire Skilled IT Professionals',
+  description:
+    'Partner with Max IT Consulting LLC to hire software engineers, cloud specialists, and cybersecurity talent with faster time-to-hire.',
+  path: '/employers',
+  keywords: ['hire IT professionals', 'IT staffing for employers', 'technology recruiting services'],
+})
 
 const process = [
   'Requirement discovery and role calibration',

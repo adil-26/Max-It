@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import Header from '@/components/header'
 import FuturisticBackground from '@/components/futuristic-background'
@@ -8,99 +9,124 @@ import HeroNetworkGlobe from '@/components/hero-network-globe'
 import SplineBlock from '@/components/spline-block'
 import SiteFooter from '@/components/site-footer'
 import { Button } from '@/components/ui/button'
+import { createPageMetadata } from '@/lib/seo'
+
+export const metadata: Metadata = createPageMetadata({
+  title: 'Agile IT Solutions for LATAM, Europe, and the U.S.',
+  description:
+    'MAX IT CONSULTING LLC delivers software development, BI, SAP consulting, automation, and strategic IT staffing for enterprises across LATAM, Europe, and the U.S.',
+  path: '/',
+  keywords: ['MAX IT CONSULTING LLC', 'software development', 'SAP consulting', 'IT staffing'],
+})
 
 const trustedLogos = [
-  { name: 'AWS', tag: 'Cloud Platform' },
-  { name: 'Google Cloud', tag: 'Data and AI' },
-  { name: 'Microsoft', tag: 'Enterprise Stack' },
-  { name: 'Oracle', tag: 'Enterprise Systems' },
-  { name: 'Cisco', tag: 'Network Infrastructure' },
+  { name: 'IBM', tag: 'Global Integrator' },
+  { name: 'Indra', tag: 'Enterprise Technology' },
+  { name: 'Wipro', tag: 'Digital Services' },
+  { name: 'Softtek', tag: 'Nearshore Delivery' },
+  { name: 'Atos', tag: 'Transformation Partner' },
+  { name: 'TGT Telefonica', tag: 'Telecom Innovation' },
+  { name: 'Datco', tag: 'Regional Tech Partner' },
 ]
 
 const serviceCards = [
   {
-    title: 'IT Staffing',
-    text: 'Contract, contract-to-hire, and permanent placement for mission-critical technology roles.',
+    title: 'Custom Software Development',
+    text: 'Web, mobile, and enterprise software designed for measurable business impact and scale.',
   },
   {
-    title: 'IT Consulting',
-    text: 'Architecture, modernization, and implementation support for enterprise technology initiatives.',
+    title: 'Business Intelligence & Analytics',
+    text: 'Dashboards, KPIs, and automation-ready data models that turn data into business decisions.',
   },
   {
-    title: 'Contract Hiring',
-    text: 'Rapid deployment of specialized consultants for short-term and project-based delivery.',
+    title: 'Process Consulting',
+    text: 'Digital transformation and process redesign focused on efficiency, visibility, and control.',
   },
   {
-    title: 'Managed Talent',
-    text: 'Ongoing workforce management and talent operations for scalable growth.',
+    title: 'IT Staffing & Outsourcing',
+    text: 'Validated IT talent for SAP, BI, development, QA, PM, and cloud roles in flexible models.',
+  },
+  {
+    title: 'SAP Services',
+    text: 'S/4HANA programs, BI on SAP, integrations, and technical-functional support teams.',
+  },
+  {
+    title: 'Software Factory',
+    text: 'Scalable delivery squads for complex operations and demanding industry environments.',
+  },
+  {
+    title: 'Automation & RPA',
+    text: 'UiPath, Power Automate, and custom scripts to reduce manual effort and operational errors.',
   },
 ]
 
 const industries = [
   {
-    title: 'Finance',
-    text: 'Secure platforms, low-latency systems, and regulated engineering hiring.',
+    title: 'Oil & Gas',
+    text: 'Operational visibility, process automation, and resilient technology execution.',
   },
   {
-    title: 'Healthcare',
-    text: 'HIPAA-aware staffing for data privacy, EHR integrations, and cloud operations.',
+    title: 'Retail & Consumer',
+    text: 'Customer analytics, omnichannel operations, and modern digital platforms.',
   },
   {
-    title: 'Retail',
-    text: 'Omnichannel commerce, analytics, and large-scale customer experience systems.',
+    title: 'Agroindustry',
+    text: 'Data-driven logistics and process digitization for large, distributed operations.',
   },
   {
-    title: 'Telecom',
-    text: 'Network engineering, OSS/BSS systems, and reliability-focused delivery teams.',
+    title: 'Banking & Financial Services',
+    text: 'Compliance-oriented technology, secure operations, and high-availability systems.',
   },
   {
-    title: 'Technology',
-    text: 'Product engineering, platform development, and modern DevOps capabilities.',
+    title: 'Energy & Utilities',
+    text: 'Smart workflows, data consistency, and automation in mission-critical operations.',
   },
   {
-    title: 'Insurance',
-    text: 'Claims automation, core platforms, and enterprise modernization programs.',
+    title: 'Healthcare & Pharma',
+    text: 'Reliable delivery models for regulated environments and complex data ecosystems.',
   },
   {
-    title: 'Government',
-    text: 'Mission-critical modernization with secure and compliant IT talent pipelines.',
+    title: 'Government & Education',
+    text: 'Secure modernization with strong governance and long-term maintainability.',
+  },
+  {
+    title: 'Media & Technology',
+    text: 'Product acceleration, scalable architecture, and high-speed delivery teams.',
   },
 ]
 
 const jobCategories = [
-  'Software Development',
-  'Cloud Engineering',
-  'Cybersecurity',
-  'Data Science',
-  'DevOps',
-  'AI Engineering',
-  'Infrastructure',
-  'Enterprise Systems',
+  'S/4HANA Delivery',
+  'SAP Module Consulting',
+  'BI Dashboards & Data Models',
+  'RPA Bot Automation',
+  'Custom Web Platforms',
+  'Cloud and DevOps Operations',
+  'Technical and Functional Staffing',
+  'Hybrid Delivery Squads',
 ]
 
 const processSteps = [
-  'Submit requirements',
-  'Talent sourcing',
-  'Candidate screening',
-  'Interview coordination',
-  'Hiring and onboarding',
+  'Assess business goals and current systems to identify real operational gaps.',
+  'Design the right mix of SAP, BI, automation, software, or staffing for your context.',
+  'Execute with your team, measure outcomes, and optimize continuously for scale.',
 ]
 
 const testimonials = [
   {
-    company: 'FinEdge Group',
-    quote: 'Max IT reduced our hiring timeline from weeks to days while improving candidate quality.',
-    person: 'Director of Engineering',
+    company: '+9 Years of SAP and IT Delivery',
+    quote: 'Since 2016, MAX IT CONSULTING LLC has supported projects across LATAM, Europe, and the U.S.',
+    person: 'Execution with technical depth',
   },
   {
-    company: 'HealthNova Systems',
-    quote: 'Their team understood compliance-heavy hiring and delivered excellent cloud specialists.',
-    person: 'VP of Technology',
+    company: 'Flexible Staffing Models',
+    quote: 'Freelance, on-demand, dedicated, and hybrid models based on each client operation.',
+    person: 'Speed without compromising quality',
   },
   {
-    company: 'RetailAxis',
-    quote: 'Reliable staffing partner for high-velocity projects and enterprise rollouts.',
-    person: 'Head of Delivery',
+    company: 'Trusted by Global Integrators',
+    quote: 'IBM, Atos, Indra, Wipro, and other partners rely on MAX IT CONSULTING LLC for regional execution.',
+    person: 'Proven integration capability',
   },
 ]
 
@@ -124,24 +150,24 @@ export default function HomePage() {
             </div>
 
             <p className="reveal-up text-xs uppercase tracking-[0.24em] text-primary">
-              Premium US IT Staffing Partner
+              MAX IT CONSULTING LLC
             </p>
 
             <h1 className="reveal-up delay-1 max-w-2xl text-4xl leading-tight sm:text-5xl lg:text-6xl">
-              Build Your Future with the Right Technology Talent
+              Agile digital solutions for companies in LATAM, Europe, and the U.S.
             </h1>
 
             <p className="reveal-up delay-2 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Max IT Consulting connects companies with highly skilled technology professionals across the United States.
+              We deliver software development, BI, SAP consulting, automation, and strategic IT talent to help enterprises grow with less friction.
             </p>
 
             <div className="reveal-up delay-3 flex flex-wrap gap-3">
               <Link href="/contact">
                 <Button className="font-display uppercase tracking-[0.12em]">Hire Talent</Button>
               </Link>
-              <Link href="/jobs">
+              <Link href="/services">
                 <Button variant="outline" className="font-display uppercase tracking-[0.12em]">
-                  Find Jobs
+                  View Solutions
                 </Button>
               </Link>
             </div>
@@ -161,7 +187,7 @@ export default function HomePage() {
 
         <section className="mx-auto w-full max-w-[1440px] px-4 pb-10 sm:px-8 lg:px-20">
           <p className="mb-4 text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">
-            Trusted by companies across the United States
+            Trusted by global integrators and enterprise technology partners
           </p>
           <div className="glass-panel marquee-pause showcase-mask overflow-hidden py-5">
             <div className="marquee-track items-stretch">
@@ -182,8 +208,8 @@ export default function HomePage() {
 
         <section className="mx-auto w-full max-w-[1440px] px-4 py-14 sm:px-8 lg:px-20">
           <div className="mb-8">
-            <p className="text-xs uppercase tracking-[0.2em] text-primary">Services</p>
-            <h2 className="mt-2 text-3xl sm:text-4xl">Technology staffing and consulting services</h2>
+            <p className="text-xs uppercase tracking-[0.2em] text-primary">Strategic Services</p>
+            <h2 className="mt-2 text-3xl sm:text-4xl">Solutions built for real digital transformation</h2>
           </div>
 
           <div className="grid gap-6 xl:grid-cols-[1fr_360px]">
@@ -194,7 +220,7 @@ export default function HomePage() {
                   className="glass-panel reveal-up p-6 transition duration-300 hover:-translate-y-1 hover:border-primary/45"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <p className="mb-3 text-xs uppercase tracking-[0.18em] text-primary">Service {index + 1}</p>
+                  <p className="mb-3 text-xs uppercase tracking-[0.18em] text-primary">Capability {index + 1}</p>
                   <h3 className="font-display text-2xl uppercase tracking-[0.06em]">{service.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{service.text}</p>
                 </article>
@@ -212,7 +238,7 @@ export default function HomePage() {
                   <div className="absolute left-1/2 top-[42%] h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary/30 orbit" />
                   <div className="absolute left-1/2 top-[42%] h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full border border-secondary/25 orbit [animation-duration:18s] [animation-direction:reverse]" />
                   <p className="absolute inset-x-6 bottom-6 text-center text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                    Digital Cloud Network
+                    Business + Technology + Talent
                   </p>
                 </div>
               }
@@ -222,8 +248,8 @@ export default function HomePage() {
 
         <section className="mx-auto w-full max-w-[1440px] px-4 py-14 sm:px-8 lg:px-20">
           <div className="mb-8">
-            <p className="text-xs uppercase tracking-[0.2em] text-primary">Industries</p>
-            <h2 className="mt-2 text-3xl sm:text-4xl">Industry-focused technology hiring support</h2>
+            <p className="text-xs uppercase tracking-[0.2em] text-primary">Industry Portfolio</p>
+            <h2 className="mt-2 text-3xl sm:text-4xl">Where we already deliver measurable outcomes</h2>
           </div>
 
           <div className="hidden md:block">
@@ -234,7 +260,7 @@ export default function HomePage() {
                     key={`${industry.title}-${idx}`}
                     className="mx-3 min-w-[320px] rounded-xl border border-white/15 bg-black/30 p-6"
                   >
-                    <p className="text-xs uppercase tracking-[0.16em] text-secondary">Industry</p>
+                    <p className="text-xs uppercase tracking-[0.16em] text-secondary">Sector</p>
                     <p className="mt-2 font-display text-2xl uppercase tracking-[0.06em] text-foreground">
                       {industry.title}
                     </p>
@@ -248,7 +274,7 @@ export default function HomePage() {
           <div className="grid gap-4 md:hidden">
             {industries.map((industry) => (
               <article key={industry.title} className="glass-panel rounded-xl p-5">
-                <p className="text-xs uppercase tracking-[0.16em] text-secondary">Industry</p>
+                <p className="text-xs uppercase tracking-[0.16em] text-secondary">Sector</p>
                 <p className="mt-2 font-display text-2xl uppercase tracking-[0.06em] text-foreground">
                   {industry.title}
                 </p>
@@ -260,8 +286,8 @@ export default function HomePage() {
 
         <section className="mx-auto w-full max-w-[1440px] px-4 py-14 sm:px-8 lg:px-20">
           <div className="mb-8">
-            <p className="text-xs uppercase tracking-[0.2em] text-primary">Job Categories</p>
-            <h2 className="mt-2 text-3xl sm:text-4xl">Explore technology hiring domains</h2>
+            <p className="text-xs uppercase tracking-[0.2em] text-primary">Delivery Capabilities</p>
+            <h2 className="mt-2 text-3xl sm:text-4xl">How we support execution across your IT roadmap</h2>
           </div>
 
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -271,7 +297,7 @@ export default function HomePage() {
                 className="glass-panel reveal-up rounded-xl border p-5 transition duration-300 hover:-translate-y-1 hover:border-primary/45"
                 style={{ animationDelay: `${idx * 60}ms` }}
               >
-                <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground">Category</p>
+                <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground">Area</p>
                 <h3 className="mt-2 font-display text-2xl uppercase tracking-[0.06em]">{category}</h3>
               </article>
             ))}
@@ -280,13 +306,13 @@ export default function HomePage() {
 
         <section className="mx-auto grid w-full max-w-[1440px] gap-8 px-4 py-14 sm:px-8 lg:grid-cols-[1fr_1fr] lg:px-20">
           <div className="glass-panel p-6 sm:p-8">
-            <p className="text-xs uppercase tracking-[0.2em] text-primary">Why Choose Us</p>
-            <h2 className="mt-2 text-3xl sm:text-4xl">Enterprise-ready staffing execution</h2>
+            <p className="text-xs uppercase tracking-[0.2em] text-primary">Why MAX IT CONSULTING LLC</p>
+            <h2 className="mt-2 text-3xl sm:text-4xl">Real solutions with strong human support</h2>
             <ul className="mt-5 space-y-3 text-sm text-muted-foreground sm:text-base">
-              <li>Fast hiring cycles with pre-vetted candidates</li>
-              <li>Top talent pool across specialized technologies</li>
-              <li>Industry-specific recruitment expertise</li>
-              <li>Nationwide coverage and delivery support</li>
+              <li>More than 9 years of SAP and enterprise IT project delivery</li>
+              <li>Active operations in LATAM, Europe, and the U.S.</li>
+              <li>Flexible engagement model: freelance, on-demand, or hybrid</li>
+              <li>Fast response with technical and cultural profile validation</li>
             </ul>
           </div>
 
@@ -297,8 +323,8 @@ export default function HomePage() {
 
         <section className="mx-auto w-full max-w-[1440px] px-4 py-14 sm:px-8 lg:px-20">
           <div className="mb-8">
-            <p className="text-xs uppercase tracking-[0.2em] text-primary">How It Works</p>
-            <h2 className="mt-2 text-3xl sm:text-4xl">A clear hiring process from start to finish</h2>
+            <p className="text-xs uppercase tracking-[0.2em] text-primary">Working Method</p>
+            <h2 className="mt-2 text-3xl sm:text-4xl">Our process to deliver concrete IT outcomes</h2>
           </div>
 
           <div className="grid gap-6 xl:grid-cols-[1fr_360px]">
@@ -309,8 +335,8 @@ export default function HomePage() {
                   className="glass-panel reveal-up p-5"
                   style={{ animationDelay: `${idx * 80}ms` }}
                 >
-                  <p className="text-xs uppercase tracking-[0.2em] text-secondary">Step {idx + 1}</p>
-                  <p className="mt-3 font-display text-xl uppercase tracking-[0.06em]">{step}</p>
+                  <p className="text-xs uppercase tracking-[0.2em] text-secondary">Phase {idx + 1}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{step}</p>
                 </article>
               ))}
             </div>
@@ -330,7 +356,7 @@ export default function HomePage() {
                   <div className="absolute left-[32%] top-[64%] h-2.5 w-2.5 rounded-full bg-white animate-pulse [animation-delay:350ms]" />
                   <div className="absolute left-[70%] top-[66%] h-2.5 w-2.5 rounded-full bg-white animate-pulse [animation-delay:500ms]" />
                   <p className="absolute inset-x-6 bottom-6 text-center text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                    AI Recruitment Intelligence
+                    Continuous optimization and delivery
                   </p>
                 </div>
               }
@@ -340,8 +366,8 @@ export default function HomePage() {
 
         <section className="mx-auto w-full max-w-[1440px] px-4 py-14 sm:px-8 lg:px-20">
           <div className="mb-8">
-            <p className="text-xs uppercase tracking-[0.2em] text-primary">Testimonials</p>
-            <h2 className="mt-2 text-3xl sm:text-4xl">What clients say about Max IT Consulting</h2>
+            <p className="text-xs uppercase tracking-[0.2em] text-primary">Proof Points</p>
+            <h2 className="mt-2 text-3xl sm:text-4xl">Why enterprise teams keep choosing MAX IT CONSULTING LLC</h2>
           </div>
 
           <div className="glass-panel overflow-hidden py-6">
@@ -361,18 +387,18 @@ export default function HomePage() {
           <div className="glass-panel particle-field p-6 sm:p-8">
             <div className="grid gap-6 xl:grid-cols-[1.2fr_0.8fr] xl:items-center">
               <div className="text-center xl:text-left">
-                <p className="text-xs uppercase tracking-[0.2em] text-primary">Ready to Hire</p>
-                <h2 className="mt-2 text-3xl sm:text-5xl">Hire Top IT Talent Today</h2>
+                <p className="text-xs uppercase tracking-[0.2em] text-primary">Start Your Next IT Challenge</p>
+                <h2 className="mt-2 text-3xl sm:text-5xl">Request a free diagnosis with our team</h2>
                 <p className="mx-auto mt-4 max-w-3xl text-muted-foreground xl:mx-0">
-                  Tell us your hiring goals and we will help you build a high-performing technology team.
+                  Tell us your goals and we will propose the right mix of software, BI, SAP, automation, and staffing support.
                 </p>
                 <div className="mt-8 flex flex-wrap justify-center gap-3 xl:justify-start">
                   <Link href="/contact">
-                    <Button className="font-display uppercase tracking-[0.12em]">Hire Talent</Button>
+                    <Button className="font-display uppercase tracking-[0.12em]">Contact Us</Button>
                   </Link>
-                  <Link href="/jobs">
+                  <Link href="/services">
                     <Button variant="outline" className="font-display uppercase tracking-[0.12em]">
-                      Submit Job
+                      Explore Services
                     </Button>
                   </Link>
                 </div>
@@ -393,7 +419,7 @@ export default function HomePage() {
                     <div className="absolute left-[45%] top-[20%] h-40 w-40 rounded-full border border-white/20 orbit" />
                     <div className="absolute left-[22%] top-[42%] h-28 w-28 rounded-full border border-primary/35 orbit [animation-duration:16s] [animation-direction:reverse]" />
                     <p className="absolute inset-x-4 bottom-4 text-center text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                      Tech Particle Network
+                      SAP, BI, Automation, and IT Talent
                     </p>
                   </div>
                 }

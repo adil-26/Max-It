@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
@@ -9,6 +9,7 @@ import { Input } from '@/components/ui/input'
 import { supabase } from '@/lib/supabase'
 import { useAuth } from '@/lib/auth-context'
 import type { Database } from '@/lib/supabase'
+import { siteName, siteUrl } from '@/lib/seo'
 
 type Job = Database['public']['Tables']['jobs']['Row']
 type Profile = Database['public']['Tables']['profiles']['Row']
@@ -26,6 +27,45 @@ export default function JobDetailPage() {
   const [applicationSuccess, setApplicationSuccess] = useState(false)
   const [applicationError, setApplicationError] = useState('')
   const [hasApplied, setHasApplied] = useState(false)
+
+  const jobPostingJsonLd = job
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'JobPosting',
+        title: job.title,
+        description: job.description,
+        datePosted: job.posted_date,
+        validThrough: job.deadline || undefined,
+        employmentType: job.employment_type?.toUpperCase().replace(/-/g, '_'),
+        hiringOrganization: {
+          '@type': 'Organization',
+          name: employer?.company_name || siteName,
+          sameAs: siteUrl,
+        },
+        jobLocation: {
+          '@type': 'Place',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: job.location,
+            addressCountry: 'US',
+          },
+        },
+        ...(job.salary_min && job.salary_max
+          ? {
+              baseSalary: {
+                '@type': 'MonetaryAmount',
+                currency: 'USD',
+                value: {
+                  '@type': 'QuantitativeValue',
+                  minValue: job.salary_min,
+                  maxValue: job.salary_max,
+                  unitText: 'YEAR',
+                },
+              },
+            }
+          : {}),
+      }
+    : null
 
   useEffect(() => {
     fetchJobDetails()
@@ -143,15 +183,21 @@ export default function JobDetailPage() {
     <>
       <Header />
       <main className="pt-20">
+        {jobPostingJsonLd && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingJsonLd) }}
+          />
+        )}
         <div className="max-w-4xl mx-auto px-4 py-12">
           {/* Job Header */}
           <div className="mb-12">
             <Link href="/jobs" className="text-primary hover:underline text-sm mb-4 block">
-              ← Back to Jobs
+              {'<-'} Back to Jobs
             </Link>
             <h1 className="text-5xl font-bold mb-4">{job.title}</h1>
             <p className="text-xl text-text-secondary mb-4">
-              {employer?.company_name || 'Company'} • {job.location}
+              {employer?.company_name || 'Company'} | {job.location}
             </p>
 
             <div className="flex flex-wrap gap-3 mb-6">
@@ -214,7 +260,7 @@ export default function JobDetailPage() {
                     )}
                     {employer.location && (
                       <p className="text-text-secondary mt-2">
-                        📍 {employer.location}
+                        Location: {employer.location}
                       </p>
                     )}
                   </div>

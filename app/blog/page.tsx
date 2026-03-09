@@ -1,6 +1,16 @@
+import type { Metadata } from 'next'
 import Header from '@/components/header'
 import FuturisticBackground from '@/components/futuristic-background'
 import SiteFooter from '@/components/site-footer'
+import { createPageMetadata } from '@/lib/seo'
+
+export const metadata: Metadata = createPageMetadata({
+  title: 'IT Staffing Blog and Hiring Insights',
+  description:
+    'Read insights on IT recruiting, cloud hiring trends, cybersecurity talent strategy, and workforce planning for technology teams.',
+  path: '/blog',
+  keywords: ['IT staffing blog', 'tech hiring trends', 'recruiting insights'],
+})
 
 const posts = [
   {
