@@ -5,7 +5,7 @@ export const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, '') ||
   'https://maxitconsultingllc.com'
 export const siteDescription =
-  'MAX IT CONSULTING LLC provides IT consulting, business consulting, software development, US recruitment, and IT staffing services.'
+  'MAX IT CONSULTING LLC provides IT staffing, US recruitment, contract staffing, direct hire, permanent placement, and IT consulting services.'
 export const defaultOgImage = '/placeholder.jpg'
 
 export const defaultKeywords = [
@@ -15,6 +15,11 @@ export const defaultKeywords = [
   'business consulting',
   'software development',
   'US recruitment',
+  'IT recruitment agency',
+  'contract staffing',
+  'direct hire',
+  'permanent placement',
+  'IT staffing New Jersey',
   'digital transformation',
   'cloud solutions',
   'cybersecurity hiring',
@@ -86,12 +91,14 @@ export function createPageMetadata({
 
 export const organizationJsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'Organization',
+  '@type': ['Organization', 'EmploymentAgency'],
   name: siteName,
   url: siteUrl,
+  description: siteDescription,
   email: 'info@maxitconsult.com',
   telephone: '+1-908-449-3000',
   foundingDate: '2021',
+  areaServed: 'US',
   address: {
     '@type': 'PostalAddress',
     streetAddress: '25 Oak Tavern Cir',

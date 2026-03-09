@@ -12,19 +12,27 @@ import { Button } from '@/components/ui/button'
 import { createPageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'IT Consulting and Staffing Solutions',
+  title: 'IT Staffing, Recruitment and Consulting Partner',
   description:
-    'MAX IT CONSULTING LLC provides client-focused IT consulting, digital transformation, cloud solutions, cybersecurity, software development, and US recruitment services.',
+    'MAX IT CONSULTING LLC delivers IT staffing, US recruitment, contract staffing, direct hire, and technology consulting services for fast-growing teams.',
   path: '/',
-  keywords: ['MAX IT CONSULTING LLC', 'IT consulting', 'digital transformation', 'IT staffing'],
+  keywords: [
+    'MAX IT CONSULTING LLC',
+    'IT staffing agency',
+    'US IT recruitment',
+    'contract staffing',
+    'direct hire',
+    'permanent placement',
+  ],
 })
 
-const trustedLogos = [
-  { name: 'Founded 2021', tag: 'Company Profile' },
-  { name: '11-50 Employees', tag: 'Team Size' },
-  { name: 'Branchburg, NJ', tag: 'Headquarters' },
-  { name: '14 LinkedIn Members', tag: 'Current Workplace' },
-  { name: 'For Profit', tag: 'Operating Status' },
+const snapshotCompanies = [
+  { name: 'IBM', tag: 'Enterprise Technology', logo: '/company-logos/ibm.png' },
+  { name: 'Wipro', tag: 'Global IT Services', logo: '/company-logos/wipro.png' },
+  { name: 'Indra', tag: 'Digital Systems', logo: '/company-logos/indra.png' },
+  { name: 'Atos', tag: 'Cloud and Security', logo: '/company-logos/atos.png' },
+  { name: 'Softtek', tag: 'Nearshore Delivery', logo: '/company-logos/softtek.png' },
+  { name: 'DATCO', tag: 'Business Solutions', logo: '/company-logos/datco.png' },
 ]
 
 const serviceCards = [
@@ -182,20 +190,30 @@ export default function HomePage() {
           <p className="mb-4 text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">
             Company snapshot
           </p>
-          <div className="glass-panel marquee-pause showcase-mask overflow-hidden py-5">
-            <div className="marquee-track items-stretch">
-              {[...trustedLogos, ...trustedLogos].map((logo, idx) => (
-                <article
-                  key={`${logo.name}-${idx}`}
-                  className="mx-3 min-w-[220px] rounded-xl border border-white/15 bg-black/30 px-5 py-4"
-                >
-                  <p className="text-xs uppercase tracking-[0.16em] text-secondary">{logo.tag}</p>
-                  <p className="mt-2 font-display text-xl uppercase tracking-[0.05em] text-foreground">
-                    {logo.name}
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+            {snapshotCompanies.map((company, idx) => (
+              <article
+                key={company.name}
+                className="glass-panel reveal-up flex items-center gap-4 rounded-2xl border border-primary/20 bg-gradient-to-br from-background/95 via-background/85 to-primary/5 p-4"
+                style={{ animationDelay: `${idx * 80}ms` }}
+              >
+                <div className="relative h-12 w-28 shrink-0 rounded-lg border border-border/70 bg-white/95 p-2">
+                  <Image
+                    src={company.logo}
+                    alt={`${company.name} logo`}
+                    fill
+                    className="object-contain"
+                    sizes="112px"
+                  />
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.16em] text-secondary">{company.tag}</p>
+                  <p className="mt-1 font-display text-2xl uppercase tracking-[0.06em] text-foreground">
+                    {company.name}
                   </p>
-                </article>
-              ))}
-            </div>
+                </div>
+              </article>
+            ))}
           </div>
         </section>
 

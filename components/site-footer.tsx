@@ -20,8 +20,14 @@ const industries = [
 
 export default function SiteFooter() {
   return (
-    <footer className="relative border-t border-white/10 bg-black/55">
-      <div className="mx-auto grid w-full max-w-[1440px] gap-10 px-4 py-12 sm:px-8 lg:grid-cols-4 lg:px-20">
+    <footer className="relative overflow-hidden border-t border-primary/25 bg-gradient-to-b from-background/90 via-background/96 to-background">
+      <div aria-hidden className="futuristic-grid pointer-events-none absolute inset-0 opacity-[0.2]" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_18%,color-mix(in_oklch,var(--primary)_18%,transparent)_0%,transparent_44%),radial-gradient(circle_at_84%_82%,color-mix(in_oklch,var(--secondary)_14%,transparent)_0%,transparent_42%)]"
+      />
+
+      <div className="relative mx-auto grid w-full max-w-[1440px] gap-10 px-4 py-12 sm:px-8 lg:grid-cols-4 lg:px-20">
         <div>
           <div className="flex items-center gap-3">
             <Image
@@ -65,16 +71,16 @@ export default function SiteFooter() {
             <p>+1 908 449 3000</p>
           </div>
           <div className="mt-5 flex flex-wrap gap-3 text-xs uppercase tracking-[0.12em]">
-            <Link href="/contact" className="rounded-md border border-white/20 px-3 py-2 text-foreground hover:bg-white/10">
+            <Link href="/contact" className="rounded-md border border-primary/30 bg-background/70 px-3 py-2 text-foreground hover:bg-primary/10">
               Contact
             </Link>
-            <Link href="/services" className="rounded-md border border-white/20 px-3 py-2 text-foreground hover:bg-white/10">
+            <Link href="/services" className="rounded-md border border-primary/30 bg-background/70 px-3 py-2 text-foreground hover:bg-primary/10">
               Services
             </Link>
           </div>
         </div>
       </div>
-      <div className="border-t border-white/10 py-4 text-center text-xs uppercase tracking-[0.14em] text-muted-foreground">
+      <div className="relative border-t border-primary/25 bg-background/80 py-4 text-center text-xs uppercase tracking-[0.14em] text-muted-foreground">
         Copyright {new Date().getFullYear()} MAX IT CONSULTING LLC. All rights reserved.
       </div>
     </footer>

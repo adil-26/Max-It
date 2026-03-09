@@ -9,25 +9,37 @@ export default function ScrollReveal() {
   useEffect(() => {
     const queryRevealElements = () =>
       Array.from(document.querySelectorAll<HTMLElement>('.reveal-up'))
-
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      const showAll = () => {
-        queryRevealElements().forEach((element) => {
-          element.classList.add('is-visible')
-        })
+    const forEachRevealInNode = (node: Node, run: (element: HTMLElement) => void) => {
+      if (!(node instanceof HTMLElement)) {
+        return
       }
 
-      showAll()
+      if (node.matches('.reveal-up')) {
+        run(node)
+      }
 
-      const reduceMotionObserver = new MutationObserver(() => {
-        showAll()
+      node.querySelectorAll<HTMLElement>('.reveal-up').forEach(run)
+    }
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const showElement = (element: HTMLElement) => {
+        element.classList.add('is-visible')
+      }
+
+      queryRevealElements().forEach(showElement)
+
+      const reduceMotionObserver = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          mutation.addedNodes.forEach((node) => {
+            forEachRevealInNode(node, showElement)
+          })
+        })
       })
       reduceMotionObserver.observe(document.body, { childList: true, subtree: true })
 
       return () => {
         reduceMotionObserver.disconnect()
       }
-      return
     }
 
     const observed = new WeakSet<HTMLElement>()
@@ -47,22 +59,24 @@ export default function ScrollReveal() {
       }
     )
 
-    const observeNewElements = () => {
-      queryRevealElements().forEach((element) => {
-        if (observed.has(element)) {
-          return
-        }
+    const observeElement = (element: HTMLElement) => {
+      if (observed.has(element)) {
+        return
+      }
 
-        element.classList.remove('is-visible')
-        observer.observe(element)
-        observed.add(element)
-      })
+      element.classList.remove('is-visible')
+      observer.observe(element)
+      observed.add(element)
     }
 
-    observeNewElements()
+    queryRevealElements().forEach(observeElement)
 
-    const mutationObserver = new MutationObserver(() => {
-      observeNewElements()
+    const mutationObserver = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => {
+          forEachRevealInNode(node, observeElement)
+        })
+      })
     })
     mutationObserver.observe(document.body, { childList: true, subtree: true })
 

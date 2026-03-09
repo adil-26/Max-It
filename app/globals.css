@@ -141,7 +141,7 @@
         var(--background) 52%,
         color-mix(in oklch, var(--background) 93%, var(--primary) 3%) 100%
       );
-    background-attachment: fixed;
+    background-attachment: scroll;
     min-height: 100vh;
   }
 
@@ -207,7 +207,7 @@
   }
 
   .reveal-up.is-visible {
-    animation: reveal-up 1200ms cubic-bezier(0.18, 0.89, 0.32, 1.28) both;
+    animation: reveal-up 760ms cubic-bezier(0.18, 0.89, 0.32, 1.08) both;
   }
 
   .delay-1 {
@@ -300,6 +300,8 @@
     align-items: center;
     width: max-content;
     animation: marquee-move 22s linear infinite;
+    will-change: transform;
+    transform: translateZ(0);
   }
 
   .marquee-track-slow {
@@ -558,5 +560,25 @@
   .reveal-up {
     opacity: 1 !important;
     transform: none !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .futuristic-grid,
+  .scanline-overlay,
+  .aurora-blob,
+  .hero-wave-line,
+  .marquee-track,
+  .particle-field,
+  .network-globe,
+  .network-orbit,
+  .network-line,
+  .network-node {
+    animation: none !important;
+  }
+
+  .showcase-mask {
+    -webkit-mask-image: none;
+    mask-image: none;
   }
 }
