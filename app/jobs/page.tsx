@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { useSearchParams } from 'next/navigation'
 import Header from '@/components/header'
 import FuturisticBackground from '@/components/futuristic-background'
 import SiteFooter from '@/components/site-footer'
@@ -21,7 +20,6 @@ type JobFilters = {
 }
 
 export default function JobsPage() {
-  const searchParams = useSearchParams()
   const [jobs, setJobs] = useState<Job[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -34,13 +32,14 @@ export default function JobsPage() {
   const [minSalary, setMinSalary] = useState('')
 
   useEffect(() => {
+    const queryParams = new URLSearchParams(window.location.search)
     const initialFilters: JobFilters = {
-      search: searchParams.get('search') || '',
-      location: searchParams.get('location') || '',
-      experience: searchParams.get('experience') || '',
-      jobType: searchParams.get('jobType') || '',
-      skill: searchParams.get('skill') || '',
-      minSalary: searchParams.get('minSalary') || '',
+      search: queryParams.get('search') || '',
+      location: queryParams.get('location') || '',
+      experience: queryParams.get('experience') || '',
+      jobType: queryParams.get('jobType') || '',
+      skill: queryParams.get('skill') || '',
+      minSalary: queryParams.get('minSalary') || '',
     }
 
     const hasInitialFilter = Object.values(initialFilters).some((value) => value.trim() !== '')
@@ -57,7 +56,7 @@ export default function JobsPage() {
     }
 
     void fetchJobs()
-  }, [searchParams])
+  }, [])
 
   const fetchJobs = async (overrides?: Partial<JobFilters>) => {
     try {
