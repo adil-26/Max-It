@@ -281,6 +281,37 @@ const interviewSchedule = [
 
 const intakeSteps = ['Company', 'Role', 'Budget', 'Submit']
 
+const mediaHighlights = [
+  {
+    title: 'Talent Delivery in Action',
+    text: 'Structured sourcing and screening to match business-critical roles faster.',
+    image: '/media/staffing-dashboard.svg',
+  },
+  {
+    title: 'Client Collaboration',
+    text: 'Close hiring coordination with delivery teams, recruiters, and stakeholders.',
+    image: '/media/collaboration-room.svg',
+  },
+  {
+    title: 'Candidate Success',
+    text: 'Role-fit focused interview preparation and onboarding transition support.',
+    image: '/media/candidate-growth.svg',
+  },
+]
+
+const videoHighlights = [
+  {
+    title: 'Hiring Process Walkthrough',
+    embed: 'https://www.youtube-nocookie.com/embed/M7lc1UVf-VE?rel=0&modestbranding=1',
+    watch: 'https://www.youtube.com/watch?v=M7lc1UVf-VE',
+  },
+  {
+    title: 'Career Preparation Tips',
+    embed: 'https://www.youtube-nocookie.com/embed/ysz5S6PUM-U?rel=0&modestbranding=1',
+    watch: 'https://www.youtube.com/watch?v=ysz5S6PUM-U',
+  },
+]
+
 function sparklinePoints(values: number[]) {
   if (values.length === 0) {
     return ''
@@ -334,7 +365,7 @@ export default function HomePage() {
         </section>
 
         <section className="mx-auto grid w-full max-w-[1440px] gap-6 px-4 py-8 sm:px-8 xl:grid-cols-[1.15fr_0.85fr] lg:px-20">
-          <article className="glass-panel reveal-up relative overflow-hidden rounded-[2rem] p-7 sm:p-10">
+          <article className="glass-panel reveal-up relative overflow-hidden rounded-[2rem] p-5 sm:p-10">
             <div className="pointer-events-none absolute -left-20 -top-20 h-72 w-72 rounded-full bg-primary/15 blur-3xl" />
             <div className="pointer-events-none absolute -bottom-14 right-[-40px] h-64 w-64 rounded-full bg-secondary/20 blur-3xl" />
 
@@ -343,7 +374,7 @@ export default function HomePage() {
                 <p className="text-xs uppercase tracking-[0.22em] text-primary">
                   USA Career and Staffing Platform
                 </p>
-                <h1 className="mt-3 text-4xl leading-tight sm:text-5xl">
+                <h1 className="mt-3 text-3xl leading-tight sm:text-5xl">
                   Hire faster. Get hired faster.
                 </h1>
                 <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
@@ -360,7 +391,7 @@ export default function HomePage() {
                   </Button>
                 </div>
 
-                <div className="mt-6 grid grid-cols-2 gap-3 sm:max-w-md">
+                <div className="mt-6 grid grid-cols-1 gap-3 min-[420px]:grid-cols-2 sm:max-w-md">
                   <div className="rounded-2xl border border-border/70 bg-background/75 px-4 py-3">
                     <p className="font-display text-2xl uppercase tracking-[0.05em]">25k+</p>
                     <p className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
@@ -376,7 +407,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="rounded-[1.6rem] border border-border/70 bg-background/80 p-6 shadow-[0_18px_42px_-30px_rgba(0,0,0,0.45)]">
+              <div className="rounded-[1.6rem] border border-border/70 bg-background/80 p-4 shadow-[0_18px_42px_-30px_rgba(0,0,0,0.45)] sm:p-6">
                 <div className="rounded-2xl border border-border/70 bg-white p-4 dark:bg-neutral-900">
                   <div className="relative mx-auto h-[92px] w-[260px] max-w-full">
                     <Image
@@ -388,7 +419,7 @@ export default function HomePage() {
                     />
                   </div>
                 </div>
-                <p className="mt-5 text-center font-display text-3xl uppercase leading-tight tracking-[0.05em] text-foreground">
+                <p className="mt-5 text-center font-display text-2xl uppercase leading-tight tracking-[0.05em] text-foreground sm:text-3xl">
                   MAX IT CONSULTING LLC
                 </p>
                 <p className="mt-2 text-center text-sm text-muted-foreground">
@@ -439,7 +470,7 @@ export default function HomePage() {
         </section>
 
         <section className="mx-auto w-full max-w-[1440px] px-4 py-2 sm:px-8 lg:px-20">
-          <div className="glass-panel reveal-up rounded-[1.7rem] p-6">
+          <div className="glass-panel reveal-up rounded-[1.7rem] p-4 sm:p-6">
             <div className="grid gap-4 lg:grid-cols-[1fr_220px_220px_auto]">
               <Input
                 name="search"
@@ -485,14 +516,27 @@ export default function HomePage() {
           <div className="mb-4 flex items-center justify-between gap-4">
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-primary">Top Companies</p>
-              <h2 className="mt-2 text-3xl sm:text-4xl">Trusted hiring ecosystem</h2>
+              <h2 className="mt-2 text-2xl sm:text-4xl">Trusted hiring ecosystem</h2>
             </div>
             <Link href="/contact" className="text-xs uppercase tracking-[0.16em] text-secondary hover:text-primary">
               Become Hiring Partner
             </Link>
           </div>
 
-          <div className="glass-panel marquee-pause reveal-up showcase-mask rounded-[1.7rem] p-4">
+          <div className="glass-panel reveal-up rounded-[1.7rem] p-4 sm:hidden">
+            <div className="flex flex-wrap gap-2">
+              {companyMarquee.map((company) => (
+                <span
+                  key={`mobile-${company}`}
+                  className="rounded-full border border-border/70 bg-background/80 px-3 py-1.5 text-[11px] uppercase tracking-[0.12em] text-foreground"
+                >
+                  {company}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="glass-panel marquee-pause reveal-up showcase-mask hidden overflow-hidden rounded-[1.7rem] p-4 sm:block">
             <div className="marquee-track">
               {[...companyMarquee, ...companyMarquee].map((company, idx) => (
                 <span
@@ -524,6 +568,37 @@ export default function HomePage() {
                 <p className="mt-2 text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
                   {company.name}
                 </p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="mx-auto w-full max-w-[1440px] px-4 pb-10 sm:px-8 lg:px-20">
+          <div className="mb-6">
+            <p className="text-xs uppercase tracking-[0.2em] text-primary">Media Highlights</p>
+            <h2 className="mt-2 text-2xl sm:text-4xl">See MAX IT consulting and staffing in action</h2>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-3">
+            {mediaHighlights.map((item, idx) => (
+              <article
+                key={item.title}
+                className="glass-panel reveal-up overflow-hidden rounded-[1.5rem]"
+                style={{ animationDelay: `${idx * 100}ms` }}
+              >
+                <div className="relative h-52 w-full">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                </div>
+                <div className="p-5">
+                  <h3 className="font-display text-2xl uppercase tracking-[0.05em]">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.text}</p>
+                </div>
               </article>
             ))}
           </div>
@@ -699,10 +774,10 @@ export default function HomePage() {
         <section className="mx-auto w-full max-w-[1440px] px-4 pb-10 sm:px-8 lg:px-20">
           <div className="grid gap-5 xl:grid-cols-[1.05fr_0.95fr]">
             <article className="glass-panel reveal-up rounded-[1.8rem] p-6 sm:p-7">
-              <div className="flex items-start justify-between gap-3">
+              <div className="flex flex-wrap items-start justify-between gap-3">
                 <div>
                   <p className="text-xs uppercase tracking-[0.2em] text-primary">Interview Calendar</p>
-                  <h3 className="mt-2 text-2xl sm:text-3xl">Hiring plan • April 2026</h3>
+                  <h3 className="mt-2 text-2xl sm:text-3xl">Hiring plan - April 2026</h3>
                 </div>
                 <span className="rounded-full border border-border/70 bg-background/80 px-3 py-1 text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
                   Team schedule
@@ -821,6 +896,46 @@ export default function HomePage() {
                 </Button>
               </form>
             </article>
+          </div>
+        </section>
+
+        <section className="mx-auto w-full max-w-[1440px] px-4 pb-10 sm:px-8 lg:px-20">
+          <div className="mb-6">
+            <p className="text-xs uppercase tracking-[0.2em] text-primary">Video Insights</p>
+            <h2 className="mt-2 text-2xl sm:text-4xl">Hiring and career guidance videos</h2>
+          </div>
+          <div className="grid gap-5 md:grid-cols-2">
+            {videoHighlights.map((video, idx) => (
+              <article
+                key={video.title}
+                className="glass-panel reveal-up overflow-hidden rounded-[1.5rem] p-4"
+                style={{ animationDelay: `${idx * 120}ms` }}
+              >
+                <p className="mb-3 text-xs uppercase tracking-[0.16em] text-secondary">{video.title}</p>
+                <div className="relative aspect-video overflow-hidden rounded-xl border border-border/70 bg-background/85">
+                  <iframe
+                    src={video.embed}
+                    title={video.title}
+                    className="h-full w-full"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  />
+                </div>
+                <p className="mt-3 text-xs text-muted-foreground">
+                  Video not loading?{' '}
+                  <a
+                    href={video.watch}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-secondary underline-offset-4 hover:underline"
+                  >
+                    Open video in new tab
+                  </a>
+                </p>
+              </article>
+            ))}
           </div>
         </section>
 

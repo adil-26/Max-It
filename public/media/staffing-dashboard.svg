@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">IT staffing dashboard visual</title>
+  <desc id="desc">Abstract dashboard with cards and trend lines for staffing metrics.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b0b0b"/>
+      <stop offset="100%" stop-color="#1a1a1a"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1f1f24"/>
+      <stop offset="100%" stop-color="#141418"/>
+    </linearGradient>
+    <linearGradient id="lineA" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3961f8"/>
+      <stop offset="100%" stop-color="#92b3fe"/>
+    </linearGradient>
+    <linearGradient id="lineB" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ff1f20"/>
+      <stop offset="100%" stop-color="#ff9293"/>
+    </linearGradient>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <circle cx="260" cy="210" r="180" fill="#3961f8" opacity="0.15" filter="url(#softGlow)"/>
+  <circle cx="1350" cy="780" r="220" fill="#ff1f20" opacity="0.14" filter="url(#softGlow)"/>
+
+  <rect x="110" y="120" rx="28" ry="28" width="1380" height="760" fill="#0f0f13" stroke="#2b2b36" stroke-width="2"/>
+  <rect x="160" y="180" rx="20" ry="20" width="390" height="260" fill="url(#card)" stroke="#31313d"/>
+  <rect x="605" y="180" rx="20" ry="20" width="390" height="260" fill="url(#card)" stroke="#31313d"/>
+  <rect x="1050" y="180" rx="20" ry="20" width="390" height="260" fill="url(#card)" stroke="#31313d"/>
+  <rect x="160" y="500" rx="20" ry="20" width="1280" height="320" fill="url(#card)" stroke="#31313d"/>
+
+  <polyline points="200,360 255,330 315,340 380,300 460,318 530,278" fill="none" stroke="url(#lineA)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <polyline points="650,360 715,328 780,340 845,362 910,318 970,300" fill="none" stroke="url(#lineB)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <polyline points="1090,350 1140,320 1210,340 1260,300 1320,290 1380,260" fill="none" stroke="url(#lineA)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="220" y="590" width="180" height="18" rx="9" fill="#30303a"/>
+  <rect x="220" y="630" width="520" height="12" rx="6" fill="#2b2b34"/>
+  <rect x="220" y="660" width="460" height="12" rx="6" fill="#2b2b34"/>
+  <rect x="220" y="690" width="500" height="12" rx="6" fill="#2b2b34"/>
+
+  <rect x="860" y="585" width="70" height="180" rx="14" fill="#3961f8"/>
+  <rect x="950" y="620" width="70" height="145" rx="14" fill="#5e8afc"/>
+  <rect x="1040" y="560" width="70" height="205" rx="14" fill="#92b3fe"/>
+  <rect x="1130" y="645" width="70" height="120" rx="14" fill="#ff5455"/>
+  <rect x="1220" y="595" width="70" height="170" rx="14" fill="#ff1f20"/>
+
+  <text x="185" y="230" fill="#f5f5f5" font-family="Arial, sans-serif" font-size="34" font-weight="700">ACTIVE OPENINGS</text>
+  <text x="185" y="282" fill="#dbe4fe" font-family="Arial, sans-serif" font-size="56" font-weight="700">25,559+</text>
+  <text x="630" y="230" fill="#f5f5f5" font-family="Arial, sans-serif" font-size="34" font-weight="700">EMPLOYER ENQUIRIES</text>
+  <text x="630" y="282" fill="#ffbfbf" font-family="Arial, sans-serif" font-size="56" font-weight="700">1,284</text>
+  <text x="1075" y="230" fill="#f5f5f5" font-family="Arial, sans-serif" font-size="32" font-weight="700">INTERVIEW TO OFFER</text>
+  <text x="1075" y="282" fill="#bed0ff" font-family="Arial, sans-serif" font-size="56" font-weight="700">41.8%</text>
+  <text x="220" y="760" fill="#b7b7b7" font-family="Arial, sans-serif" font-size="26">MAX IT CONSULTING LLC DELIVERY ANALYTICS</text>
+</svg>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Client collaboration visual</title>
+  <desc id="desc">Stylized conference room scene showing collaboration and planning.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff3ff"/>
+      <stop offset="100%" stop-color="#f5f5f5"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#eef2ff"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1d268b"/>
+      <stop offset="100%" stop-color="#2340ed"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <rect x="80" y="80" width="1440" height="840" rx="32" fill="url(#panel)" stroke="#d3d3d3" stroke-width="2"/>
+  <rect x="190" y="150" width="1220" height="420" rx="24" fill="url(#screen)"/>
+  <polyline points="250,470 370,410 480,430 620,360 760,390 860,330 1030,350 1200,280 1330,300" fill="none" stroke="#ff9293" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <polyline points="250,430 360,380 500,395 650,330 760,350 900,305 1040,322 1160,270 1330,240" fill="none" stroke="#bed0ff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="330" y="620" width="940" height="56" rx="28" fill="#ffffff" stroke="#d3d3d3"/>
+  <circle cx="420" cy="648" r="24" fill="#ff1f20"/>
+  <circle cx="520" cy="648" r="24" fill="#3961f8"/>
+  <circle cx="620" cy="648" r="24" fill="#727272"/>
+  <rect x="210" y="760" width="1180" height="110" rx="22" fill="#ffffff" stroke="#d3d3d3"/>
+  <text x="250" y="825" fill="#1a1a1a" font-family="Arial, sans-serif" font-size="44" font-weight="700">CLIENT INTAKE - ROLE CALIBRATION - INTERVIEW PLANNING</text>
+  <text x="210" y="130" fill="#404040" font-family="Arial, sans-serif" font-size="28" font-weight="700">MAX IT CONSULTING LLC</text>
+</svg>

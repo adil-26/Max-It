@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Candidate growth visual</title>
+  <desc id="desc">Illustrative career growth chart with profile and milestones.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff5f5"/>
+      <stop offset="100%" stop-color="#eff3ff"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f5f5f5"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <rect x="90" y="90" width="1420" height="820" rx="34" fill="url(#card)" stroke="#d3d3d3" stroke-width="2"/>
+  <circle cx="360" cy="350" r="170" fill="#dbe4fe"/>
+  <circle cx="360" cy="300" r="70" fill="#3961f8"/>
+  <rect x="250" y="390" width="220" height="170" rx="85" fill="#1d268b"/>
+  <rect x="560" y="230" width="860" height="440" rx="26" fill="#ffffff" stroke="#d3d3d3"/>
+  <polyline points="620,560 730,510 840,520 930,450 1035,430 1140,360 1260,330 1350,290" fill="none" stroke="#ff1f20" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="620" cy="560" r="10" fill="#ff1f20"/>
+  <circle cx="930" cy="450" r="10" fill="#ff1f20"/>
+  <circle cx="1140" cy="360" r="10" fill="#ff1f20"/>
+  <circle cx="1350" cy="290" r="10" fill="#ff1f20"/>
+  <rect x="610" y="260" width="260" height="18" rx="9" fill="#272727"/>
+  <rect x="610" y="290" width="390" height="12" rx="6" fill="#727272"/>
+  <rect x="610" y="315" width="320" height="12" rx="6" fill="#727272"/>
+  <rect x="610" y="340" width="280" height="12" rx="6" fill="#727272"/>
+  <rect x="560" y="720" width="860" height="120" rx="22" fill="#ffffff" stroke="#d3d3d3"/>
+  <text x="610" y="790" fill="#1a1a1a" font-family="Arial, sans-serif" font-size="40" font-weight="700">CAREER READINESS - INTERVIEW SUPPORT - ONBOARDING SUCCESS</text>
+  <text x="610" y="214" fill="#404040" font-family="Arial, sans-serif" font-size="24" font-weight="700">CANDIDATE SUCCESS TRACK</text>
+</svg>
