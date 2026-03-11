@@ -4,16 +4,16 @@ import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Button } from '@/components/ui/button'
 import ThemeToggle from '@/components/theme-toggle'
+import { Button } from '@/components/ui/button'
 
 const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
   { href: '/services', label: 'Services' },
   { href: '/industries', label: 'Industries' },
-  { href: '/jobs', label: 'Jobs' },
-  { href: '/employers', label: 'Employers' },
-  { href: '/candidates', label: 'Candidates' },
-  { href: '/about', label: 'About' },
+  { href: '/jobs', label: 'Career' },
+  { href: '/contact', label: 'Contact' },
 ]
 
 export default function Header() {
@@ -62,15 +62,18 @@ export default function Header() {
 
           <nav className="hidden items-center gap-1 lg:flex">
             {navItems.map((item) => {
-              const active = pathname === item.href
+              const active =
+                item.href === '/'
+                  ? pathname === '/'
+                  : pathname === item.href || pathname.startsWith(`${item.href}/`)
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`rounded-md px-4 py-2 text-xs uppercase tracking-[0.14em] transition ${
+                  className={`rounded-full px-4 py-2 text-xs uppercase tracking-[0.14em] transition ${
                     active
                       ? 'neon-outline bg-primary/15 text-foreground'
-                      : 'text-muted-foreground hover:bg-white/10 hover:text-foreground'
+                      : 'text-muted-foreground hover:bg-background/85 hover:text-foreground'
                   }`}
                 >
                   {item.label}
@@ -80,15 +83,12 @@ export default function Header() {
           </nav>
 
           <div className="hidden items-center gap-2 lg:flex">
-            <ThemeToggle />
             <Link href="/contact">
-              <Button className="font-display uppercase tracking-[0.12em]">Hire Talent</Button>
-            </Link>
-            <Link href="/dashboard">
-              <Button variant="outline" className="font-display uppercase tracking-[0.12em]">
-                Login
+              <Button size="sm" className="rounded-full px-4 font-display uppercase tracking-[0.12em]">
+                Post Job
               </Button>
             </Link>
+            <ThemeToggle />
           </div>
 
           <div className="flex items-center gap-2 lg:hidden">
@@ -108,32 +108,29 @@ export default function Header() {
         {menuOpen && (
           <nav className="space-y-2 border-t border-white/10 px-4 pb-4 pt-3 lg:hidden">
             {navItems.map((item) => {
-              const active = pathname === item.href
+              const active =
+                item.href === '/'
+                  ? pathname === '/'
+                  : pathname === item.href || pathname.startsWith(`${item.href}/`)
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`block rounded-md px-3 py-2 text-xs uppercase tracking-[0.14em] ${
+                  className={`block rounded-xl px-3 py-2 text-xs uppercase tracking-[0.14em] ${
                     active
                       ? 'bg-primary/15 text-foreground'
-                      : 'text-muted-foreground hover:bg-white/10 hover:text-foreground'
+                      : 'text-muted-foreground hover:bg-background/85 hover:text-foreground'
                   }`}
                 >
                   {item.label}
                 </Link>
               )
             })}
-
-            <div className="grid grid-cols-2 gap-2 pt-2">
-              <Link href="/contact">
-                <Button className="w-full font-display uppercase tracking-[0.12em]">Hire Talent</Button>
-              </Link>
-              <Link href="/dashboard">
-                <Button variant="outline" className="w-full font-display uppercase tracking-[0.12em]">
-                  Login
-                </Button>
-              </Link>
-            </div>
+            <Link href="/contact" className="block pt-2">
+              <Button className="w-full rounded-xl font-display uppercase tracking-[0.12em]">
+                Post Job
+              </Button>
+            </Link>
           </nav>
         )}
       </div>

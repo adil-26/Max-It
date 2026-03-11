@@ -5,7 +5,7 @@ export const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, '') ||
   'https://maxitconsultingllc.com'
 export const siteDescription =
-  'MAX IT CONSULTING LLC provides IT staffing, US recruitment, contract staffing, direct hire, permanent placement, and IT consulting services.'
+  'MAX IT CONSULTING LLC is a New Jersey-based IT staffing and consulting company established in 2008, providing skilled IT professionals across industries.'
 export const defaultOgImage = '/placeholder.jpg'
 
 export const defaultKeywords = [
@@ -97,7 +97,7 @@ export const organizationJsonLd = {
   description: siteDescription,
   email: 'info@maxitconsult.com',
   telephone: '+1-908-449-3000',
-  foundingDate: '2021',
+  foundingDate: '2008',
   areaServed: 'US',
   address: {
     '@type': 'PostalAddress',

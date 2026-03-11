@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 import Header from '@/components/header'
 import FuturisticBackground from '@/components/futuristic-background'
 import SiteFooter from '@/components/site-footer'
@@ -10,8 +11,17 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 
 type Job = Database['public']['Tables']['jobs']['Row']
+type JobFilters = {
+  search: string
+  location: string
+  experience: string
+  jobType: string
+  skill: string
+  minSalary: string
+}
 
 export default function JobsPage() {
+  const searchParams = useSearchParams()
   const [jobs, setJobs] = useState<Job[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
@@ -24,13 +34,42 @@ export default function JobsPage() {
   const [minSalary, setMinSalary] = useState('')
 
   useEffect(() => {
-    void fetchJobs()
-  }, [])
+    const initialFilters: JobFilters = {
+      search: searchParams.get('search') || '',
+      location: searchParams.get('location') || '',
+      experience: searchParams.get('experience') || '',
+      jobType: searchParams.get('jobType') || '',
+      skill: searchParams.get('skill') || '',
+      minSalary: searchParams.get('minSalary') || '',
+    }
 
-  const fetchJobs = async () => {
+    const hasInitialFilter = Object.values(initialFilters).some((value) => value.trim() !== '')
+
+    if (hasInitialFilter) {
+      setSearch(initialFilters.search)
+      setLocation(initialFilters.location)
+      setExperience(initialFilters.experience)
+      setJobType(initialFilters.jobType)
+      setSkill(initialFilters.skill)
+      setMinSalary(initialFilters.minSalary)
+      void fetchJobs(initialFilters)
+      return
+    }
+
+    void fetchJobs()
+  }, [searchParams])
+
+  const fetchJobs = async (overrides?: Partial<JobFilters>) => {
     try {
       setLoading(true)
       setError('')
+
+      const searchValue = overrides?.search ?? search
+      const locationValue = overrides?.location ?? location
+      const experienceValue = overrides?.experience ?? experience
+      const jobTypeValue = overrides?.jobType ?? jobType
+      const skillValue = overrides?.skill ?? skill
+      const minSalaryValue = overrides?.minSalary ?? minSalary
 
       let query = supabase
         .from('jobs')
@@ -39,29 +78,29 @@ export default function JobsPage() {
         .order('posted_date', { ascending: false })
         .limit(80)
 
-      if (search.trim()) {
-        const term = search.trim()
+      if (searchValue.trim()) {
+        const term = searchValue.trim()
         query = query.or(`title.ilike.%${term}%,description.ilike.%${term}%`)
       }
 
-      if (location.trim()) {
-        query = query.ilike('location', `%${location.trim()}%`)
+      if (locationValue.trim()) {
+        query = query.ilike('location', `%${locationValue.trim()}%`)
       }
 
-      if (jobType) {
-        query = query.eq('employment_type', jobType)
+      if (jobTypeValue) {
+        query = query.eq('employment_type', jobTypeValue)
       }
 
-      if (experience) {
-        query = query.eq('experience_level', experience)
+      if (experienceValue) {
+        query = query.eq('experience_level', experienceValue)
       }
 
-      if (skill.trim()) {
-        query = query.contains('required_skills', [skill.trim()])
+      if (skillValue.trim()) {
+        query = query.contains('required_skills', [skillValue.trim()])
       }
 
-      if (minSalary.trim()) {
-        const amount = Number(minSalary)
+      if (minSalaryValue.trim()) {
+        const amount = Number(minSalaryValue)
         if (!Number.isNaN(amount)) {
           query = query.gte('salary_min', amount)
         }
@@ -95,10 +134,11 @@ export default function JobsPage() {
 
         <section className="mx-auto w-full max-w-[1440px] px-4 py-10 sm:px-8 lg:px-20">
           <div className="glass-panel p-7 sm:p-10">
-            <p className="text-xs uppercase tracking-[0.22em] text-primary">Job Portal</p>
+            <p className="text-xs uppercase tracking-[0.22em] text-primary">Career</p>
             <h1 className="mt-2 text-4xl sm:text-5xl">Find top IT opportunities across the United States</h1>
             <p className="mt-4 max-w-3xl text-muted-foreground">
-              Filter by role, location, experience, skills, and compensation to match the right opportunity.
+              Filter by role, location, experience, skills, and compensation to match the right career
+              opportunity.
             </p>
           </div>
         </section>
@@ -151,9 +191,14 @@ export default function JobsPage() {
                   className="font-display uppercase tracking-[0.12em]"
                   onClick={() => {
                     resetFilters()
-                    setTimeout(() => {
-                      void fetchJobs()
-                    }, 0)
+                    void fetchJobs({
+                      search: '',
+                      location: '',
+                      experience: '',
+                      jobType: '',
+                      skill: '',
+                      minSalary: '',
+                    })
                   }}
                 >
                   Reset

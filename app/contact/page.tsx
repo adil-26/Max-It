@@ -99,6 +99,18 @@ export default function ContactPage() {
             </div>
 
             <div className="glass-panel p-6">
+              <p className="text-xs uppercase tracking-[0.2em] text-secondary">LinkedIn Community</p>
+              <a
+                href="https://www.linkedin.com/groups/17949004/"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-2 block text-sm text-foreground hover:text-primary"
+              >
+                linkedin.com/groups/17949004
+              </a>
+            </div>
+
+            <div className="glass-panel p-6">
               <p className="text-xs uppercase tracking-[0.2em] text-secondary">Engagement Types</p>
               <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
                 <li>Contract staffing</li>

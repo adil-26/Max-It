@@ -1,131 +1,313 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import Image from 'next/image'
-import Header from '@/components/header'
+import Link from 'next/link'
 import FuturisticBackground from '@/components/futuristic-background'
-import HeroWaveRibbon from '@/components/hero-wave-ribbon'
-import BrandShieldOrb from '@/components/brand-shield-orb'
-import BrandShield3D from '@/components/brand-shield-3d'
-import SplineBlock from '@/components/spline-block'
+import Header from '@/components/header'
 import SiteFooter from '@/components/site-footer'
 import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 import { createPageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'IT Staffing, Recruitment and Consulting Partner',
+  title: 'USA IT Staffing and Career Platform',
   description:
-    'MAX IT CONSULTING LLC delivers IT staffing, US recruitment, contract staffing, direct hire, and technology consulting services for fast-growing teams.',
+    'Discover IT jobs, hire technology professionals, and scale delivery teams with MAX IT Consulting LLC across the United States.',
   path: '/',
   keywords: [
-    'MAX IT CONSULTING LLC',
-    'IT staffing agency',
-    'US IT recruitment',
-    'contract staffing',
-    'direct hire',
-    'permanent placement',
+    'USA IT jobs',
+    'IT staffing USA',
+    'technology hiring USA',
+    'MAX IT Consulting LLC',
+    'US recruitment',
+    'post IT jobs',
   ],
 })
 
-const snapshotCompanies = [
-  { name: 'IBM', tag: 'Enterprise Technology', logo: '/company-logos/ibm.png' },
-  { name: 'Wipro', tag: 'Global IT Services', logo: '/company-logos/wipro.png' },
-  { name: 'Indra', tag: 'Digital Systems', logo: '/company-logos/indra.png' },
-  { name: 'Atos', tag: 'Cloud and Security', logo: '/company-logos/atos.png' },
-  { name: 'Softtek', tag: 'Nearshore Delivery', logo: '/company-logos/softtek.png' },
-  { name: 'DATCO', tag: 'Business Solutions', logo: '/company-logos/datco.png' },
+type KpiCard = {
+  title: string
+  value: string
+  delta: string
+  deltaType: 'up' | 'down'
+  sparkline: number[]
+}
+
+const utilityLinks = [
+  { label: 'Business / Bulk Enquiries', href: '/contact' },
+  { label: 'Client / Associate Zone', href: '/contact' },
+  { label: 'Employer Zone', href: '/contact' },
+  { label: 'Post Free Job', href: '/contact' },
+  { label: 'My Profile', href: '/dashboard/profile' },
+  { label: 'Login / Register', href: '/dashboard' },
 ]
 
-const serviceCards = [
+const kpiCards: KpiCard[] = [
   {
-    title: 'IT Strategy and Consulting',
-    text: 'Strategic technology roadmaps aligned to your business goals, growth plans, and delivery priorities.',
+    title: 'Active Openings',
+    value: '25,559+',
+    delta: '+14% vs last month',
+    deltaType: 'up',
+    sparkline: [74, 70, 66, 61, 58, 63, 60, 64, 68, 73],
   },
   {
-    title: 'Digital Transformation',
-    text: 'Modernization programs that help teams adopt digital processes, automation, and scalable operating models.',
+    title: 'Employer Enquiries',
+    value: '1,284',
+    delta: '+9% weekly growth',
+    deltaType: 'up',
+    sparkline: [36, 40, 44, 39, 37, 42, 46, 51, 54, 57],
   },
   {
-    title: 'Cloud Solutions',
-    text: 'Cloud architecture and migration support built for resilience, scalability, and performance.',
-  },
-  {
-    title: 'Cybersecurity',
-    text: 'Security-first controls and advisory services to protect digital assets and reduce operational risk.',
-  },
-  {
-    title: 'Software Development',
-    text: 'Custom software engineering for web platforms, internal systems, and business-critical applications.',
-  },
-  {
-    title: 'US Recruitment and IT Staffing',
-    text: 'Contract staffing, direct hire, and permanent placement tailored to your delivery and hiring model.',
-  },
-]
-
-const industries = [
-  {
-    title: 'Healthcare',
-    text: 'Technology and workforce support for secure, compliant, and patient-focused operations.',
-  },
-  {
-    title: 'Marketing',
-    text: 'Digital strategy and execution support for marketing operations and campaign performance.',
-  },
-  {
-    title: 'Retail',
-    text: 'Software and staffing solutions for omnichannel operations and customer-facing systems.',
-  },
-  {
-    title: 'Telecom',
-    text: 'Reliable consulting and engineering support for high-availability telecom environments.',
-  },
-  {
-    title: 'Finance',
-    text: 'Secure, scalable technology delivery for data-sensitive and business-critical financial systems.',
+    title: 'Interview-to-Offer',
+    value: '41.8%',
+    delta: '-2.1% quality alert',
+    deltaType: 'down',
+    sparkline: [62, 64, 60, 57, 55, 53, 50, 49, 52, 54],
   },
 ]
 
-const jobCategories = [
-  'IT Consulting',
-  'Business Consulting',
-  'Software Development',
-  'US Recruitment',
-  'IT Staffing',
-  'Digital Transformation',
-  'Cloud Solutions',
-  'Cybersecurity',
+const companyMarquee = [
+  'Deloitte',
+  'Accenture',
+  'Cognizant',
+  'Capgemini',
+  'Infosys',
+  'TCS',
+  'Wipro USA',
+  'EPAM',
+  'HCLTech',
+  'Tech Mahindra',
+  'KPMG',
+  'EY',
+  'PwC',
+  'Slalom',
+  'LTI Mindtree',
+  'Nagarro',
+  'Persistent',
+  'LTIM',
+  'UST',
+  'NTT DATA',
 ]
 
-const processSteps = [
-  'Discovery and assessment: we map your current IT landscape, business goals, and practical constraints.',
-  'Strategy and execution: we align consulting, delivery, and staffing to the outcomes you need most.',
-  'Continuous support: we optimize with your team to ensure secure, scalable, and measurable impact.',
+const partnerLogos = [
+  { name: 'IBM', logo: '/company-logos/ibm.png' },
+  { name: 'Wipro', logo: '/company-logos/wipro.png' },
+  { name: 'Atos', logo: '/company-logos/atos.png' },
+  { name: 'Indra', logo: '/company-logos/indra.png' },
+  { name: 'Softtek', logo: '/company-logos/softtek.png' },
+  { name: 'DATCO', logo: '/company-logos/datco.png' },
+]
+
+const roleDemand = [
+  { role: 'Software Engineer', open: 148, urgency: 'High' },
+  { role: 'Cloud Engineer', open: 119, urgency: 'High' },
+  { role: 'DevOps Engineer', open: 96, urgency: 'High' },
+  { role: 'Cybersecurity Analyst', open: 87, urgency: 'High' },
+  { role: 'Data Analyst', open: 84, urgency: 'Medium' },
+  { role: 'QA Automation', open: 72, urgency: 'Medium' },
+  { role: 'Network Engineer', open: 63, urgency: 'Medium' },
+  { role: 'Business Analyst', open: 58, urgency: 'Medium' },
+  { role: 'IT Recruiter', open: 54, urgency: 'Medium' },
+  { role: 'Help Desk', open: 42, urgency: 'Normal' },
+]
+
+const recentJobs = [
+  {
+    title: 'Sr. Java Developer',
+    company: 'For a MAX IT Client',
+    location: 'New York, NY',
+  },
+  {
+    title: 'Cloud DevOps Engineer',
+    company: 'For a MAX IT Client',
+    location: 'Dallas, TX',
+  },
+  {
+    title: 'IT Recruiter - US Staffing',
+    company: 'MAX IT Consulting LLC',
+    location: 'Edison, NJ',
+  },
+  {
+    title: 'Cybersecurity Analyst',
+    company: 'For a MAX IT Client',
+    location: 'Washington, DC',
+  },
+  {
+    title: 'Business Systems Analyst',
+    company: 'For a MAX IT Client',
+    location: 'Charlotte, NC',
+  },
+  {
+    title: 'Data Engineer',
+    company: 'For a MAX IT Client',
+    location: 'Chicago, IL',
+  },
+  {
+    title: 'Service Desk Technician',
+    company: 'For a MAX IT Client',
+    location: 'Phoenix, AZ',
+  },
+  {
+    title: 'QA Automation Tester',
+    company: 'For a MAX IT Client',
+    location: 'Atlanta, GA',
+  },
+]
+
+const cityDemand = [
+  { city: 'New York', jobs: 214, salary: '$132k avg' },
+  { city: 'Dallas', jobs: 162, salary: '$118k avg' },
+  { city: 'Chicago', jobs: 141, salary: '$122k avg' },
+  { city: 'Atlanta', jobs: 118, salary: '$114k avg' },
+  { city: 'Seattle', jobs: 102, salary: '$146k avg' },
+  { city: 'Phoenix', jobs: 91, salary: '$109k avg' },
+  { city: 'Charlotte', jobs: 85, salary: '$112k avg' },
+  { city: 'San Jose', jobs: 77, salary: '$158k avg' },
+]
+
+const hiringFlow = [
+  'Intake with role calibration and market fit discussion',
+  'Targeted sourcing and technical pre-screen',
+  'Shortlist submission with structured candidate notes',
+  'Interview coordination and feedback loop',
+  'Offer closure and onboarding support',
 ]
 
 const testimonials = [
   {
-    company: 'Junaid Amir',
-    quote: 'Founder of MAX IT CONSULTING LLC and lead strategist for client growth initiatives.',
-    person: 'Founder',
+    name: 'Arun Yadav',
+    role: 'MAX IT Associate',
+    quote:
+      'MAX IT Consulting LLC helped me secure a stable technology role with consistent communication and a fast process.',
   },
   {
-    company: 'Imrana Aamir',
-    quote: 'Drives business development with a client-first and execution-focused mindset.',
-    person: 'Business Development Executive',
+    name: 'Nadia Khan',
+    role: 'Cloud Engineering Candidate',
+    quote:
+      'From profile shortlisting to final offer, the process was transparent, well-structured, and very professional.',
   },
   {
-    company: 'Leadership Team',
-    quote: 'Supported by experienced account, technology, and recruitment managers across the U.S.',
-    person: 'Client Delivery and Recruitment',
+    name: 'US Delivery Manager',
+    role: 'Client Team',
+    quote:
+      'They consistently submit role-aligned candidates quickly. The quality and response times are better than previous partners.',
   },
 ]
 
-const revealPattern = ['reveal-zoom', 'reveal-tilt', 'reveal-fade'] as const
+const insights = [
+  {
+    title: 'Entry-Level and Skilled IT Jobs',
+    text: 'Entry-level and skilled technology roles remain essential across logistics, healthcare, retail, telecom, and finance operations in the U.S.',
+  },
+  {
+    title: 'Why MAX IT for USA Hiring',
+    text: 'We reduce hiring friction with role-focused sourcing, domain screening, and reliable coordination from intake through onboarding.',
+  },
+]
 
-const splineHeroUrl = process.env.NEXT_PUBLIC_SPLINE_HERO_URL
-const splineServicesUrl = process.env.NEXT_PUBLIC_SPLINE_SERVICES_URL
-const splineHiringUrl = process.env.NEXT_PUBLIC_SPLINE_HIRING_URL
-const splineCtaUrl = process.env.NEXT_PUBLIC_SPLINE_CTA_URL
+const jobsByRoles = [
+  'Software Engineer',
+  'Cloud Engineer',
+  'DevOps Engineer',
+  'Cybersecurity Analyst',
+  'Data Analyst',
+  'Business Analyst',
+  'QA Automation',
+  'Network Engineer',
+  'Service Desk',
+  'IT Recruiter',
+  'Project Coordinator',
+  'Database Administrator',
+]
+
+const jobsByCities = [
+  'New York',
+  'Jersey City',
+  'Dallas',
+  'Chicago',
+  'Atlanta',
+  'Phoenix',
+  'Seattle',
+  'San Jose',
+  'Austin',
+  'Boston',
+  'Charlotte',
+  'Tampa',
+]
+
+const calendarWeekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+const calendarCells: Array<number | null> = [
+  null,
+  null,
+  null,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22,
+  23,
+  24,
+  25,
+  26,
+  27,
+  28,
+  29,
+  30,
+  null,
+  null,
+]
+const highlightedDays = new Set([4, 8, 12, 19, 24, 29])
+
+const interviewSchedule = [
+  { day: 'Apr 12', title: 'Java Engineer Panel', time: '10:30 AM ET' },
+  { day: 'Apr 19', title: 'Cloud Architect Screen', time: '01:00 PM ET' },
+  { day: 'Apr 24', title: 'Security Analyst Final', time: '11:45 AM ET' },
+]
+
+const intakeSteps = ['Company', 'Role', 'Budget', 'Submit']
+
+function sparklinePoints(values: number[]) {
+  if (values.length === 0) {
+    return ''
+  }
+
+  const width = 100
+  const height = 36
+  const padding = 3
+
+  if (values.length === 1) {
+    const y = height / 2
+    return `0,${y} ${width},${y}`
+  }
+
+  const min = Math.min(...values)
+  const max = Math.max(...values)
+  const range = max - min || 1
+
+  return values
+    .map((value, index) => {
+      const x = (index / (values.length - 1)) * width
+      const normalized = (value - min) / range
+      const y = height - padding - normalized * (height - padding * 2)
+      return `${x},${y}`
+    })
+    .join(' ')
+}
 
 export default function HomePage() {
   return (
@@ -135,342 +317,569 @@ export default function HomePage() {
       <main className="relative overflow-hidden pt-24">
         <FuturisticBackground subtle />
 
-        <section className="relative mx-auto grid min-h-[78vh] w-full max-w-[1440px] items-center gap-10 px-4 pb-28 pt-8 sm:px-8 lg:grid-cols-[1fr_1fr] lg:px-20">
-          <div className="relative z-10 space-y-6">
-            <div className="reveal-up w-fit">
-              <BrandShieldOrb />
-            </div>
-
-            <p className="reveal-up text-xs uppercase tracking-[0.24em] text-primary">
-              MAX IT CONSULTING LLC
-            </p>
-
-            <h1 className="reveal-up delay-1 max-w-2xl text-4xl leading-tight sm:text-5xl lg:text-6xl">
-              Your trusted partner for technology consulting and staffing.
-            </h1>
-
-            <p className="reveal-up delay-2 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              At MAX IT CONSULTING LLC, we help businesses navigate innovation with client-centric IT strategy, secure delivery, and reliable talent solutions.
-            </p>
-
-            <div className="reveal-up delay-3 flex flex-wrap gap-3">
-              <Link href="/contact">
-                <Button className="font-display uppercase tracking-[0.12em]">Get Consultation</Button>
-              </Link>
-              <Link href="/services">
-                <Button variant="outline" className="font-display uppercase tracking-[0.12em]">
-                  Explore Services
-                </Button>
-              </Link>
+        <section className="mx-auto w-full max-w-[1440px] px-4 pt-6 sm:px-8 lg:px-20">
+          <div className="glass-panel px-4 py-3">
+            <div className="flex flex-wrap items-center gap-2 text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
+              {utilityLinks.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="rounded-full border border-border/70 bg-background/80 px-3 py-1.5 text-foreground transition hover:-translate-y-0.5 hover:bg-primary/10"
+                >
+                  {item.label}
+                </Link>
+              ))}
             </div>
           </div>
-
-          <div className="relative z-10 reveal-up delay-2">
-            <SplineBlock
-              url={splineHeroUrl}
-              title="Spline Hero Network Globe"
-              className="h-[420px] md:h-[500px]"
-              fallback={
-                <div className="glass-panel relative h-[420px] overflow-hidden p-2 md:h-[500px]">
-                  <Image
-                    src="/hero-reference.png"
-                    alt="3D technology network hero"
-                    fill
-                    priority
-                    className="rounded-xl border border-border/60 object-cover"
-                    sizes="(max-width: 1024px) 100vw, 560px"
-                  />
-                </div>
-              }
-            />
-          </div>
-
-          <HeroWaveRibbon />
         </section>
 
-        <section className="mx-auto w-full max-w-[1440px] px-4 pb-10 sm:px-8 lg:px-20">
-          <p className="mb-4 text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">
-            Company snapshot
-          </p>
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-            {snapshotCompanies.map((company, idx) => (
+        <section className="mx-auto grid w-full max-w-[1440px] gap-6 px-4 py-8 sm:px-8 xl:grid-cols-[1.15fr_0.85fr] lg:px-20">
+          <article className="glass-panel reveal-up relative overflow-hidden rounded-[2rem] p-7 sm:p-10">
+            <div className="pointer-events-none absolute -left-20 -top-20 h-72 w-72 rounded-full bg-primary/15 blur-3xl" />
+            <div className="pointer-events-none absolute -bottom-14 right-[-40px] h-64 w-64 rounded-full bg-secondary/20 blur-3xl" />
+
+            <div className="relative z-10 grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+              <div>
+                <p className="text-xs uppercase tracking-[0.22em] text-primary">
+                  USA Career and Staffing Platform
+                </p>
+                <h1 className="mt-3 text-4xl leading-tight sm:text-5xl">
+                  Hire faster. Get hired faster.
+                </h1>
+                <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
+                  MAX IT Consulting LLC connects businesses with skilled IT professionals and helps
+                  candidates discover role-matched opportunities across the United States.
+                </p>
+
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <Button asChild className="font-display uppercase tracking-[0.12em]">
+                    <Link href="/jobs">Explore Career</Link>
+                  </Button>
+                  <Button asChild variant="outline" className="font-display uppercase tracking-[0.12em]">
+                    <Link href="/contact">Post Free Job</Link>
+                  </Button>
+                </div>
+
+                <div className="mt-6 grid grid-cols-2 gap-3 sm:max-w-md">
+                  <div className="rounded-2xl border border-border/70 bg-background/75 px-4 py-3">
+                    <p className="font-display text-2xl uppercase tracking-[0.05em]">25k+</p>
+                    <p className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
+                      Active Openings
+                    </p>
+                  </div>
+                  <div className="rounded-2xl border border-border/70 bg-background/75 px-4 py-3">
+                    <p className="font-display text-2xl uppercase tracking-[0.05em]">50k+</p>
+                    <p className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
+                      Job Seekers
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="rounded-[1.6rem] border border-border/70 bg-background/80 p-6 shadow-[0_18px_42px_-30px_rgba(0,0,0,0.45)]">
+                <div className="rounded-2xl border border-border/70 bg-white p-4 dark:bg-neutral-900">
+                  <div className="relative mx-auto h-[92px] w-[260px] max-w-full">
+                    <Image
+                      src="/max-it-logo.png"
+                      alt="MAX IT CONSULTING LLC logo"
+                      fill
+                      className="object-contain"
+                      sizes="260px"
+                    />
+                  </div>
+                </div>
+                <p className="mt-5 text-center font-display text-3xl uppercase leading-tight tracking-[0.05em] text-foreground">
+                  MAX IT CONSULTING LLC
+                </p>
+                <p className="mt-2 text-center text-sm text-muted-foreground">
+                  Trusted U.S. staffing and consulting partner focused on reliable talent delivery.
+                </p>
+                <Button asChild className="mt-5 w-full rounded-full font-display uppercase tracking-[0.12em]">
+                  <Link href="/contact">Contact Team</Link>
+                </Button>
+              </div>
+            </div>
+          </article>
+
+          <div className="space-y-4">
+            {kpiCards.map((card, idx) => (
+              <article
+                key={card.title}
+                className="glass-panel reveal-up rounded-[1.8rem] border border-border/75 bg-background/90 p-5"
+                style={{ animationDelay: `${idx * 120}ms` }}
+              >
+                <div className="grid items-center gap-4 md:grid-cols-[1fr_170px]">
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground">{card.title}</p>
+                    <p className="mt-2 font-display text-3xl tracking-[0.02em] sm:text-4xl">{card.value}</p>
+                    <p
+                      className={`mt-1 text-sm font-medium ${
+                        card.deltaType === 'up' ? 'text-secondary' : 'text-primary'
+                      }`}
+                    >
+                      {card.delta}
+                    </p>
+                  </div>
+                  <div className="rounded-2xl border border-border/65 bg-background/80 p-3">
+                    <svg viewBox="0 0 100 36" className="h-16 w-full" preserveAspectRatio="none">
+                      <polyline
+                        fill="none"
+                        stroke={card.deltaType === 'up' ? '#2340ed' : '#ff1f20'}
+                        strokeWidth="2.6"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        points={sparklinePoints(card.sparkline)}
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="mx-auto w-full max-w-[1440px] px-4 py-2 sm:px-8 lg:px-20">
+          <div className="glass-panel reveal-up rounded-[1.7rem] p-6">
+            <div className="grid gap-4 lg:grid-cols-[1fr_220px_220px_auto]">
+              <Input
+                name="search"
+                form="home-job-search"
+                placeholder="Search job title, role, or skill"
+                className="h-12 rounded-xl border-border/80 bg-background/80"
+              />
+              <Input
+                name="location"
+                form="home-job-search"
+                placeholder="City / State"
+                className="h-12 rounded-xl border-border/80 bg-background/80"
+              />
+              <Input
+                name="skill"
+                form="home-job-search"
+                placeholder="Skill"
+                className="h-12 rounded-xl border-border/80 bg-background/80"
+              />
+              <form id="home-job-search" action="/jobs" method="get">
+                <Button type="submit" className="h-12 w-full font-display uppercase tracking-[0.12em] lg:min-w-[180px]">
+                  Search Career
+                </Button>
+              </form>
+            </div>
+
+            <div className="mt-4 flex flex-wrap gap-2 text-[11px] uppercase tracking-[0.14em]">
+              {['Contract', 'Full-time', 'Hybrid', 'Remote', 'Cloud', 'Cybersecurity', 'Data'].map(
+                (chip) => (
+                  <span
+                    key={chip}
+                    className="rounded-full border border-border/70 bg-background/80 px-3 py-1 text-muted-foreground"
+                  >
+                    {chip}
+                  </span>
+                )
+              )}
+            </div>
+          </div>
+        </section>
+
+        <section className="mx-auto w-full max-w-[1440px] px-4 py-10 sm:px-8 lg:px-20">
+          <div className="mb-4 flex items-center justify-between gap-4">
+            <div>
+              <p className="text-xs uppercase tracking-[0.2em] text-primary">Top Companies</p>
+              <h2 className="mt-2 text-3xl sm:text-4xl">Trusted hiring ecosystem</h2>
+            </div>
+            <Link href="/contact" className="text-xs uppercase tracking-[0.16em] text-secondary hover:text-primary">
+              Become Hiring Partner
+            </Link>
+          </div>
+
+          <div className="glass-panel marquee-pause reveal-up showcase-mask rounded-[1.7rem] p-4">
+            <div className="marquee-track">
+              {[...companyMarquee, ...companyMarquee].map((company, idx) => (
+                <span
+                  key={`${company}-${idx}`}
+                  className="mx-2 rounded-full border border-border/70 bg-background/80 px-4 py-2 text-xs uppercase tracking-[0.14em] text-foreground"
+                >
+                  {company}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-5 grid gap-4 sm:grid-cols-3 xl:grid-cols-6">
+            {partnerLogos.map((company, idx) => (
               <article
                 key={company.name}
-                className="glass-panel reveal-up flex items-center gap-4 rounded-2xl border border-primary/20 bg-gradient-to-br from-background/95 via-background/85 to-primary/5 p-4"
-                style={{ animationDelay: `${idx * 80}ms` }}
+                className="glass-panel reveal-up rounded-2xl border border-border/70 bg-background/85 p-4 text-center"
+                style={{ animationDelay: `${idx * 90}ms` }}
               >
-                <div className="relative h-12 w-28 shrink-0 rounded-lg border border-border/70 bg-white/95 p-2">
+                <div className="relative mx-auto h-12 w-24">
                   <Image
                     src={company.logo}
                     alt={`${company.name} logo`}
                     fill
                     className="object-contain"
-                    sizes="112px"
+                    sizes="96px"
                   />
                 </div>
-                <div>
-                  <p className="text-xs uppercase tracking-[0.16em] text-secondary">{company.tag}</p>
-                  <p className="mt-1 font-display text-2xl uppercase tracking-[0.06em] text-foreground">
-                    {company.name}
-                  </p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="mx-auto w-full max-w-[1440px] px-4 py-14 sm:px-8 lg:px-20">
-          <div className="mb-8">
-            <p className="text-xs uppercase tracking-[0.2em] text-primary">Strategic Services</p>
-            <h2 className="mt-2 text-3xl sm:text-4xl">Comprehensive IT services built around your goals</h2>
-          </div>
-
-          <div className="grid gap-6 xl:grid-cols-[1fr_360px]">
-            <div className="grid gap-5 md:grid-cols-2">
-              {serviceCards.map((service, index) => (
-                <article
-                  key={service.title}
-                  className="glass-panel reveal-up p-6 transition duration-300 hover:-translate-y-1 hover:border-primary/45"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <p className="mb-3 text-xs uppercase tracking-[0.18em] text-primary">Capability {index + 1}</p>
-                  <h3 className="font-display text-2xl uppercase tracking-[0.06em]">{service.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{service.text}</p>
-                </article>
-              ))}
-            </div>
-
-            <SplineBlock
-              url={splineServicesUrl}
-              title="Spline Digital Cloud"
-              className="min-h-[360px] xl:min-h-[420px]"
-              fallback={
-                <div className="glass-panel relative min-h-[360px] overflow-hidden p-6 xl:min-h-[420px]">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(53,122,255,0.32),transparent_45%),radial-gradient(circle_at_70%_80%,rgba(193,18,31,0.25),transparent_50%)]" />
-                  <div className="absolute left-1/2 top-[42%] h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/25 bg-black/35 shadow-[0_0_30px_rgba(53,122,255,0.28)]" />
-                  <div className="absolute left-1/2 top-[42%] h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary/30 orbit" />
-                  <div className="absolute left-1/2 top-[42%] h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full border border-secondary/25 orbit [animation-duration:18s] [animation-direction:reverse]" />
-                  <p className="absolute inset-x-6 bottom-6 text-center text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                    Strategy + Delivery + Security
-                  </p>
-                </div>
-              }
-            />
-          </div>
-        </section>
-
-        <section className="mx-auto w-full max-w-[1440px] px-4 py-14 sm:px-8 lg:px-20">
-          <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-primary">Industry Portfolio</p>
-              <h2 className="mt-2 text-3xl sm:text-4xl">Industries we currently support</h2>
-            </div>
-            <div className="reveal-fade flex items-center gap-2 rounded-full border border-primary/35 bg-background/80 px-3 py-2">
-              <Image src="/icon.svg" alt="MAX IT icon" width={20} height={20} className="h-5 w-5" />
-              <span className="text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
-                MAX IT Industry Coverage
-              </span>
-            </div>
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {industries.map((industry, idx) => (
-              <article
-                key={industry.title}
-                className={`glass-panel ${revealPattern[idx % revealPattern.length]} rounded-xl border border-primary/20 p-5 transition duration-300 hover:-translate-y-1 hover:border-primary/45`}
-                style={{ animationDelay: `${idx * 90}ms` }}
-              >
-                <div className="flex items-center justify-between gap-3">
-                  <p className="text-xs uppercase tracking-[0.16em] text-secondary">Sector</p>
-                  <Image src="/icon.svg" alt="MAX IT icon" width={18} height={18} className="h-[18px] w-[18px] opacity-85" />
-                </div>
-                <p className="mt-2 font-display text-2xl uppercase tracking-[0.06em] text-foreground">
-                  {industry.title}
+                <p className="mt-2 text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
+                  {company.name}
                 </p>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{industry.text}</p>
               </article>
             ))}
           </div>
         </section>
 
-        <section className="mx-auto w-full max-w-[1440px] px-4 py-14 sm:px-8 lg:px-20">
-          <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-primary">Delivery Capabilities</p>
-              <h2 className="mt-2 text-3xl sm:text-4xl">Specialties and focus areas</h2>
-            </div>
-            <div className="reveal-zoom flex items-center gap-2 rounded-full border border-primary/35 bg-background/80 px-3 py-2">
-              <Image src="/icon.svg" alt="MAX IT icon" width={20} height={20} className="h-5 w-5" />
-              <span className="text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
-                Core Delivery Areas
-              </span>
-            </div>
-          </div>
+        <section className="mx-auto w-full max-w-[1440px] px-4 pb-10 sm:px-8 lg:px-20">
+          <div className="grid gap-5 xl:grid-cols-12">
+            <article className="glass-panel reveal-up rounded-[1.8rem] p-6 xl:col-span-4">
+              <div className="flex items-center justify-between gap-3">
+                <p className="text-xs uppercase tracking-[0.2em] text-primary">Role Demand</p>
+                <Link href="/jobs" className="text-xs uppercase tracking-[0.14em] text-secondary hover:text-primary">
+                  View all
+                </Link>
+              </div>
+              <div className="mt-4 space-y-3">
+                {roleDemand.map((item) => (
+                  <Link
+                    key={item.role}
+                    href={`/jobs?search=${encodeURIComponent(item.role)}`}
+                    className="group flex items-center justify-between rounded-xl border border-border/70 bg-background/75 px-3 py-2 transition hover:-translate-y-0.5 hover:border-primary/45"
+                  >
+                    <div>
+                      <p className="text-sm uppercase tracking-[0.08em] text-foreground">{item.role}</p>
+                      <p className="text-xs text-muted-foreground">{item.open} openings</p>
+                    </div>
+                    <span
+                      className="rounded-full px-2 py-1 text-[10px] uppercase tracking-[0.14em]"
+                      style={
+                        item.urgency === 'High'
+                          ? {
+                              backgroundColor:
+                                'color-mix(in srgb, var(--red-100) 92%, transparent)',
+                              color: 'var(--red-700)',
+                            }
+                          : item.urgency === 'Medium'
+                            ? {
+                                backgroundColor:
+                                  'color-mix(in srgb, var(--blue-100) 92%, transparent)',
+                                color: 'var(--blue-700)',
+                              }
+                            : {
+                                backgroundColor:
+                                  'color-mix(in srgb, var(--neutral-200) 92%, transparent)',
+                                color: 'var(--neutral-700)',
+                              }
+                      }
+                    >
+                      {item.urgency}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </article>
 
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {jobCategories.map((category, idx) => (
-              <article
-                key={category}
-                className={`glass-panel ${revealPattern[idx % revealPattern.length]} rounded-xl border border-primary/20 p-5 transition duration-300 hover:-translate-y-1 hover:border-primary/45`}
-                style={{ animationDelay: `${idx * 60}ms` }}
-              >
-                <div className="flex items-center justify-between gap-3">
-                  <p className="text-xs uppercase tracking-[0.16em] text-muted-foreground">Area</p>
-                  <Image src="/icon.svg" alt="MAX IT icon" width={18} height={18} className="h-[18px] w-[18px] opacity-85" />
-                </div>
-                <h3 className="mt-2 font-display text-2xl uppercase tracking-[0.06em]">{category}</h3>
-              </article>
-            ))}
-          </div>
-        </section>
+            <article className="glass-panel reveal-up rounded-[1.8rem] p-6 xl:col-span-4">
+              <p className="text-xs uppercase tracking-[0.2em] text-primary">Top Cities</p>
+              <h3 className="mt-2 text-2xl sm:text-3xl">USA city hiring index</h3>
+              <div className="mt-4 space-y-3">
+                {cityDemand.map((item) => (
+                  <Link
+                    key={item.city}
+                    href={`/jobs?location=${encodeURIComponent(item.city)}`}
+                    className="block rounded-xl border border-border/70 bg-background/75 px-3 py-3 transition hover:border-secondary/45"
+                  >
+                    <div className="flex items-center justify-between gap-4">
+                      <p className="text-sm uppercase tracking-[0.1em]">{item.city}</p>
+                      <p className="font-display text-xl uppercase tracking-[0.04em] text-secondary">
+                        {item.jobs}
+                      </p>
+                    </div>
+                    <div className="mt-2 h-2 rounded-full bg-border/70">
+                      <div
+                        className="h-full rounded-full bg-secondary transition-all duration-500"
+                        style={{ width: `${Math.max(18, Math.round((item.jobs / 214) * 100))}%` }}
+                      />
+                    </div>
+                    <p className="mt-1 text-xs text-muted-foreground">{item.salary}</p>
+                  </Link>
+                ))}
+              </div>
+            </article>
 
-        <section className="mx-auto grid w-full max-w-[1440px] gap-8 px-4 py-14 sm:px-8 lg:grid-cols-[1fr_1fr] lg:px-20">
-          <div className="glass-panel p-6 sm:p-8">
-            <p className="text-xs uppercase tracking-[0.2em] text-primary">Why MAX IT CONSULTING LLC</p>
-            <h2 className="mt-2 text-3xl sm:text-4xl">Why clients choose us</h2>
-            <ul className="mt-5 space-y-3 text-sm text-muted-foreground sm:text-base">
-              <li>Client-centric delivery tailored to your exact business objectives</li>
-              <li>Expert team with deep consulting and implementation experience</li>
-              <li>Innovation-first mindset with practical, future-ready solutions</li>
-              <li>Proven outcomes across healthcare, marketing, retail, telecom, and finance</li>
-            </ul>
-          </div>
-
-          <div className="glass-panel p-6 sm:p-8">
-            <BrandShield3D />
-          </div>
-        </section>
-
-        <section className="mx-auto w-full max-w-[1440px] px-4 py-14 sm:px-8 lg:px-20">
-          <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-primary">Working Method</p>
-              <h2 className="mt-2 text-3xl sm:text-4xl">How we deliver measurable outcomes</h2>
-            </div>
-            <div className="reveal-tilt flex items-center gap-2 rounded-full border border-primary/35 bg-background/80 px-3 py-2">
-              <Image src="/icon.svg" alt="MAX IT icon" width={20} height={20} className="h-5 w-5" />
-              <span className="text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
-                Structured Execution
-              </span>
-            </div>
-          </div>
-
-          <div className="grid gap-6 xl:grid-cols-[1fr_360px]">
-            <div className="grid gap-4 md:grid-cols-2">
-              {processSteps.map((step, idx) => (
-                <article
-                  key={step}
-                  className={`glass-panel ${revealPattern[idx % revealPattern.length]} border border-primary/20 p-5`}
-                  style={{ animationDelay: `${idx * 80}ms` }}
-                >
-                  <div className="flex items-center justify-between gap-3">
-                    <p className="text-xs uppercase tracking-[0.2em] text-secondary">Phase {idx + 1}</p>
-                    <Image src="/icon.svg" alt="MAX IT icon" width={18} height={18} className="h-[18px] w-[18px] opacity-85" />
+            <article className="glass-panel reveal-up rounded-[1.8rem] p-6 xl:col-span-4">
+              <p className="text-xs uppercase tracking-[0.2em] text-primary">Hiring Flow</p>
+              <h3 className="mt-2 text-2xl sm:text-3xl">How we deliver fast hiring</h3>
+              <div className="mt-4 space-y-2">
+                {hiringFlow.map((step, idx) => (
+                  <div
+                    key={step}
+                    className="rounded-xl border border-border/70 bg-background/75 px-3 py-3 text-sm text-muted-foreground"
+                  >
+                    <span className="mr-2 inline-flex h-5 w-5 items-center justify-center rounded-full bg-primary/15 text-[11px] text-primary">
+                      {idx + 1}
+                    </span>
+                    {step}
                   </div>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{step}</p>
-                </article>
-              ))}
-            </div>
+                ))}
+              </div>
+              <Button asChild className="mt-5 w-full font-display uppercase tracking-[0.12em]">
+                <Link href="/contact">Start Hiring</Link>
+              </Button>
+            </article>
 
-            <SplineBlock
-              url={splineHiringUrl}
-              title="Spline AI Brain Animation"
-              className="min-h-[360px] xl:min-h-[420px]"
-              fallback={
-                <div className="glass-panel relative min-h-[360px] overflow-hidden p-6 xl:min-h-[420px]">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(53,122,255,0.24),transparent_55%),radial-gradient(circle_at_50%_82%,rgba(193,18,31,0.18),transparent_55%)]" />
-                  <div className="absolute left-1/2 top-1/2 h-52 w-52 -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary/35" />
-                  <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full border border-secondary/25 orbit [animation-duration:20s]" />
-                  <div className="absolute left-1/2 top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary shadow-[0_0_20px_rgba(53,122,255,0.8)]" />
-                  <div className="absolute left-[30%] top-[38%] h-2.5 w-2.5 rounded-full bg-white animate-pulse" />
-                  <div className="absolute left-[68%] top-[36%] h-2.5 w-2.5 rounded-full bg-white animate-pulse [animation-delay:200ms]" />
-                  <div className="absolute left-[32%] top-[64%] h-2.5 w-2.5 rounded-full bg-white animate-pulse [animation-delay:350ms]" />
-                  <div className="absolute left-[70%] top-[66%] h-2.5 w-2.5 rounded-full bg-white animate-pulse [animation-delay:500ms]" />
-                  <p className="absolute inset-x-6 bottom-6 text-center text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                    Reliable execution from planning to delivery
-                  </p>
+            <article className="glass-panel reveal-up rounded-[1.8rem] p-6 xl:col-span-8">
+              <div className="mb-4 flex items-center justify-between gap-4">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] text-primary">Recent Jobs</p>
+                  <h3 className="mt-2 text-2xl sm:text-3xl">Latest openings in U.S. market</h3>
                 </div>
-              }
-            />
+                <Link href="/jobs" className="text-xs uppercase tracking-[0.16em] text-secondary hover:text-primary">
+                  View All Jobs
+                </Link>
+              </div>
+
+              <div className="grid gap-3 md:grid-cols-2">
+                {recentJobs.map((job) => (
+                  <Link
+                    key={`${job.title}-${job.location}`}
+                    href={`/jobs?search=${encodeURIComponent(job.title)}`}
+                    className="rounded-xl border border-border/70 bg-background/75 px-4 py-3 transition hover:-translate-y-0.5 hover:border-primary/45"
+                  >
+                    <p className="font-medium text-foreground">{job.title}</p>
+                    <p className="mt-1 text-sm text-muted-foreground">
+                      {job.company} | {job.location}
+                    </p>
+                  </Link>
+                ))}
+              </div>
+            </article>
+
+            <article className="glass-panel reveal-up rounded-[1.8rem] p-6 xl:col-span-4">
+              <p className="text-xs uppercase tracking-[0.2em] text-primary">Testimonials</p>
+              <div className="mt-4 space-y-3">
+                {testimonials.map((item) => (
+                  <div
+                    key={item.name}
+                    className="rounded-xl border border-border/70 bg-background/75 px-4 py-4"
+                  >
+                    <p className="text-xs uppercase tracking-[0.14em] text-secondary">{item.role}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.quote}</p>
+                    <p className="mt-3 text-[11px] uppercase tracking-[0.14em] text-foreground">{item.name}</p>
+                  </div>
+                ))}
+              </div>
+            </article>
           </div>
         </section>
 
-        <section className="mx-auto w-full max-w-[1440px] px-4 py-14 sm:px-8 lg:px-20">
-          <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-primary">Leadership</p>
-              <h2 className="mt-2 text-3xl sm:text-4xl">People behind MAX IT CONSULTING LLC</h2>
-            </div>
-            <div className="reveal-fade relative h-12 w-[170px] rounded-md border border-border/70 bg-white/95 p-1">
-              <Image
-                src="/max-it-logo.png"
-                alt="MAX IT CONSULTING LLC logo"
-                fill
-                className="object-contain"
-                sizes="170px"
-              />
-            </div>
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {testimonials.map((item, idx) => (
+        <section className="mx-auto w-full max-w-[1440px] px-4 pb-10 sm:px-8 lg:px-20">
+          <div className="grid gap-5 lg:grid-cols-2">
+            {insights.map((item, idx) => (
               <article
-                key={item.company}
-                className={`glass-panel ${revealPattern[idx % revealPattern.length]} rounded-xl border border-primary/20 bg-gradient-to-br from-background/95 via-background/88 to-secondary/5 p-6`}
-                style={{ animationDelay: `${idx * 110}ms` }}
+                key={item.title}
+                className="glass-panel reveal-up rounded-[1.8rem] p-7 sm:p-8"
+                style={{
+                  animationDelay: `${idx * 120}ms`,
+                  backgroundColor:
+                    idx % 2 === 0
+                      ? 'color-mix(in srgb, var(--red-0) 68%, transparent)'
+                      : 'color-mix(in srgb, var(--blue-50) 68%, transparent)',
+                }}
               >
-                <div className="flex items-center justify-between gap-3">
-                  <p className="text-xs uppercase tracking-[0.16em] text-secondary">{item.company}</p>
-                  <Image src="/icon.svg" alt="MAX IT icon" width={18} height={18} className="h-[18px] w-[18px] opacity-85" />
-                </div>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.quote}</p>
-                <p className="mt-4 text-xs uppercase tracking-[0.14em] text-foreground">{item.person}</p>
+                <p className="text-xs uppercase tracking-[0.2em] text-primary">
+                  {idx === 0 ? 'Workforce Insight' : 'Employer Insight'}
+                </p>
+                <h3 className="mt-2 text-3xl sm:text-4xl">{item.title}</h3>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{item.text}</p>
               </article>
             ))}
           </div>
         </section>
 
-        <section className="mx-auto w-full max-w-[1440px] px-4 pb-16 pt-10 sm:px-8 lg:px-20">
-          <div className="glass-panel particle-field p-6 sm:p-8">
-            <div className="grid gap-6 xl:grid-cols-[1.2fr_0.8fr] xl:items-center">
-              <div className="text-center xl:text-left">
-                <p className="text-xs uppercase tracking-[0.2em] text-primary">Start Your Next IT Challenge</p>
-                <h2 className="mt-2 text-3xl sm:text-5xl">Let&apos;s discuss your next IT initiative</h2>
-                <p className="mx-auto mt-4 max-w-3xl text-muted-foreground xl:mx-0">
-                  We provide IT consulting, staffing, and software delivery support tailored to your roadmap and team structure.
-                </p>
-                <div className="mt-8 flex flex-wrap justify-center gap-3 xl:justify-start">
-                  <Link href="/contact">
-                    <Button className="font-display uppercase tracking-[0.12em]">Contact Team</Button>
-                  </Link>
-                  <Link href="/services">
-                    <Button variant="outline" className="font-display uppercase tracking-[0.12em]">
-                      Explore Services
-                    </Button>
-                  </Link>
+        <section className="mx-auto w-full max-w-[1440px] px-4 pb-10 sm:px-8 lg:px-20">
+          <div className="grid gap-5 xl:grid-cols-[1.05fr_0.95fr]">
+            <article className="glass-panel reveal-up rounded-[1.8rem] p-6 sm:p-7">
+              <div className="flex items-start justify-between gap-3">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] text-primary">Interview Calendar</p>
+                  <h3 className="mt-2 text-2xl sm:text-3xl">Hiring plan • April 2026</h3>
+                </div>
+                <span className="rounded-full border border-border/70 bg-background/80 px-3 py-1 text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
+                  Team schedule
+                </span>
+              </div>
+
+              <div className="mt-5 rounded-2xl border border-border/70 bg-background/75 p-4">
+                <div className="grid grid-cols-7 gap-2">
+                  {calendarWeekdays.map((day) => (
+                    <p
+                      key={day}
+                      className="text-center text-[11px] uppercase tracking-[0.14em] text-muted-foreground"
+                    >
+                      {day}
+                    </p>
+                  ))}
+                  {calendarCells.map((cell, idx) => {
+                    const isHighlighted = cell ? highlightedDays.has(cell) : false
+                    return (
+                      <div
+                        key={`cell-${idx}`}
+                        className={`flex h-10 items-center justify-center rounded-lg border text-sm ${
+                          cell
+                            ? isHighlighted
+                              ? 'border-secondary/35 bg-secondary/12 text-secondary'
+                              : 'border-border/65 bg-background/85 text-foreground'
+                            : 'border-transparent bg-transparent'
+                        }`}
+                      >
+                        {cell ?? ''}
+                      </div>
+                    )
+                  })}
                 </div>
               </div>
 
-              <SplineBlock
-                url={splineCtaUrl}
-                title="Spline Tech Particles"
-                className="min-h-[280px] xl:min-h-[320px]"
-                fallback={
-                  <div className="glass-panel relative min-h-[280px] overflow-hidden p-5 xl:min-h-[320px]">
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1)_0%,transparent_60%)]" />
-                    <div className="absolute left-1/2 top-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white shadow-[0_0_26px_rgba(255,255,255,0.95)]" />
-                    <div className="absolute left-[30%] top-[30%] h-2 w-2 rounded-full bg-primary animate-pulse" />
-                    <div className="absolute left-[70%] top-[28%] h-2 w-2 rounded-full bg-secondary animate-pulse [animation-delay:220ms]" />
-                    <div className="absolute left-[24%] top-[64%] h-2 w-2 rounded-full bg-primary animate-pulse [animation-delay:480ms]" />
-                    <div className="absolute left-[76%] top-[68%] h-2 w-2 rounded-full bg-secondary animate-pulse [animation-delay:650ms]" />
-                    <div className="absolute left-[45%] top-[20%] h-40 w-40 rounded-full border border-white/20 orbit" />
-                    <div className="absolute left-[22%] top-[42%] h-28 w-28 rounded-full border border-primary/35 orbit [animation-duration:16s] [animation-direction:reverse]" />
-                    <p className="absolute inset-x-4 bottom-4 text-center text-xs uppercase tracking-[0.18em] text-muted-foreground">
-                      IT Consulting + Staffing + Software Delivery
-                    </p>
+              <div className="mt-5 grid gap-3 md:grid-cols-3">
+                {interviewSchedule.map((slot) => (
+                  <div
+                    key={slot.title}
+                    className="rounded-xl border border-border/70 bg-background/75 p-3"
+                  >
+                    <p className="text-[11px] uppercase tracking-[0.14em] text-secondary">{slot.day}</p>
+                    <p className="mt-1 text-sm uppercase tracking-[0.06em] text-foreground">{slot.title}</p>
+                    <p className="mt-1 text-xs text-muted-foreground">{slot.time}</p>
                   </div>
-                }
-              />
+                ))}
+              </div>
+            </article>
+
+            <article className="glass-panel reveal-up rounded-[1.8rem] p-6 sm:p-7">
+              <p className="text-xs uppercase tracking-[0.2em] text-primary">Employer Intake Form</p>
+              <h3 className="mt-2 text-2xl sm:text-3xl">Share hiring requirement in 2 minutes</h3>
+
+              <div className="mt-5 grid grid-cols-4 gap-2">
+                {intakeSteps.map((step, idx) => (
+                  <div key={step} className="space-y-2 text-center">
+                    <div
+                      className={`mx-auto flex h-7 w-7 items-center justify-center rounded-full border text-[11px] ${
+                        idx === 0
+                          ? 'border-primary/45 bg-primary/15 text-primary'
+                          : 'border-border/70 bg-background/80 text-muted-foreground'
+                      }`}
+                    >
+                      {idx + 1}
+                    </div>
+                    <p className="text-[10px] uppercase tracking-[0.12em] text-muted-foreground">{step}</p>
+                  </div>
+                ))}
+              </div>
+
+              <form action="/contact" method="get" className="mt-5 space-y-3">
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <Input
+                    name="company"
+                    placeholder="Company name"
+                    className="h-11 rounded-xl border-border/80 bg-background/80"
+                  />
+                  <Input
+                    name="email"
+                    type="email"
+                    placeholder="Work email"
+                    className="h-11 rounded-xl border-border/80 bg-background/80"
+                  />
+                </div>
+
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <Input
+                    name="role"
+                    placeholder="Role title"
+                    className="h-11 rounded-xl border-border/80 bg-background/80"
+                  />
+                  <select
+                    name="engagement"
+                    className="h-11 w-full rounded-xl border border-border/80 bg-background/80 px-3 text-sm text-foreground"
+                    defaultValue=""
+                  >
+                    <option value="" disabled>
+                      Engagement type
+                    </option>
+                    <option value="contract">Contract</option>
+                    <option value="contract-to-hire">Contract-to-hire</option>
+                    <option value="full-time">Full-time</option>
+                  </select>
+                </div>
+
+                <textarea
+                  name="message"
+                  rows={4}
+                  placeholder="Required skills, budget, and timeline"
+                  className="w-full rounded-xl border border-border/80 bg-background/80 px-3 py-2 text-sm text-foreground"
+                />
+
+                <Button type="submit" className="w-full rounded-xl font-display uppercase tracking-[0.12em]">
+                  Continue to Contact
+                </Button>
+              </form>
+            </article>
+          </div>
+        </section>
+
+        <section className="mx-auto w-full max-w-[1440px] px-4 pb-12 sm:px-8 lg:px-20">
+          <div className="glass-panel reveal-up rounded-[1.8rem] p-7 sm:p-9">
+            <p className="text-xs uppercase tracking-[0.2em] text-primary">Explore by Filter</p>
+
+            <p className="mt-4 text-xs uppercase tracking-[0.16em] text-muted-foreground">Jobs By Roles</p>
+            <div className="mt-2 flex flex-wrap gap-2">
+              {jobsByRoles.map((role) => (
+                <Link
+                  key={role}
+                  href={`/jobs?search=${encodeURIComponent(role)}`}
+                  className="rounded-full border border-border/70 bg-background/80 px-3 py-1.5 text-xs uppercase tracking-[0.12em] text-foreground transition hover:bg-primary/10"
+                >
+                  {role}
+                </Link>
+              ))}
+            </div>
+
+            <p className="mt-6 text-xs uppercase tracking-[0.16em] text-muted-foreground">Jobs By Cities</p>
+            <div className="mt-2 flex flex-wrap gap-2">
+              {jobsByCities.map((city) => (
+                <Link
+                  key={city}
+                  href={`/jobs?location=${encodeURIComponent(city)}`}
+                  className="rounded-full border border-border/70 bg-background/80 px-3 py-1.5 text-xs uppercase tracking-[0.12em] text-foreground transition hover:bg-secondary/10"
+                >
+                  {city}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="mx-auto w-full max-w-[1440px] px-4 pb-16 sm:px-8 lg:px-20">
+          <div className="glass-panel reveal-up relative overflow-hidden rounded-[2rem] border border-border/70 p-7 sm:p-10">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_12%,rgba(255,31,32,0.12)_0%,transparent_36%),radial-gradient(circle_at_88%_88%,rgba(57,97,248,0.16)_0%,transparent_34%)]" />
+            <div className="relative z-10 grid gap-6 xl:grid-cols-[1.2fr_0.8fr] xl:items-center">
+              <div>
+                <p className="text-xs uppercase tracking-[0.2em] text-primary">MAX IT Consulting LLC</p>
+                <h2 className="mt-2 text-3xl sm:text-5xl">Build high-performance teams in the USA</h2>
+                <p className="mt-4 max-w-3xl text-muted-foreground">
+                  We help businesses grow by connecting them with the right talent at the right time.
+                  From urgent contract staffing to long-term hiring, we support end-to-end recruitment and
+                  delivery alignment.
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <Button asChild className="w-full font-display uppercase tracking-[0.12em]">
+                  <Link href="/contact">Contact Team</Link>
+                </Button>
+                <Button asChild variant="outline" className="w-full font-display uppercase tracking-[0.12em]">
+                  <a href="https://www.linkedin.com/groups/17949004/" target="_blank" rel="noreferrer">
+                    Join LinkedIn Group
+                  </a>
+                </Button>
+              </div>
             </div>
           </div>
         </section>

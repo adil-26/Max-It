@@ -39,7 +39,8 @@ export default function SiteFooter() {
             />
           </div>
           <p className="mt-4 max-w-xs text-sm text-muted-foreground">
-            Trusted technology partner helping businesses with IT consulting, software development, cybersecurity, cloud, and staffing services.
+            New Jersey-based IT staffing and consulting company helping businesses grow by connecting
+            them with the right talent at the right time.
           </p>
         </div>
 
@@ -77,6 +78,14 @@ export default function SiteFooter() {
             <Link href="/services" className="rounded-md border border-primary/30 bg-background/70 px-3 py-2 text-foreground hover:bg-primary/10">
               Services
             </Link>
+            <a
+              href="https://www.linkedin.com/groups/17949004/"
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-md border border-primary/30 bg-background/70 px-3 py-2 text-foreground hover:bg-primary/10"
+            >
+              LinkedIn
+            </a>
           </div>
         </div>
       </div>

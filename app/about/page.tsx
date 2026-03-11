@@ -7,38 +7,12 @@ import SiteFooter from '@/components/site-footer'
 import { createPageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'About Max IT Consulting LLC',
+  title: 'About MAX IT Consulting LLC',
   description:
-    'Learn about Max IT Consulting LLC, our mission, and how we deliver high-quality IT staffing and consulting solutions for US businesses.',
+    'MAX IT Consulting LLC is a New Jersey-based IT staffing and consulting company established in 2008.',
   path: '/about',
-  keywords: ['about Max IT Consulting', 'IT recruiting partner', 'technology staffing agency'],
+  keywords: ['MAX IT Consulting LLC', 'IT staffing New Jersey', 'IT consulting company'],
 })
-
-const values = [
-  {
-    name: 'Integrity',
-    text: 'Transparent communication, ethical recruiting, and reliable partnership decisions.',
-  },
-  {
-    name: 'Speed with Quality',
-    text: 'Fast submission cycles without compromising technical alignment and fit.',
-  },
-  {
-    name: 'Technical Depth',
-    text: 'Domain-specific sourcing for software, cloud, cybersecurity, data, and enterprise systems.',
-  },
-  {
-    name: 'Long-Term Partnership',
-    text: 'Hiring strategies focused on retention, team continuity, and delivery outcomes.',
-  },
-]
-
-const operatingModel = [
-  'Intake and role calibration with hiring managers',
-  'Targeted sourcing and pre-screening',
-  'Technical validation and structured shortlisting',
-  'Interview coordination and offer support',
-]
 
 export default function AboutPage() {
   return (
@@ -49,72 +23,29 @@ export default function AboutPage() {
 
         <section className="mx-auto w-full max-w-6xl px-4 py-12 sm:py-16">
           <div className="glass-panel reveal-up p-7 sm:p-12">
-            <p className="text-xs uppercase tracking-[0.24em] text-primary">About Max IT Consulting LLC</p>
+            <p className="text-xs uppercase tracking-[0.24em] text-primary">About MAX IT Consulting LLC</p>
             <h1 className="gradient-title mt-4 text-4xl leading-tight sm:text-5xl">
-              We build modern workforce pipelines for technology teams
+              Trusted IT staffing and consulting partner since 2008
             </h1>
-            <p className="mt-5 max-w-3xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              Max IT Consulting LLC is a US-based IT staffing and consulting partner helping organizations
-              hire skilled technology professionals and helping candidates move into high-impact roles.
+            <p className="mt-5 max-w-4xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+              MAX IT Consulting LLC is a New Jersey-based IT staffing and consulting company established in
+              2008. We specialize in providing highly skilled IT professionals to organizations across
+              various industries. With years of experience in the staffing industry, we focus on delivering
+              the right talent to help businesses achieve their goals efficiently.
             </p>
-          </div>
-        </section>
-
-        <section className="mx-auto grid w-full max-w-6xl gap-6 px-4 py-6 md:grid-cols-2">
-          <article className="glass-panel reveal-up p-7 sm:p-8">
-            <p className="text-xs uppercase tracking-[0.2em] text-secondary">Mission</p>
-            <h2 className="mt-2 text-3xl">Deliver exceptional technology talent to every client engagement</h2>
-            <p className="mt-4 text-muted-foreground">
-              Our mission is to reduce hiring friction and accelerate delivery by connecting organizations with
-              vetted IT professionals who can contribute from day one.
+            <p className="mt-4 max-w-4xl text-base leading-relaxed text-muted-foreground">
+              Our team is committed to identifying top-quality candidates and matching them with the right
+              opportunities. With a strong recruitment process and industry expertise, we maintain a high
+              success rate in fulfilling client requirements.
             </p>
-          </article>
-
-          <article className="glass-panel reveal-up delay-1 p-7 sm:p-8">
-            <p className="text-xs uppercase tracking-[0.2em] text-secondary">Vision</p>
-            <h2 className="mt-2 text-3xl">Become the most trusted IT talent partner in the US market</h2>
-            <p className="mt-4 text-muted-foreground">
-              We aim to set the standard for modern staffing through speed, technical accuracy, and consistent
-              candidate quality across industries.
+            <p className="mt-4 max-w-4xl text-base leading-relaxed text-muted-foreground">
+              At MAX IT Consulting LLC, we believe that the right talent drives business growth. Our mission
+              is to support companies in building strong teams by providing reliable, skilled, and experienced
+              professionals who contribute to long-term success.
             </p>
-          </article>
-        </section>
-
-        <section className="mx-auto w-full max-w-6xl px-4 py-12">
-          <div className="mb-6">
-            <p className="text-xs uppercase tracking-[0.2em] text-primary">Core Values</p>
-            <h2 className="mt-2 text-3xl sm:text-4xl">How we operate every day</h2>
-          </div>
-
-          <div className="grid gap-5 sm:grid-cols-2">
-            {values.map((value, index) => (
-              <article
-                key={value.name}
-                className="glass-panel reveal-up p-6"
-                style={{ animationDelay: `${index * 120}ms` }}
-              >
-                <p className="font-display text-xl uppercase tracking-[0.1em] text-primary">{value.name}</p>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{value.text}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="mx-auto w-full max-w-6xl px-4 py-8">
-          <div className="glass-panel p-7 sm:p-10">
-            <p className="text-xs uppercase tracking-[0.2em] text-primary">Operating Model</p>
-            <h2 className="mt-2 text-3xl sm:text-4xl">Structured recruitment flow from intake to onboarding</h2>
-
-            <div className="mt-6 grid gap-3 sm:grid-cols-2">
-              {operatingModel.map((step, index) => (
-                <div
-                  key={step}
-                  className="rounded-lg border border-white/15 bg-black/20 px-4 py-3 text-sm uppercase tracking-[0.08em] text-foreground"
-                >
-                  {index + 1}. {step}
-                </div>
-              ))}
-            </div>
+            <p className="mt-4 max-w-4xl text-base leading-relaxed text-foreground">
+              We help businesses grow by connecting them with the right talent at the right time.
+            </p>
           </div>
         </section>
 
@@ -122,23 +53,28 @@ export default function AboutPage() {
           <div className="glass-panel p-7 sm:p-10">
             <div className="grid gap-6 md:grid-cols-[1.2fr_0.8fr] md:items-center">
               <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-secondary">Work With Us</p>
-                <h2 className="mt-2 text-3xl sm:text-4xl">Scale your team with confidence</h2>
+                <p className="text-xs uppercase tracking-[0.2em] text-secondary">Connect With MAX IT</p>
+                <h2 className="mt-2 text-3xl sm:text-4xl">Build your team with the right IT professionals</h2>
                 <p className="mt-4 text-muted-foreground">
-                  Whether you are hiring software engineers, cloud specialists, or security experts,
-                  our team can support rapid and reliable talent delivery.
+                  Partner with us for reliable staffing support, industry-focused recruiting, and a delivery
+                  model built for long-term success.
                 </p>
               </div>
 
               <div className="space-y-3">
-                <Link href="/jobs" className="block">
-                  <Button className="w-full font-display uppercase tracking-[0.12em]">View Open Roles</Button>
-                </Link>
                 <Link href="/contact" className="block">
-                  <Button variant="outline" className="w-full font-display uppercase tracking-[0.12em]">
-                    Contact Team
-                  </Button>
+                  <Button className="w-full font-display uppercase tracking-[0.12em]">Contact Team</Button>
                 </Link>
+                <a
+                  href="https://www.linkedin.com/groups/17949004/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="block"
+                >
+                  <Button variant="outline" className="w-full font-display uppercase tracking-[0.12em]">
+                    LinkedIn Group
+                  </Button>
+                </a>
               </div>
             </div>
           </div>

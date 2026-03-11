@@ -55,7 +55,7 @@ export default function ServicesPage() {
               </Link>
               <Link href="/jobs">
                 <Button variant="outline" className="font-display uppercase tracking-[0.12em]">
-                  Explore Jobs
+                  Explore Career
                 </Button>
               </Link>
             </div>

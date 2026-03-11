@@ -4,80 +4,116 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(0.985 0.004 252);
-  --foreground: oklch(0.22 0.032 258);
-  --card: oklch(0.995 0.002 255);
-  --card-foreground: oklch(0.22 0.032 258);
-  --popover: oklch(0.995 0.002 255);
-  --popover-foreground: oklch(0.22 0.032 258);
-  --primary: oklch(0.47 0.18 261);
-  --primary-foreground: oklch(0.985 0.005 255);
-  --secondary: oklch(0.55 0.24 26);
-  --secondary-foreground: oklch(0.99 0.004 250);
-  --muted: oklch(0.95 0.012 253);
-  --muted-foreground: oklch(0.45 0.032 252);
-  --accent: oklch(0.93 0.02 257);
-  --accent-foreground: oklch(0.22 0.032 258);
-  --destructive: oklch(0.57 0.24 26);
-  --destructive-foreground: oklch(0.99 0.004 250);
-  --border: oklch(0.81 0.025 253 / 75%);
-  --input: oklch(0.9 0.015 253);
-  --ring: oklch(0.47 0.18 261);
-  --chart-1: oklch(0.47 0.18 261);
-  --chart-2: oklch(0.55 0.24 26);
-  --chart-3: oklch(0.61 0.15 182);
-  --chart-4: oklch(0.64 0.12 261);
-  --chart-5: oklch(0.63 0.17 115);
+  --neutral-50: #fafafa;
+  --neutral-100: #f5f5f5;
+  --neutral-200: #e6e6e6;
+  --neutral-300: #d3d3d3;
+  --neutral-400: #b7b7b7;
+  --neutral-500: #727272;
+  --neutral-600: #535353;
+  --neutral-700: #404040;
+  --neutral-800: #272727;
+  --neutral-900: #1a1a1a;
+  --neutral-950: #0b0b0b;
+
+  --red-0: #ffefef;
+  --red-100: #ffdcdc;
+  --red-200: #ffbfbf;
+  --red-300: #ff9293;
+  --red-400: #ff5455;
+  --red-500: #ff1f20;
+  --red-600: #ff0001;
+  --red-700: #db0001;
+  --red-800: #c20001;
+  --red-900: #940809;
+  --red-950: #520000;
+
+  --blue-50: #eff3ff;
+  --blue-100: #dbe4fe;
+  --blue-200: #bed0ff;
+  --blue-300: #92b3fe;
+  --blue-400: #5e8afc;
+  --blue-500: #3961f8;
+  --blue-600: #2340ed;
+  --blue-700: #1b2cda;
+  --blue-800: #1c26b1;
+  --blue-900: #1d268b;
+  --blue-950: #161a55;
+
+  --background: var(--neutral-50);
+  --foreground: var(--neutral-900);
+  --card: #ffffff;
+  --card-foreground: var(--neutral-900);
+  --popover: #ffffff;
+  --popover-foreground: var(--neutral-900);
+  --primary: var(--red-500);
+  --primary-foreground: var(--red-0);
+  --secondary: var(--blue-500);
+  --secondary-foreground: var(--blue-50);
+  --muted: var(--neutral-100);
+  --muted-foreground: var(--neutral-600);
+  --accent: var(--blue-50);
+  --accent-foreground: var(--blue-900);
+  --destructive: var(--red-600);
+  --destructive-foreground: var(--red-0);
+  --border: color-mix(in srgb, var(--neutral-300) 86%, transparent);
+  --input: var(--neutral-200);
+  --ring: var(--blue-500);
+  --chart-1: var(--red-500);
+  --chart-2: var(--blue-500);
+  --chart-3: var(--neutral-600);
+  --chart-4: var(--blue-700);
+  --chart-5: var(--red-700);
   --radius: 0.85rem;
-  --sidebar: oklch(0.97 0.011 253);
-  --sidebar-foreground: oklch(0.22 0.032 258);
-  --sidebar-primary: oklch(0.47 0.18 261);
-  --sidebar-primary-foreground: oklch(0.99 0.004 250);
-  --sidebar-accent: oklch(0.93 0.02 257);
-  --sidebar-accent-foreground: oklch(0.22 0.032 258);
-  --sidebar-border: oklch(0.81 0.025 253 / 75%);
-  --sidebar-ring: oklch(0.47 0.18 261);
-  --glass-bg: color-mix(in oklch, white 89%, var(--primary) 3%);
-  --glass-border: color-mix(in oklch, var(--primary) 22%, var(--secondary) 8%);
-  --glass-shadow: 0 25px 100px -45px rgba(0, 54, 130, 0.26);
+  --sidebar: var(--neutral-100);
+  --sidebar-foreground: var(--neutral-900);
+  --sidebar-primary: var(--red-500);
+  --sidebar-primary-foreground: var(--red-0);
+  --sidebar-accent: var(--blue-50);
+  --sidebar-accent-foreground: var(--blue-900);
+  --sidebar-border: color-mix(in srgb, var(--neutral-300) 86%, transparent);
+  --sidebar-ring: var(--blue-500);
+  --glass-bg: color-mix(in srgb, #ffffff 90%, var(--neutral-100) 10%);
+  --glass-border: color-mix(in srgb, var(--neutral-300) 80%, var(--blue-200) 20%);
+  --glass-shadow: 0 28px 72px -44px rgba(12, 12, 14, 0.36);
 }
 
 .dark {
-  --background: oklch(0.13 0.028 254);
-  --foreground: oklch(0.96 0.012 250);
-  --card: oklch(0.18 0.03 252);
-  --card-foreground: oklch(0.95 0.012 250);
-  --popover: oklch(0.18 0.03 252);
-  --popover-foreground: oklch(0.95 0.012 250);
-  --primary: oklch(0.67 0.16 253);
-  --primary-foreground: oklch(0.12 0.03 254);
-  --secondary: oklch(0.59 0.23 28);
-  --secondary-foreground: oklch(0.97 0.01 250);
-  --muted: oklch(0.22 0.03 251);
-  --muted-foreground: oklch(0.78 0.03 249);
-  --accent: oklch(0.25 0.06 248);
-  --accent-foreground: oklch(0.97 0.01 250);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.36 0.06 249 / 65%);
-  --input: oklch(0.28 0.05 249);
-  --ring: oklch(0.67 0.16 253);
-  --chart-1: oklch(0.67 0.16 253);
-  --chart-2: oklch(0.59 0.23 28);
-  --chart-3: oklch(0.7 0.16 180);
-  --chart-4: oklch(0.76 0.13 260);
-  --chart-5: oklch(0.68 0.17 115);
-  --sidebar: oklch(0.13 0.028 254);
-  --sidebar-foreground: oklch(0.96 0.012 250);
-  --sidebar-primary: oklch(0.67 0.16 253);
-  --sidebar-primary-foreground: oklch(0.12 0.03 254);
-  --sidebar-accent: oklch(0.25 0.06 248);
-  --sidebar-accent-foreground: oklch(0.97 0.01 250);
-  --sidebar-border: oklch(0.36 0.06 249 / 65%);
-  --sidebar-ring: oklch(0.67 0.16 253);
-  --glass-bg: color-mix(in oklch, white 5%, transparent);
-  --glass-border: color-mix(in oklch, white 20%, transparent);
-  --glass-shadow: 0 25px 100px -45px rgba(0, 0, 0, 0.9);
+  --background: var(--neutral-950);
+  --foreground: var(--neutral-50);
+  --card: var(--neutral-900);
+  --card-foreground: var(--neutral-50);
+  --popover: var(--neutral-900);
+  --popover-foreground: var(--neutral-50);
+  --primary: var(--red-400);
+  --primary-foreground: var(--red-950);
+  --secondary: var(--blue-400);
+  --secondary-foreground: var(--blue-950);
+  --muted: var(--neutral-800);
+  --muted-foreground: var(--neutral-400);
+  --accent: var(--blue-950);
+  --accent-foreground: var(--blue-50);
+  --destructive: var(--red-500);
+  --destructive-foreground: var(--red-0);
+  --border: color-mix(in srgb, var(--neutral-700) 84%, transparent);
+  --input: var(--neutral-800);
+  --ring: var(--blue-400);
+  --chart-1: var(--red-400);
+  --chart-2: var(--blue-400);
+  --chart-3: var(--neutral-300);
+  --chart-4: var(--blue-200);
+  --chart-5: var(--red-200);
+  --sidebar: var(--neutral-900);
+  --sidebar-foreground: var(--neutral-50);
+  --sidebar-primary: var(--red-400);
+  --sidebar-primary-foreground: var(--red-950);
+  --sidebar-accent: var(--blue-950);
+  --sidebar-accent-foreground: var(--blue-50);
+  --sidebar-border: color-mix(in srgb, var(--neutral-700) 84%, transparent);
+  --sidebar-ring: var(--blue-400);
+  --glass-bg: color-mix(in srgb, var(--neutral-900) 86%, black 14%);
+  --glass-border: color-mix(in srgb, var(--neutral-700) 70%, var(--blue-800) 30%);
+  --glass-shadow: 0 28px 72px -44px rgba(0, 0, 0, 0.92);
 }
 
 @theme inline {
@@ -133,13 +169,13 @@
   body {
     @apply bg-background text-foreground;
     background-image:
-      radial-gradient(circle at 15% 18%, color-mix(in oklch, var(--primary) 16%, transparent) 0%, transparent 38%),
-      radial-gradient(circle at 85% 8%, color-mix(in oklch, var(--secondary) 14%, transparent) 0%, transparent 36%),
+      radial-gradient(circle at 12% 16%, color-mix(in srgb, var(--red-200) 40%, transparent) 0%, transparent 38%),
+      radial-gradient(circle at 88% 10%, color-mix(in srgb, var(--blue-200) 38%, transparent) 0%, transparent 36%),
       linear-gradient(
         155deg,
-        color-mix(in oklch, var(--background) 97%, white) 0%,
+        color-mix(in srgb, var(--background) 97%, white) 0%,
         var(--background) 52%,
-        color-mix(in oklch, var(--background) 93%, var(--primary) 3%) 100%
+        color-mix(in srgb, var(--background) 90%, var(--neutral-100) 10%) 100%
       );
     background-attachment: scroll;
     min-height: 100vh;
@@ -147,9 +183,9 @@
 
   .dark body {
     background-image:
-      radial-gradient(circle at 15% 20%, color-mix(in oklch, var(--primary) 22%, transparent) 0%, transparent 38%),
-      radial-gradient(circle at 85% 8%, color-mix(in oklch, var(--secondary) 24%, transparent) 0%, transparent 34%),
-      linear-gradient(155deg, color-mix(in oklch, var(--background) 96%, black) 0%, var(--background) 48%, color-mix(in oklch, var(--background) 93%, black) 100%);
+      radial-gradient(circle at 15% 20%, color-mix(in srgb, var(--red-500) 26%, transparent) 0%, transparent 38%),
+      radial-gradient(circle at 85% 8%, color-mix(in srgb, var(--blue-500) 26%, transparent) 0%, transparent 34%),
+      linear-gradient(155deg, color-mix(in srgb, var(--background) 96%, black) 0%, var(--background) 48%, color-mix(in srgb, var(--background) 93%, black) 100%);
   }
 
   h1,
@@ -173,10 +209,18 @@
   }
 
   .glass-panel {
-    @apply rounded-2xl backdrop-blur-xl;
+    @apply rounded-2xl backdrop-blur-md transition-all duration-300;
     border: 1px solid var(--glass-border);
-    background: var(--glass-bg);
-    box-shadow: var(--glass-shadow);
+    background:
+      linear-gradient(
+        160deg,
+        color-mix(in srgb, var(--card) 88%, transparent) 0%,
+        color-mix(in srgb, var(--card) 72%, transparent) 100%
+      ),
+      var(--glass-bg);
+    box-shadow:
+      inset 0 1px 0 color-mix(in srgb, var(--card) 45%, transparent),
+      var(--glass-shadow);
   }
 
   .futuristic-grid {
