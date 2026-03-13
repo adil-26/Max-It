@@ -88,10 +88,10 @@ export default function ContactPage() {
             <div className="glass-panel p-6">
               <p className="text-xs uppercase tracking-[0.2em] text-secondary">Email</p>
               <a
-                href="mailto:info@maxitconsultingll.com"
+                href="mailto:info@maxitconsultingllc.com"
                 className="mt-2 block text-sm text-foreground hover:text-primary"
               >
-                info@maxitconsultingll.com
+                info@maxitconsultingllc.com
               </a>
             </div>
 

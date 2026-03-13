@@ -34,7 +34,7 @@ type KpiCard = {
 const kpiCards: KpiCard[] = [
   {
     title: 'Active Openings',
-    value: '25,559+',
+    value: '2,246',
     delta: '+14% vs last month',
     deltaType: 'up',
     sparkline: [74, 70, 66, 61, 58, 63, 60, 64, 68, 73],
@@ -368,13 +368,13 @@ export default function HomePage() {
 
                 <div className="mt-6 grid grid-cols-1 gap-3 min-[420px]:grid-cols-2 sm:max-w-md">
                   <div className="rounded-2xl border border-border/70 bg-background/75 px-4 py-3">
-                    <p className="font-display text-2xl uppercase tracking-[0.05em]">25k+</p>
+                    <p className="font-display text-2xl uppercase tracking-[0.05em]">2,246</p>
                     <p className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
                       Active Openings
                     </p>
                   </div>
                   <div className="rounded-2xl border border-border/70 bg-background/75 px-4 py-3">
-                    <p className="font-display text-2xl uppercase tracking-[0.05em]">50k+</p>
+                    <p className="font-display text-2xl uppercase tracking-[0.05em]">30,000</p>
                     <p className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
                       Job Seekers
                     </p>
