@@ -95,7 +95,7 @@ export const organizationJsonLd = {
   name: siteName,
   url: siteUrl,
   description: siteDescription,
-  email: 'info@maxitconsult.com',
+  email: 'info@maxitconsultingllc.com',
   telephone: '+1-908-449-3000',
   foundingDate: '2008',
   areaServed: 'US',
