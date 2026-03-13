@@ -87,26 +87,28 @@ export default function ContactPage() {
           <aside className="space-y-4">
             <div className="glass-panel p-6">
               <p className="text-xs uppercase tracking-[0.2em] text-secondary">Email</p>
-              <a href="mailto:info@maxitconsult.com" className="mt-2 block text-sm text-foreground hover:text-primary">
-                info@maxitconsult.com
+              <a
+                href="mailto:info@maxitconsultingll.com"
+                className="mt-2 block text-sm text-foreground hover:text-primary"
+              >
+                info@maxitconsultingll.com
               </a>
             </div>
 
             <div className="glass-panel p-6">
               <p className="text-xs uppercase tracking-[0.2em] text-secondary">Office</p>
               <p className="mt-2 text-sm text-muted-foreground">25 Oak Tavern Cir, Branchburg, NJ 08876, USA</p>
-              <p className="mt-2 text-sm text-muted-foreground">+1 908 449 3000</p>
             </div>
 
             <div className="glass-panel p-6">
               <p className="text-xs uppercase tracking-[0.2em] text-secondary">LinkedIn Community</p>
               <a
-                href="https://www.linkedin.com/groups/17949004/"
+                href="https://www.linkedin.com/company/112240073/admin/dashboard/"
                 target="_blank"
                 rel="noreferrer"
                 className="mt-2 block text-sm text-foreground hover:text-primary"
               >
-                linkedin.com/groups/17949004
+                linkedin.com/company/112240073
               </a>
             </div>
 

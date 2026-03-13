@@ -31,15 +31,6 @@ type KpiCard = {
   sparkline: number[]
 }
 
-const utilityLinks = [
-  { label: 'Business / Bulk Enquiries', href: '/contact' },
-  { label: 'Client / Associate Zone', href: '/contact' },
-  { label: 'Employer Zone', href: '/contact' },
-  { label: 'Post Free Job', href: '/contact' },
-  { label: 'My Profile', href: '/dashboard/profile' },
-  { label: 'Login / Register', href: '/dashboard' },
-]
-
 const kpiCards: KpiCard[] = [
   {
     title: 'Active Openings',
@@ -348,22 +339,6 @@ export default function HomePage() {
       <main className="relative overflow-hidden pt-24">
         <FuturisticBackground subtle />
 
-        <section className="mx-auto w-full max-w-[1440px] px-4 pt-6 sm:px-8 lg:px-20">
-          <div className="glass-panel px-4 py-3">
-            <div className="flex flex-wrap items-center gap-2 text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
-              {utilityLinks.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="rounded-full border border-border/70 bg-background/80 px-3 py-1.5 text-foreground transition hover:-translate-y-0.5 hover:bg-primary/10"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-
         <section className="mx-auto grid w-full max-w-[1440px] gap-6 px-4 py-8 sm:px-8 xl:grid-cols-[1.15fr_0.85fr] lg:px-20">
           <article className="glass-panel reveal-up relative overflow-hidden rounded-[2rem] p-5 sm:p-10">
             <div className="pointer-events-none absolute -left-20 -top-20 h-72 w-72 rounded-full bg-primary/15 blur-3xl" />
@@ -387,7 +362,7 @@ export default function HomePage() {
                     <Link href="/jobs">Explore Career</Link>
                   </Button>
                   <Button asChild variant="outline" className="font-display uppercase tracking-[0.12em]">
-                    <Link href="/contact">Post Free Job</Link>
+                    <Link href="/contact">Contact Team</Link>
                   </Button>
                 </div>
 
@@ -990,8 +965,12 @@ export default function HomePage() {
                   <Link href="/contact">Contact Team</Link>
                 </Button>
                 <Button asChild variant="outline" className="w-full font-display uppercase tracking-[0.12em]">
-                  <a href="https://www.linkedin.com/groups/17949004/" target="_blank" rel="noreferrer">
-                    Join LinkedIn Group
+                  <a
+                    href="https://www.linkedin.com/company/112240073/admin/dashboard/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    LinkedIn
                   </a>
                 </Button>
               </div>

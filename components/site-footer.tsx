@@ -68,8 +68,7 @@ export default function SiteFooter() {
             <p>25 Oak Tavern Cir</p>
             <p>Branchburg, NJ 08876</p>
             <p>USA</p>
-            <p className="pt-2">info@maxitconsult.com</p>
-            <p>+1 908 449 3000</p>
+            <p className="pt-2">info@maxitconsultingll.com</p>
           </div>
           <div className="mt-5 flex flex-wrap gap-3 text-xs uppercase tracking-[0.12em]">
             <Link href="/contact" className="rounded-md border border-primary/30 bg-background/70 px-3 py-2 text-foreground hover:bg-primary/10">
@@ -79,7 +78,7 @@ export default function SiteFooter() {
               Services
             </Link>
             <a
-              href="https://www.linkedin.com/groups/17949004/"
+              href="https://www.linkedin.com/company/112240073/admin/dashboard/"
               target="_blank"
               rel="noreferrer"
               className="rounded-md border border-primary/30 bg-background/70 px-3 py-2 text-foreground hover:bg-primary/10"

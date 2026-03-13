@@ -316,13 +316,13 @@ export default function IndustriesPage() {
                   <Button className="w-full font-display uppercase tracking-[0.12em]">Contact Team</Button>
                 </Link>
                 <a
-                  href="https://www.linkedin.com/groups/17949004/"
+                  href="https://www.linkedin.com/company/112240073/admin/dashboard/"
                   target="_blank"
                   rel="noreferrer"
                   className="block"
                 >
                   <Button variant="outline" className="w-full font-display uppercase tracking-[0.12em]">
-                    LinkedIn Group
+                    LinkedIn
                   </Button>
                 </a>
               </div>

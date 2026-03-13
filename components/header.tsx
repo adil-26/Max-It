@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { Instagram, Linkedin } from 'lucide-react'
 import ThemeToggle from '@/components/theme-toggle'
-import { Button } from '@/components/ui/button'
 
 const navItems = [
   { href: '/', label: 'Home' },
@@ -14,6 +14,19 @@ const navItems = [
   { href: '/industries', label: 'Industries' },
   { href: '/jobs', label: 'Career' },
   { href: '/contact', label: 'Contact' },
+]
+
+const socialLinks = [
+  {
+    href: 'https://www.linkedin.com/company/112240073/admin/dashboard/',
+    label: 'LinkedIn',
+    icon: Linkedin,
+  },
+  {
+    href: 'https://www.instagram.com/',
+    label: 'Instagram',
+    icon: Instagram,
+  },
 ]
 
 export default function Header() {
@@ -83,11 +96,21 @@ export default function Header() {
           </nav>
 
           <div className="hidden items-center gap-2 lg:flex">
-            <Link href="/contact">
-              <Button size="sm" className="rounded-full px-4 font-display uppercase tracking-[0.12em]">
-                Post Job
-              </Button>
-            </Link>
+            {socialLinks.map((item) => {
+              const Icon = item.icon
+              return (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-full border border-border/80 bg-background/75 p-2 text-muted-foreground transition hover:-translate-y-0.5 hover:text-foreground"
+                  aria-label={item.label}
+                >
+                  <Icon className="h-4 w-4" aria-hidden />
+                </a>
+              )
+            })}
             <ThemeToggle />
           </div>
 
@@ -126,11 +149,23 @@ export default function Header() {
                 </Link>
               )
             })}
-            <Link href="/contact" className="block pt-2">
-              <Button className="w-full rounded-xl font-display uppercase tracking-[0.12em]">
-                Post Job
-              </Button>
-            </Link>
+            <div className="grid grid-cols-2 gap-2 pt-2">
+              {socialLinks.map((item) => {
+                const Icon = item.icon
+                return (
+                  <a
+                    key={`mobile-${item.label}`}
+                    href={item.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center justify-center gap-2 rounded-xl border border-border/80 bg-background/75 px-3 py-2 text-xs uppercase tracking-[0.12em] text-muted-foreground hover:text-foreground"
+                  >
+                    <Icon className="h-4 w-4" aria-hidden />
+                    {item.label}
+                  </a>
+                )
+              })}
+            </div>
           </nav>
         )}
       </div>

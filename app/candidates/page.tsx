@@ -48,9 +48,6 @@ export default function CandidatesPage() {
               <Link href="/jobs">
                 <Button className="font-display uppercase tracking-[0.12em]">Browse Jobs</Button>
               </Link>
-              <Button variant="outline" className="font-display uppercase tracking-[0.12em]">
-                Upload Resume
-              </Button>
             </div>
           </div>
         </section>
