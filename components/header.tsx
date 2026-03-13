@@ -18,7 +18,7 @@ const navItems = [
 
 const socialLinks = [
   {
-    href: 'https://www.linkedin.com/company/112240073/admin/dashboard/',
+    href: 'https://www.linkedin.com/company/maxitconsultingllc/',
     label: 'LinkedIn',
     icon: Linkedin,
   },

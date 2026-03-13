@@ -103,12 +103,12 @@ export default function ContactPage() {
             <div className="glass-panel p-6">
               <p className="text-xs uppercase tracking-[0.2em] text-secondary">LinkedIn Community</p>
               <a
-                href="https://www.linkedin.com/company/112240073/admin/dashboard/"
+                href="https://www.linkedin.com/company/maxitconsultingllc/"
                 target="_blank"
                 rel="noreferrer"
                 className="mt-2 block text-sm text-foreground hover:text-primary"
               >
-                linkedin.com/company/112240073
+                linkedin.com/company/maxitconsultingllc
               </a>
             </div>
 

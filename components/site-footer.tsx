@@ -78,7 +78,7 @@ export default function SiteFooter() {
               Services
             </Link>
             <a
-              href="https://www.linkedin.com/company/112240073/admin/dashboard/"
+              href="https://www.linkedin.com/company/maxitconsultingllc/"
               target="_blank"
               rel="noreferrer"
               className="rounded-md border border-primary/30 bg-background/70 px-3 py-2 text-foreground hover:bg-primary/10"

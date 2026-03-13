@@ -966,7 +966,7 @@ export default function HomePage() {
                 </Button>
                 <Button asChild variant="outline" className="w-full font-display uppercase tracking-[0.12em]">
                   <a
-                    href="https://www.linkedin.com/company/112240073/admin/dashboard/"
+                    href="https://www.linkedin.com/company/maxitconsultingllc/"
                     target="_blank"
                     rel="noreferrer"
                   >
