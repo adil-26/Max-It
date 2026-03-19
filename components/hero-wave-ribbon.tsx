@@ -16,7 +16,7 @@ export default function HeroWaveRibbon() {
             <stop offset="0%" stopColor="#c1121f" />
             <stop offset="36%" stopColor="#2b65d9" />
             <stop offset="72%" stopColor="#b7d0ff" />
-            <stop offset="100%" stopColor="#d12d38" />
+             <stop offset="100%" stopColor="#d12d38" />
           </linearGradient>
         </defs>
 

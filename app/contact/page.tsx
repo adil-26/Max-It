@@ -1,21 +1,19 @@
 'use client'
 
 import { useState } from 'react'
-import Header from '@/components/header'
-import FuturisticBackground from '@/components/futuristic-background'
-import SiteFooter from '@/components/site-footer'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
+import MarketingHeader from '@/components/marketing-header'
+import MarketingFooter from '@/components/marketing-footer'
 import { supabase } from '@/lib/supabase'
+
+type InquiryType = 'general' | 'job_inquiry' | 'staffing' | 'partnership'
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    company: '',
-    phone: '',
-    inquiryType: 'general',
+    subject: 'general' as InquiryType,
     message: '',
+    source: '',
   })
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
@@ -38,10 +36,10 @@ export default function ContactPage() {
       const { error: dbError } = await supabase.from('contact_leads').insert({
         name: formData.name,
         email: formData.email,
-        company: formData.company || null,
-        phone: formData.phone || null,
-        message: formData.message,
-        inquiry_type: formData.inquiryType as 'job_inquiry' | 'partnership' | 'staffing' | 'general',
+        company: null,
+        phone: null,
+        message: `${formData.message}${formData.source ? `\n\nSource: ${formData.source}` : ''}`,
+        inquiry_type: formData.subject,
       })
 
       if (dbError) throw dbError
@@ -50,196 +48,150 @@ export default function ContactPage() {
       setFormData({
         name: '',
         email: '',
-        company: '',
-        phone: '',
-        inquiryType: 'general',
+        subject: 'general',
         message: '',
+        source: '',
       })
 
       setTimeout(() => setSuccess(false), 5000)
     } catch (err) {
-      setError(
-        err instanceof Error ? err.message : 'An error occurred while submitting the form'
-      )
+      setError(err instanceof Error ? err.message : 'An error occurred while submitting the form')
     } finally {
       setLoading(false)
     }
   }
 
   return (
-    <>
-      <Header />
-      <main className="relative overflow-hidden pt-24">
-        <FuturisticBackground />
+    <main className="relative min-h-screen overflow-hidden bg-black text-white">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-[860px] bg-[radial-gradient(circle_at_14%_10%,rgba(235,58,69,0.3)_0%,rgba(235,58,69,0.08)_32%,transparent_58%),radial-gradient(circle_at_86%_18%,rgba(47,99,255,0.26)_0%,rgba(47,99,255,0.08)_40%,transparent_62%)]"
+      />
 
-        <section className="mx-auto w-full max-w-6xl px-4 py-10 sm:py-14">
-          <div className="glass-panel p-7 sm:p-10">
-            <p className="text-xs uppercase tracking-[0.22em] text-primary">Contact Max IT Consulting LLC</p>
-            <h1 className="gradient-title mt-2 text-4xl sm:text-5xl">Start a hiring conversation</h1>
-            <p className="mt-4 max-w-3xl text-muted-foreground">
-              Tell us what you are building and the roles you need to fill. Our team will respond quickly with
-              a staffing or consulting path that fits your goals.
-            </p>
-          </div>
-        </section>
+      <MarketingHeader />
 
-        <section className="mx-auto grid w-full max-w-6xl gap-6 px-4 pb-16 md:grid-cols-[0.9fr_1.1fr]">
-          <aside className="space-y-4">
-            <div className="glass-panel p-6">
-              <p className="text-xs uppercase tracking-[0.2em] text-secondary">Email</p>
-              <a
-                href="mailto:info@maxitconsultingllc.com"
-                className="mt-2 block text-sm text-foreground hover:text-primary"
-              >
-                info@maxitconsultingllc.com
+      <section className="mx-auto grid w-full max-w-[1240px] gap-8 px-6 pb-14 pt-36 lg:grid-cols-[0.95fr_1.05fr]">
+        <aside className="reveal-up">
+          <h1 className="hero-title-animated font-display text-7xl leading-[0.9] tracking-tight">Reach out now.</h1>
+          <p className="mt-4 text-2xl text-neutral-300">We&apos;re here to help, reach out and we&apos;ll get back to you.</p>
+
+          <div className="mt-10">
+            <p className="text-5xl font-semibold leading-tight">Or connect with us:</p>
+            <div className="mt-6 space-y-2 text-2xl text-neutral-300">
+              <a href="https://x.com" target="_blank" rel="noreferrer" className="block hover:text-white">
+                X (Twitter)
               </a>
-            </div>
-
-            <div className="glass-panel p-6">
-              <p className="text-xs uppercase tracking-[0.2em] text-secondary">Office</p>
-              <p className="mt-2 text-sm text-muted-foreground">25 Oak Tavern Cir, Branchburg, NJ 08876, USA</p>
-            </div>
-
-            <div className="glass-panel p-6">
-              <p className="text-xs uppercase tracking-[0.2em] text-secondary">LinkedIn Community</p>
+              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="block hover:text-white">
+                Instagram
+              </a>
               <a
                 href="https://www.linkedin.com/company/maxitconsultingllc/"
                 target="_blank"
                 rel="noreferrer"
-                className="mt-2 block text-sm text-foreground hover:text-primary"
+                className="block hover:text-white"
               >
-                linkedin.com/company/maxitconsultingllc
+                LinkedIn
               </a>
             </div>
-
-            <div className="glass-panel p-6">
-              <p className="text-xs uppercase tracking-[0.2em] text-secondary">Engagement Types</p>
-              <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-                <li>Contract staffing</li>
-                <li>Contract-to-hire</li>
-                <li>Permanent staffing</li>
-                <li>IT consulting support</li>
-              </ul>
-            </div>
-          </aside>
-
-          <div className="glass-panel p-6 sm:p-8">
-            <form onSubmit={handleSubmit} className="space-y-4">
-              {success && (
-                <div className="rounded-lg border border-emerald-400/40 bg-emerald-500/15 p-4 text-sm text-emerald-100">
-                  Thank you. Your message has been submitted successfully.
-                </div>
-              )}
-
-              {error && (
-                <div className="rounded-lg border border-red-400/40 bg-red-500/15 p-4 text-sm text-red-100">
-                  {error}
-                </div>
-              )}
-
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div>
-                  <label className="mb-1 block text-xs uppercase tracking-[0.14em] text-muted-foreground">
-                    Full Name
-                  </label>
-                  <Input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Your full name"
-                    className="border-white/20 bg-black/25"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label className="mb-1 block text-xs uppercase tracking-[0.14em] text-muted-foreground">
-                    Email
-                  </label>
-                  <Input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="name@company.com"
-                    className="border-white/20 bg-black/25"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div>
-                  <label className="mb-1 block text-xs uppercase tracking-[0.14em] text-muted-foreground">
-                    Company
-                  </label>
-                  <Input
-                    type="text"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleChange}
-                    placeholder="Company name"
-                    className="border-white/20 bg-black/25"
-                  />
-                </div>
-
-                <div>
-                  <label className="mb-1 block text-xs uppercase tracking-[0.14em] text-muted-foreground">
-                    Phone
-                  </label>
-                  <Input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="+1 000 000 0000"
-                    className="border-white/20 bg-black/25"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="mb-1 block text-xs uppercase tracking-[0.14em] text-muted-foreground">
-                  Inquiry Type
-                </label>
-                <select
-                  name="inquiryType"
-                  value={formData.inquiryType}
-                  onChange={handleChange}
-                  className="w-full rounded-md border border-white/20 bg-black/25 px-3 py-2 text-sm text-foreground"
-                  required
-                >
-                  <option value="general">General Inquiry</option>
-                  <option value="job_inquiry">Job Inquiry</option>
-                  <option value="staffing">Staffing Request</option>
-                  <option value="partnership">Partnership Opportunity</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="mb-1 block text-xs uppercase tracking-[0.14em] text-muted-foreground">
-                  Message
-                </label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Tell us what you are hiring for or what support you need"
-                  rows={6}
-                  className="w-full rounded-md border border-white/20 bg-black/25 px-3 py-2 text-sm text-foreground"
-                  required
-                />
-              </div>
-
-              <Button type="submit" disabled={loading} className="w-full font-display uppercase tracking-[0.12em]">
-                {loading ? 'Sending...' : 'Send Message'}
-              </Button>
-            </form>
           </div>
-        </section>
-      </main>
-      <SiteFooter />
-    </>
+        </aside>
+
+        <article className="reveal-up rounded-[18px] border border-white/10 bg-[#07080a] p-5 sm:p-6">
+          <form onSubmit={handleSubmit} className="space-y-4">
+            {success ? (
+              <div className="rounded-xl border border-emerald-400/40 bg-emerald-500/15 p-3 text-sm text-emerald-100">
+                Thanks. We received your message.
+              </div>
+            ) : null}
+
+            {error ? (
+              <div className="rounded-xl border border-red-400/40 bg-red-500/15 p-3 text-sm text-red-100">
+                {error}
+              </div>
+            ) : null}
+
+            <div className="reveal-zoom">
+              <label className="mb-2 block text-sm text-neutral-300">Name</label>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Jane Smith"
+                className="h-12 w-full rounded-lg border border-white/10 bg-black/35 px-4 text-base text-white placeholder:text-neutral-500"
+                required
+              />
+            </div>
+
+            <div className="reveal-zoom">
+              <label className="mb-2 block text-sm text-neutral-300">Email</label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="jane@framer.com"
+                className="h-12 w-full rounded-lg border border-white/10 bg-black/35 px-4 text-base text-white placeholder:text-neutral-500"
+                required
+              />
+            </div>
+
+            <div className="reveal-zoom">
+              <label className="mb-2 block text-sm text-neutral-300">Subject</label>
+              <select
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                className="h-12 w-full rounded-lg border border-white/10 bg-black/35 px-4 text-base text-white"
+              >
+                <option value="general">General Inquiry</option>
+                <option value="job_inquiry">Job Inquiry</option>
+                <option value="staffing">Staffing Request</option>
+                <option value="partnership">Partnership Opportunity</option>
+              </select>
+            </div>
+
+            <div className="reveal-zoom">
+              <label className="mb-2 block text-sm text-neutral-300">Message</label>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                placeholder="Provide details to your inquiry..."
+                rows={5}
+                className="w-full rounded-lg border border-white/10 bg-black/35 px-4 py-3 text-base text-white placeholder:text-neutral-500"
+                required
+              />
+            </div>
+
+            <div className="reveal-zoom">
+              <label className="mb-2 block text-sm text-neutral-300">How did you hear about us?</label>
+              <select
+                name="source"
+                value={formData.source}
+                onChange={handleChange}
+                className="h-12 w-full rounded-lg border border-white/10 bg-black/35 px-4 text-base text-white"
+              >
+                <option value="">Select...</option>
+                <option value="LinkedIn">LinkedIn</option>
+                <option value="Referral">Referral</option>
+                <option value="Search">Search</option>
+                <option value="Social Media">Social Media</option>
+              </select>
+            </div>
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="reveal-zoom w-full rounded-full bg-gradient-to-r from-[#ea3a45] to-[#2f63ff] px-6 py-3 text-sm font-semibold text-white transition hover:from-[#ff4c58] hover:to-[#3f72ff] disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              {loading ? 'SUBMITTING...' : 'SUBMIT'}
+            </button>
+          </form>
+        </article>
+      </section>
+
+      <MarketingFooter />
+    </main>
   )
 }

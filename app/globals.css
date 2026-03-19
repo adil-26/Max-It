@@ -234,6 +234,110 @@
     animation: grid-pan 28s linear infinite;
   }
 
+  .photo-pan {
+    background-position: center;
+    background-size: cover;
+    filter: saturate(0.82) contrast(1.08) brightness(0.52);
+    transform: scale(1.08);
+    animation: photo-pan 30s ease-in-out infinite alternate;
+  }
+
+  .dark .photo-pan {
+    filter: saturate(0.78) contrast(1.04) brightness(0.36);
+  }
+
+  .photo-pan-alt {
+    background-position: center;
+    background-size: cover;
+    filter: saturate(1.2) contrast(1.1) brightness(0.36);
+    transform: scale(1.12);
+    animation: photo-pan-alt 36s ease-in-out infinite alternate;
+  }
+
+  .circuit-lines {
+    background-image:
+      linear-gradient(120deg, color-mix(in oklch, var(--secondary) 20%, transparent) 0%, transparent 58%),
+      repeating-linear-gradient(
+        0deg,
+        color-mix(in oklch, var(--secondary) 28%, transparent) 0px,
+        color-mix(in oklch, var(--secondary) 28%, transparent) 1px,
+        transparent 1px,
+        transparent 46px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        color-mix(in oklch, var(--primary) 28%, transparent) 0px,
+        color-mix(in oklch, var(--primary) 28%, transparent) 1px,
+        transparent 1px,
+        transparent 54px
+      );
+    background-size: auto, auto, auto;
+    mix-blend-mode: screen;
+    mask-image: radial-gradient(circle at 50% 48%, black 0%, rgba(0, 0, 0, 0.72) 55%, transparent 100%);
+    animation: circuit-slide 22s linear infinite;
+  }
+
+  .circuit-pulse {
+    background-image:
+      linear-gradient(145deg, transparent 0%, color-mix(in oklch, var(--primary) 16%, transparent) 52%, transparent 100%),
+      repeating-linear-gradient(
+        135deg,
+        color-mix(in oklch, var(--secondary) 22%, transparent) 0px,
+        color-mix(in oklch, var(--secondary) 22%, transparent) 2px,
+        transparent 2px,
+        transparent 22px
+      );
+    background-size: auto, auto;
+    mix-blend-mode: screen;
+    animation: circuit-pulse 9s ease-in-out infinite;
+  }
+
+  .tech-lines {
+    transform: translateZ(0);
+  }
+
+  .tech-path {
+    fill: none;
+    stroke: url(#techLineGrad);
+    stroke-width: 2.1;
+    stroke-linecap: round;
+    stroke-dasharray: 18 12;
+    animation: tech-path-flow 9s linear infinite;
+  }
+
+  .tech-path.alt {
+    stroke: url(#techLineGradAlt);
+    animation-duration: 11s;
+    animation-direction: reverse;
+    opacity: 0.8;
+  }
+
+  .hud-ring {
+    border: 1px solid color-mix(in oklch, var(--secondary) 30%, transparent);
+    border-radius: 9999px;
+    box-shadow:
+      inset 0 0 24px color-mix(in oklch, var(--secondary) 18%, transparent),
+      0 0 48px color-mix(in oklch, var(--secondary) 22%, transparent);
+    animation: hud-ring-spin 22s linear infinite;
+  }
+
+  .hud-ring-alt {
+    border-color: color-mix(in oklch, var(--primary) 26%, transparent);
+    animation-duration: 30s;
+    animation-direction: reverse;
+  }
+
+  .tech-node {
+    width: 10px;
+    height: 10px;
+    border-radius: 9999px;
+    background: color-mix(in oklch, var(--secondary) 78%, white 5%);
+    box-shadow:
+      0 0 0 3px color-mix(in oklch, var(--secondary) 22%, transparent),
+      0 0 18px color-mix(in oklch, var(--secondary) 45%, transparent);
+    animation: tech-node-blink 2.6s ease-in-out infinite;
+  }
+
   .scanline-overlay {
     background-image: linear-gradient(to bottom, transparent 0%, transparent 96%, color-mix(in oklch, var(--foreground) 6%, transparent) 100%);
     background-size: 100% 8px;
@@ -322,6 +426,22 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+  }
+
+  .hero-title-animated {
+    background: linear-gradient(
+      104deg,
+      #ffffff 0%,
+      color-mix(in oklch, var(--primary) 72%, white 8%) 36%,
+      color-mix(in oklch, var(--secondary) 72%, white 8%) 66%,
+      #ffffff 100%
+    );
+    background-size: 240% 240%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 6px 24px color-mix(in oklch, var(--primary) 24%, transparent));
+    animation: hero-title-shift 8.5s ease-in-out infinite;
   }
 
   .neon-outline {
@@ -468,6 +588,87 @@
   }
 }
 
+@keyframes photo-pan {
+  0% {
+    transform: scale(1.08) translate3d(0, 0, 0);
+    background-position: 50% 50%;
+  }
+  50% {
+    transform: scale(1.13) translate3d(-1.2%, -1.8%, 0);
+    background-position: 52% 48%;
+  }
+  100% {
+    transform: scale(1.1) translate3d(1.2%, 1.2%, 0);
+    background-position: 48% 52%;
+  }
+}
+
+@keyframes photo-pan-alt {
+  0% {
+    transform: scale(1.12) translate3d(0, 0, 0);
+    background-position: 50% 50%;
+  }
+  50% {
+    transform: scale(1.16) translate3d(1.5%, -1.6%, 0);
+    background-position: 47% 53%;
+  }
+  100% {
+    transform: scale(1.13) translate3d(-1.2%, 1.2%, 0);
+    background-position: 53% 47%;
+  }
+}
+
+@keyframes circuit-slide {
+  from {
+    background-position: 0 0, 0 0, 0 0;
+  }
+  to {
+    background-position: 0 0, 0 46px, 54px 0;
+  }
+}
+
+@keyframes circuit-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    opacity: 0.85;
+    transform: translate3d(0.4%, -0.4%, 0);
+  }
+}
+
+@keyframes tech-path-flow {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -120;
+  }
+}
+
+@keyframes hud-ring-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes tech-node-blink {
+  0%,
+  100% {
+    opacity: 0.44;
+    transform: scale(0.92);
+  }
+  45% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
 @keyframes reveal-up {
   from {
     opacity: 0;
@@ -476,6 +677,16 @@
   to {
     opacity: 1;
     transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes hero-title-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
   }
 }
 
@@ -665,6 +876,14 @@
   .network-orbit,
   .network-line,
   .network-node,
+  .photo-pan,
+  .photo-pan-alt,
+  .circuit-lines,
+  .circuit-pulse,
+  .tech-path,
+  .hud-ring,
+  .tech-node,
+  .hero-title-animated,
   .aurora-blob,
   .futuristic-grid,
   .scanline-overlay {
@@ -691,7 +910,14 @@
   .network-globe,
   .network-orbit,
   .network-line,
-  .network-node {
+  .network-node,
+  .photo-pan,
+  .photo-pan-alt,
+  .circuit-lines,
+  .circuit-pulse,
+  .tech-path,
+  .hud-ring,
+  .tech-node {
     animation: none !important;
   }
 

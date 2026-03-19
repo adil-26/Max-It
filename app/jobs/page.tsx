@@ -1,265 +1,176 @@
-'use client'
-
-import { useEffect, useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
-import Header from '@/components/header'
-import FuturisticBackground from '@/components/futuristic-background'
-import SiteFooter from '@/components/site-footer'
-import { supabase, type Database } from '@/lib/supabase'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
+import MarketingHeader from '@/components/marketing-header'
+import MarketingFooter from '@/components/marketing-footer'
 
-type Job = Database['public']['Tables']['jobs']['Row']
-type JobFilters = {
-  search: string
-  location: string
-  experience: string
-  jobType: string
-  skill: string
-  minSalary: string
-}
+const roleCards = [
+  { company: 'ABC Studios', role: 'UI/UX Researcher', type: 'Full-time', date: 'Posted on Dec 03, 2024' },
+  { company: 'Design Spark', role: 'Junior Product Designer', type: 'Part-time', date: 'Posted on Dec 12, 2024' },
+  { company: 'Code Solutions', role: 'Head of Development', type: 'Full-time', date: 'Posted on Nov 26, 2024' },
+  { company: 'ABC Studios', role: 'UI/UX Designer', type: 'Full-time', date: 'Posted on Dec 20, 2024' },
+  { company: 'Affinity Solutions', role: 'Design Engineer', type: 'Contract', date: 'Posted on Dec 13, 2024' },
+  { company: 'Code Block', role: 'Software Engineer', type: 'Part-time', date: 'Posted on Dec 22, 2024' },
+]
+
+const recruiters = [
+  { slug: 'amber-stewart', name: 'Amber Stewart', exp: '10y', placements: '25', score: '98%' },
+  { slug: 'jake-mullock', name: 'Jake Mullock', exp: '5y', placements: '13', score: '95%' },
+  { slug: 'jennifer-belle', name: 'Jennifer Belle', exp: '8y', placements: '17', score: '96%' },
+]
 
 export default function JobsPage() {
-  const [jobs, setJobs] = useState<Job[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState('')
-
-  const [search, setSearch] = useState('')
-  const [location, setLocation] = useState('')
-  const [experience, setExperience] = useState('')
-  const [jobType, setJobType] = useState('')
-  const [skill, setSkill] = useState('')
-  const [minSalary, setMinSalary] = useState('')
-
-  useEffect(() => {
-    const queryParams = new URLSearchParams(window.location.search)
-    const initialFilters: JobFilters = {
-      search: queryParams.get('search') || '',
-      location: queryParams.get('location') || '',
-      experience: queryParams.get('experience') || '',
-      jobType: queryParams.get('jobType') || '',
-      skill: queryParams.get('skill') || '',
-      minSalary: queryParams.get('minSalary') || '',
-    }
-
-    const hasInitialFilter = Object.values(initialFilters).some((value) => value.trim() !== '')
-
-    if (hasInitialFilter) {
-      setSearch(initialFilters.search)
-      setLocation(initialFilters.location)
-      setExperience(initialFilters.experience)
-      setJobType(initialFilters.jobType)
-      setSkill(initialFilters.skill)
-      setMinSalary(initialFilters.minSalary)
-      void fetchJobs(initialFilters)
-      return
-    }
-
-    void fetchJobs()
-  }, [])
-
-  const fetchJobs = async (overrides?: Partial<JobFilters>) => {
-    try {
-      setLoading(true)
-      setError('')
-
-      const searchValue = overrides?.search ?? search
-      const locationValue = overrides?.location ?? location
-      const experienceValue = overrides?.experience ?? experience
-      const jobTypeValue = overrides?.jobType ?? jobType
-      const skillValue = overrides?.skill ?? skill
-      const minSalaryValue = overrides?.minSalary ?? minSalary
-
-      let query = supabase
-        .from('jobs')
-        .select('*')
-        .eq('status', 'active')
-        .order('posted_date', { ascending: false })
-        .limit(80)
-
-      if (searchValue.trim()) {
-        const term = searchValue.trim()
-        query = query.or(`title.ilike.%${term}%,description.ilike.%${term}%`)
-      }
-
-      if (locationValue.trim()) {
-        query = query.ilike('location', `%${locationValue.trim()}%`)
-      }
-
-      if (jobTypeValue) {
-        query = query.eq('employment_type', jobTypeValue)
-      }
-
-      if (experienceValue) {
-        query = query.eq('experience_level', experienceValue)
-      }
-
-      if (skillValue.trim()) {
-        query = query.contains('required_skills', [skillValue.trim()])
-      }
-
-      if (minSalaryValue.trim()) {
-        const amount = Number(minSalaryValue)
-        if (!Number.isNaN(amount)) {
-          query = query.gte('salary_min', amount)
-        }
-      }
-
-      const { data, error: jobsError } = await query
-      if (jobsError) throw jobsError
-
-      setJobs((data || []) as Job[])
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to load jobs')
-    } finally {
-      setLoading(false)
-    }
-  }
-
-  const resetFilters = () => {
-    setSearch('')
-    setLocation('')
-    setExperience('')
-    setJobType('')
-    setSkill('')
-    setMinSalary('')
-  }
-
   return (
-    <>
-      <Header />
-      <main className="relative overflow-hidden pt-24">
-        <FuturisticBackground subtle />
+    <main className="relative min-h-screen overflow-hidden bg-black text-white">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-[860px] bg-[radial-gradient(circle_at_14%_10%,rgba(235,58,69,0.3)_0%,rgba(235,58,69,0.08)_32%,transparent_58%),radial-gradient(circle_at_86%_18%,rgba(47,99,255,0.26)_0%,rgba(47,99,255,0.08)_40%,transparent_62%)]"
+      />
 
-        <section className="mx-auto w-full max-w-[1440px] px-4 py-10 sm:px-8 lg:px-20">
-          <div className="glass-panel p-7 sm:p-10">
-            <p className="text-xs uppercase tracking-[0.22em] text-primary">Career</p>
-            <h1 className="mt-2 text-4xl sm:text-5xl">Find top IT opportunities across the United States</h1>
-            <p className="mt-4 max-w-3xl text-muted-foreground">
-              Filter by role, location, experience, skills, and compensation to match the right career
-              opportunity.
+      <MarketingHeader />
+
+      <section className="reveal-up mx-auto w-full max-w-[1240px] px-6 pb-10 pt-36">
+        <div className="grid items-end gap-8 xl:grid-cols-[1.05fr_0.95fr]">
+          <div>
+            <h1 className="hero-title-animated max-w-3xl font-display text-7xl leading-[0.9] tracking-tight">
+              Start to work from
+              <br />
+              anywhere now.
+            </h1>
+            <p className="mt-5 max-w-3xl text-2xl leading-relaxed text-neutral-300">
+              Work from your ideal environment while connecting with top tech companies.
             </p>
           </div>
-        </section>
-
-        <section className="mx-auto grid w-full max-w-[1440px] gap-6 px-4 pb-16 sm:px-8 lg:grid-cols-[320px_1fr] lg:px-20">
-          <aside className="glass-panel h-fit p-6">
-            <p className="text-xs uppercase tracking-[0.18em] text-secondary">Filters</p>
-
-            <form
-              className="mt-4 space-y-3"
-              onSubmit={(e) => {
-                e.preventDefault()
-                void fetchJobs()
-              }}
-            >
-              <Input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Role or keyword" className="border-white/20 bg-black/25" />
-              <Input value={location} onChange={(e) => setLocation(e.target.value)} placeholder="Location" className="border-white/20 bg-black/25" />
-
-              <select
-                value={experience}
-                onChange={(e) => setExperience(e.target.value)}
-                className="w-full rounded-md border border-white/20 bg-black/25 px-3 py-2 text-sm"
-              >
-                <option value="">Experience</option>
-                <option value="entry">Entry</option>
-                <option value="mid">Mid</option>
-                <option value="senior">Senior</option>
-                <option value="lead">Lead</option>
-              </select>
-
-              <select
-                value={jobType}
-                onChange={(e) => setJobType(e.target.value)}
-                className="w-full rounded-md border border-white/20 bg-black/25 px-3 py-2 text-sm"
-              >
-                <option value="">Job Type</option>
-                <option value="full-time">Full-time</option>
-                <option value="contract">Contract</option>
-                <option value="contract-to-hire">Contract-to-Hire</option>
-              </select>
-
-              <Input value={skill} onChange={(e) => setSkill(e.target.value)} placeholder="Skill (e.g. AWS)" className="border-white/20 bg-black/25" />
-              <Input value={minSalary} onChange={(e) => setMinSalary(e.target.value)} placeholder="Minimum salary" className="border-white/20 bg-black/25" />
-
-              <div className="grid grid-cols-2 gap-2 pt-1">
-                <Button type="submit" className="font-display uppercase tracking-[0.12em]">Apply</Button>
-                <Button
-                  type="button"
-                  variant="outline"
-                  className="font-display uppercase tracking-[0.12em]"
-                  onClick={() => {
-                    resetFilters()
-                    void fetchJobs({
-                      search: '',
-                      location: '',
-                      experience: '',
-                      jobType: '',
-                      skill: '',
-                      minSalary: '',
-                    })
-                  }}
-                >
-                  Reset
-                </Button>
-              </div>
-            </form>
-          </aside>
-
-          <div className="space-y-4">
-            {loading ? (
-              <div className="glass-panel p-6 text-sm text-muted-foreground">Loading jobs...</div>
-            ) : error ? (
-              <div className="glass-panel border-red-500/45 bg-red-500/10 p-6 text-sm text-red-200">{error}</div>
-            ) : jobs.length === 0 ? (
-              <div className="glass-panel p-8 text-center">
-                <p className="text-muted-foreground">No jobs found for the selected filters.</p>
-                <Link href="/contact" className="mt-4 inline-block">
-                  <Button variant="outline" className="font-display uppercase tracking-[0.12em]">
-                    Contact Recruiting Team
-                  </Button>
-                </Link>
-              </div>
-            ) : (
-              jobs.map((job, index) => (
-                <article
-                  key={job.id}
-                  className="glass-panel reveal-up p-6"
-                  style={{ animationDelay: `${index * 50}ms` }}
-                >
-                  <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-                    <div>
-                      <p className="text-xs uppercase tracking-[0.16em] text-secondary">{job.category || 'Technology'}</p>
-                      <h2 className="mt-1 font-display text-2xl uppercase tracking-[0.05em]">{job.title}</h2>
-                      <p className="mt-1 text-sm text-muted-foreground">
-                        {job.location} | {job.employment_type}
-                      </p>
-                      <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
-                        {job.description}
-                      </p>
-                    </div>
-
-                    <div className="space-y-2 md:text-right">
-                      {job.salary_min && job.salary_max ? (
-                        <p className="text-sm font-medium text-foreground">
-                          ${job.salary_min.toLocaleString()} - ${job.salary_max.toLocaleString()}
-                        </p>
-                      ) : (
-                        <p className="text-sm text-muted-foreground">Compensation negotiable</p>
-                      )}
-
-                      <Link href={`/jobs/${job.id}`}>
-                        <Button className="font-display uppercase tracking-[0.12em]">Apply</Button>
-                      </Link>
-                    </div>
-                  </div>
-                </article>
-              ))
-            )}
+          <div className="flex items-center justify-start gap-3 xl:justify-end">
+            <Link href="/roles" className="rounded-xl bg-[#2f63ff] px-6 py-3 text-sm font-semibold text-white hover:bg-[#3f72ff]">
+              View open roles
+            </Link>
+            <Link href="/contact" className="rounded-xl border border-[#ea3a45]/45 bg-[#ea3a45]/15 px-6 py-3 text-sm font-semibold text-white hover:bg-[#ea3a45]/22">
+              Join platform
+            </Link>
           </div>
-        </section>
-      </main>
-      <SiteFooter />
-    </>
+        </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-[1240px] px-6 pb-12">
+        <div className="reveal-zoom overflow-hidden rounded-[20px] border border-white/10">
+          <video
+            className="h-[280px] w-full object-cover sm:h-[360px]"
+            src="/media/office-video-7792192.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
+        </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-[1240px] px-6 py-6">
+        <div className="reveal-up flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#2f63ff]">OPEN ROLES</p>
+            <h2 className="mt-2 font-display text-6xl tracking-tight">Search active job listings.</h2>
+          </div>
+          <div className="text-sm text-neutral-400">ALL</div>
+        </div>
+
+        <div className="reveal-zoom mt-5 flex h-12 items-center rounded-full border border-white/10 bg-white/5 px-5 text-lg text-neutral-500">
+          Search for roles, e.g. Framer Developer...
+          <span className="ml-auto text-neutral-400">⌕</span>
+        </div>
+
+        <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {roleCards.map((item, idx) => (
+            <article
+              key={`${item.company}-${item.role}-${idx}`}
+              className="reveal-tilt rounded-[18px] border border-white/10 bg-[#09090b] p-5"
+              style={{ animationDelay: `${idx * 70}ms` }}
+            >
+              <p className="font-display text-4xl leading-tight">{item.company}</p>
+              <div className="mt-4 h-px bg-white/10" />
+              <p className="mt-4 text-3xl font-semibold">{item.role}</p>
+              <p className="mt-1 text-lg text-neutral-400">{item.type}</p>
+              <Link href="/contact" className="mt-5 block rounded-xl bg-[#2f63ff] px-4 py-3 text-center text-sm font-semibold text-white">
+                View details
+              </Link>
+              <p className="mt-3 text-center text-lg text-neutral-500">{item.date}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto grid w-full max-w-[1240px] gap-8 px-6 py-12 lg:grid-cols-[1fr_1fr]">
+        <article className="reveal-up">
+          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#2f63ff]">JOIN TALENTIFY</p>
+          <h2 className="mt-2 font-display text-6xl leading-[0.95] tracking-tight">Get discovered by top tech employers.</h2>
+          <p className="mt-4 max-w-xl text-2xl text-neutral-300">
+            Join our network and share your profile for active roles where your skills can create impact.
+          </p>
+          <div className="reveal-zoom mt-6 overflow-hidden rounded-[18px] border border-white/10">
+            <Image
+              src="/media/office-photo-pexels-4385545.jpg"
+              alt="Office discussion"
+              width={900}
+              height={520}
+              className="h-auto w-full object-cover"
+            />
+          </div>
+        </article>
+
+        <article className="reveal-up rounded-[22px] border border-white/10 bg-[#09090b] p-6">
+          <form className="grid gap-3 sm:grid-cols-2">
+            <input placeholder="Name" className="reveal-zoom h-11 rounded-lg border border-white/15 bg-white/5 px-4 text-sm text-white placeholder:text-neutral-500" />
+            <input placeholder="Email" className="reveal-zoom h-11 rounded-lg border border-white/15 bg-white/5 px-4 text-sm text-white placeholder:text-neutral-500" />
+            <input placeholder="Profession" className="reveal-zoom h-11 rounded-lg border border-white/15 bg-white/5 px-4 text-sm text-white placeholder:text-neutral-500" />
+            <select className="reveal-zoom h-11 rounded-lg border border-white/15 bg-white/5 px-4 text-sm text-white">
+              <option>Employment Type</option>
+            </select>
+            <input placeholder="Years of experience" className="reveal-zoom h-11 rounded-lg border border-white/15 bg-white/5 px-4 text-sm text-white placeholder:text-neutral-500" />
+            <input placeholder="City / Portfolio" className="reveal-zoom h-11 rounded-lg border border-white/15 bg-white/5 px-4 text-sm text-white placeholder:text-neutral-500" />
+            <input placeholder="Skills in order" className="reveal-zoom h-11 rounded-lg border border-white/15 bg-white/5 px-4 text-sm text-white placeholder:text-neutral-500 sm:col-span-2" />
+            <label className="reveal-zoom sm:col-span-2 text-xs text-neutral-400">
+              <input type="checkbox" className="mr-2 align-middle" /> By submitting, you agree to share your mail for hiring and marketing.
+            </label>
+            <button type="button" className="reveal-zoom sm:col-span-2 rounded-full bg-[#2f63ff] px-6 py-3 text-sm font-semibold text-white hover:bg-[#3f72ff]">
+              SUBMIT
+            </button>
+          </form>
+        </article>
+      </section>
+
+      <section className="mx-auto w-full max-w-[1240px] px-6 py-12">
+        <p className="reveal-up text-center text-sm font-semibold uppercase tracking-[0.14em] text-[#2f63ff]">RECRUITERS</p>
+        <h2 className="reveal-up mt-2 text-center font-display text-6xl tracking-tight">Meet your recruiter.</h2>
+        <div className="mt-7 grid gap-4 lg:grid-cols-3">
+          {recruiters.map((item, idx) => (
+            <article
+              key={item.name}
+              className="reveal-zoom rounded-[20px] border border-white/10 bg-[#09090b] p-6"
+              style={{ animationDelay: `${idx * 90}ms` }}
+            >
+              <p className="text-2xl font-semibold">{item.name}</p>
+              <div className="mt-5 grid grid-cols-3 gap-3 text-center">
+                <div>
+                  <p className="font-display text-4xl">{item.exp}</p>
+                  <p className="text-sm text-neutral-400">Experience</p>
+                </div>
+                <div>
+                  <p className="font-display text-4xl">{item.placements}</p>
+                  <p className="text-sm text-neutral-400">Placements</p>
+                </div>
+                <div>
+                  <p className="font-display text-4xl">{item.score}</p>
+                  <p className="text-sm text-neutral-400">Satisfaction</p>
+                </div>
+              </div>
+              <Link href={`/profiles/${item.slug}`} className="mt-6 block rounded-xl bg-gradient-to-r from-[#ea3a45] to-[#2f63ff] px-4 py-3 text-center text-sm font-semibold text-white">
+                View profile
+              </Link>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <MarketingFooter />
+    </main>
   )
 }

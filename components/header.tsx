@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Instagram, Linkedin } from 'lucide-react'
 import ThemeToggle from '@/components/theme-toggle'
+import { Button } from '@/components/ui/button'
 
 const navItems = [
   { href: '/', label: 'Home' },
@@ -96,6 +97,11 @@ export default function Header() {
           </nav>
 
           <div className="hidden items-center gap-2 lg:flex">
+            <Link href="/contact">
+              <Button size="sm" className="rounded-full px-4 font-display uppercase tracking-[0.12em]">
+                Start Hiring
+              </Button>
+            </Link>
             {socialLinks.map((item) => {
               const Icon = item.icon
               return (
@@ -149,6 +155,11 @@ export default function Header() {
                 </Link>
               )
             })}
+            <Link href="/contact" className="block pt-2">
+              <Button className="w-full rounded-xl font-display uppercase tracking-[0.12em]">
+                Start Hiring
+              </Button>
+            </Link>
             <div className="grid grid-cols-2 gap-2 pt-2">
               {socialLinks.map((item) => {
                 const Icon = item.icon

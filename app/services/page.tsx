@@ -160,9 +160,9 @@ export default function ServicesPage() {
               <Link href="/contact">
                 <Button className="font-display uppercase tracking-[0.12em]">Hire Talent</Button>
               </Link>
-              <Link href="/jobs">
+              <Link href="/employers">
                 <Button variant="outline" className="font-display uppercase tracking-[0.12em]">
-                  Explore Career
+                  Employer Solutions
                 </Button>
               </Link>
             </div>
