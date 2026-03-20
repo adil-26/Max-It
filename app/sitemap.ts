@@ -15,6 +15,8 @@ const staticRoutes = [
   { path: '/industries', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/jobs', changeFrequency: 'daily', priority: 0.9 },
   { path: '/contact', changeFrequency: 'monthly', priority: 0.6 },
+  { path: '/terms-and-conditions', changeFrequency: 'yearly', priority: 0.4 },
+  { path: '/privacy-policy', changeFrequency: 'yearly', priority: 0.4 },
 ] as const
 
 async function getJobEntries(): Promise<MetadataRoute.Sitemap> {

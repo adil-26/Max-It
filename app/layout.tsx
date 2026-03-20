@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Rajdhani, Space_Grotesk } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { AuthProvider } from '@/lib/auth-context'
+import PageTransition from '@/components/page-transition'
 import ScrollReveal from '@/components/scroll-reveal'
 import { ThemeProvider } from '@/components/theme-provider'
 import {
@@ -114,7 +115,9 @@ export default function RootLayout({
             dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
           />
           <ScrollReveal />
-          <AuthProvider>{children}</AuthProvider>
+          <AuthProvider>
+            <PageTransition>{children}</PageTransition>
+          </AuthProvider>
         </ThemeProvider>
         <Analytics />
       </body>

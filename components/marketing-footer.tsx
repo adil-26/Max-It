@@ -17,8 +17,11 @@ export default function MarketingFooter() {
         </div>
       </div>
 
-      <div className="reveal-up grid grid-cols-3 gap-6 text-right">
+      <div className="reveal-up grid grid-cols-1 gap-6 text-left sm:grid-cols-3 sm:text-right">
         <div className="space-y-4 text-lg">
+          <Link href="/" className="block text-neutral-300 hover:text-white">
+            Home
+          </Link>
           <Link href="/about" className="block text-neutral-300 hover:text-white">
             About
           </Link>
@@ -36,8 +39,11 @@ export default function MarketingFooter() {
           <Link href="/blog" className="block text-neutral-300 hover:text-white">
             Blog
           </Link>
-          <Link href="/contact" className="block text-neutral-300 hover:text-white">
-            Terms
+          <Link href="/terms-and-conditions" className="block text-neutral-300 hover:text-white">
+            Terms & Conditions
+          </Link>
+          <Link href="/privacy-policy" className="block text-neutral-300 hover:text-white">
+            Privacy Policy
           </Link>
         </div>
         <div className="space-y-4 text-lg">
@@ -59,7 +65,9 @@ export default function MarketingFooter() {
       </div>
 
       <div className="reveal-up lg:col-span-2">
-        <p className="text-center text-xl text-neutral-500">Built for MAX IT Consulting LLC.</p>
+        <p className="text-center text-xl text-neutral-500">
+          &copy; 2026 MAX IT CONSULTING LLC. All rights reserved.
+        </p>
       </div>
     </footer>
   )

@@ -13,7 +13,38 @@ export const metadata: Metadata = createPageMetadata({
   keywords: ['about', 'remote recruitment', 'talent platform', 'career support'],
 })
 
-const trustedLogos = ['Logoipsum', 'LOGOIPSUM', 'LOGOIPSUM', 'UI', 'LOGO']
+const trustedCompanies = [
+  'NVIDIA',
+  'Alphabet (Google)',
+  'Apple',
+  'Microsoft',
+  'Amazon',
+  'Saudi Aramco',
+  'TSMC',
+  'Meta Platforms (Facebook)',
+  'Broadcom',
+  'Tesla',
+  'Berkshire Hathaway',
+  'Walmart',
+  'Samsung',
+  'Eli Lilly',
+  'JPMorgan Chase',
+  'Exxon Mobil',
+  'Visa',
+  'Tencent',
+  'Johnson & Johnson',
+  'ASML',
+  'Micron Technology',
+  'SK Hynix',
+  'Oracle',
+  'Mastercard',
+  'Costco',
+  'Chevron',
+  'Netflix',
+  'ICBC',
+  'Palantir',
+  'AbbVie',
+]
 
 const testimonials = [
   {
@@ -95,16 +126,17 @@ export default function AboutPage() {
         <p className="text-center text-xs font-semibold uppercase tracking-[0.18em] text-neutral-400">
           TRUSTED BY GLOBAL COMPANIES.
         </p>
-        <div className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
-          {trustedLogos.map((logo, idx) => (
-            <div
-              key={`${logo}-${idx}`}
-              className="reveal-zoom rounded-xl border border-white/10 bg-white/5 px-4 py-4 text-center font-display text-4xl text-neutral-300"
-              style={{ animationDelay: `${idx * 80}ms` }}
-            >
-              {logo}
-            </div>
-          ))}
+        <div className="marquee-pause mt-5 overflow-hidden rounded-2xl border border-white/10 bg-white/5 py-4">
+          <div className="marquee-track gap-3 px-2" style={{ animationDirection: 'reverse', animationDuration: '48s' }}>
+            {[...trustedCompanies, ...trustedCompanies].map((company, idx) => (
+              <span
+                key={`${company}-${idx}`}
+                className="inline-flex shrink-0 items-center rounded-full border border-white/15 bg-black/45 px-4 py-2 text-sm font-semibold text-neutral-200"
+              >
+                {company}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 

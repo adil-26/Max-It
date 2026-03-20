@@ -210,6 +210,21 @@
     letter-spacing: 0.02em;
   }
 
+  .page-transition-layer {
+    min-height: 100vh;
+    will-change: transform, opacity, filter;
+    transform: translateZ(0);
+  }
+
+  .page-transition-enter {
+    animation: page-slide-enter 420ms cubic-bezier(0.22, 0.8, 0.26, 1) both;
+  }
+
+  .page-transition-exit {
+    pointer-events: none;
+    animation: page-slide-exit 240ms cubic-bezier(0.45, 0.02, 0.58, 1) both;
+  }
+
   .glass-panel {
     @apply rounded-2xl backdrop-blur-md transition-all duration-300;
     border: 1px solid var(--glass-border);
@@ -603,6 +618,32 @@
   }
 }
 
+@keyframes page-slide-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(14%, 0, 0);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    filter: blur(0);
+  }
+}
+
+@keyframes page-slide-exit {
+  from {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    filter: blur(0);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(-10%, 0, 0);
+    filter: blur(2px);
+  }
+}
+
 @keyframes photo-pan-alt {
   0% {
     transform: scale(1.12) translate3d(0, 0, 0);
@@ -886,7 +927,9 @@
   .hero-title-animated,
   .aurora-blob,
   .futuristic-grid,
-  .scanline-overlay {
+  .scanline-overlay,
+  .page-transition-enter,
+  .page-transition-exit {
     animation: none !important;
   }
 

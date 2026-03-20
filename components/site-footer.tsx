@@ -77,6 +77,12 @@ export default function SiteFooter() {
             <Link href="/services" className="rounded-md border border-primary/30 bg-background/70 px-3 py-2 text-foreground hover:bg-primary/10">
               Services
             </Link>
+            <Link href="/terms-and-conditions" className="rounded-md border border-primary/30 bg-background/70 px-3 py-2 text-foreground hover:bg-primary/10">
+              Terms
+            </Link>
+            <Link href="/privacy-policy" className="rounded-md border border-primary/30 bg-background/70 px-3 py-2 text-foreground hover:bg-primary/10">
+              Privacy
+            </Link>
             <a
               href="https://www.linkedin.com/company/maxitconsultingllc/"
               target="_blank"
@@ -89,7 +95,7 @@ export default function SiteFooter() {
         </div>
       </div>
       <div className="relative border-t border-primary/25 bg-background/80 py-4 text-center text-xs uppercase tracking-[0.14em] text-muted-foreground">
-        Copyright {new Date().getFullYear()} MAX IT CONSULTING LLC. All rights reserved.
+        &copy; 2026 MAX IT CONSULTING LLC. All rights reserved.
       </div>
     </footer>
   )
