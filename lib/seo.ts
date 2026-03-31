@@ -3,26 +3,26 @@ import type { Metadata } from 'next'
 export const siteName = 'MAX IT CONSULTING LLC'
 export const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, '') ||
-  'https://maxitconsultingllc.com'
+  'https://www.maxitconsultllc.com'
 export const siteDescription =
-  'MAX IT CONSULTING LLC is a New Jersey-based IT staffing and consulting company established in 2008, providing skilled IT professionals across industries.'
-export const defaultOgImage = '/placeholder.jpg'
+  'MAX IT CONSULTING LLC is a Branchburg, New Jersey-based Business Consulting and Services firm delivering IT consulting, business consulting, software development, US recruitment, and IT staffing solutions.'
+export const defaultOgImage = '/hero-reference.png'
 
 export const defaultKeywords = [
   'Max IT Consulting LLC',
-  'IT staffing',
   'IT consulting',
-  'business consulting',
+  'business consulting and services',
   'software development',
-  'US recruitment',
-  'IT recruitment agency',
-  'contract staffing',
-  'direct hire',
-  'permanent placement',
-  'IT staffing New Jersey',
   'digital transformation',
   'cloud solutions',
-  'cybersecurity hiring',
+  'cybersecurity',
+  'US recruitment',
+  'IT staffing',
+  'technology consultancy New Jersey',
+  'Branchburg New Jersey consulting',
+  'maxitconsultllc',
+  'maxitconsult',
+  'IT staffing',
 ]
 
 type PageMetadataInput = {
@@ -94,11 +94,42 @@ export const organizationJsonLd = {
   '@type': ['Organization', 'EmploymentAgency'],
   name: siteName,
   url: siteUrl,
+  slogan: 'Hire Smart Grow Fast',
   description: siteDescription,
   email: 'info@maxitconsultingllc.com',
   telephone: '+1-908-449-3000',
-  foundingDate: '2008',
-  areaServed: 'US',
+  foundingDate: '2018',
+  industry: 'Business Consulting and Services',
+  numberOfEmployees: {
+    '@type': 'QuantitativeValue',
+    minValue: 11,
+    maxValue: 50,
+  },
+  knowsAbout: [
+    'IT Consulting',
+    'Business Consulting',
+    'Software Development',
+    'US Recruitment',
+    'IT Staffing',
+    'Digital Transformation',
+    'Cloud Solutions',
+    'Cybersecurity',
+  ],
+  areaServed: ['United States', 'Nearshore', 'Offshore'],
+  sameAs: [
+    'https://in.linkedin.com/company/max-it-consulting',
+    'https://www.maxitconsult.com',
+  ],
+  contactPoint: [
+    {
+      '@type': 'ContactPoint',
+      contactType: 'sales',
+      email: 'info@maxitconsultingllc.com',
+      telephone: '+1-908-449-3000',
+      areaServed: 'US',
+      availableLanguage: ['English'],
+    },
+  ],
   address: {
     '@type': 'PostalAddress',
     streetAddress: '25 Oak Tavern Cir',

@@ -108,7 +108,7 @@ export default function ProfilePage({ params }: ProfilePageProps) {
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/contact"
-                className="rounded-xl bg-gradient-to-r from-[#ea3a45] to-[#2f63ff] px-6 py-3 text-sm font-semibold text-white transition hover:from-[#ff4c58] hover:to-[#3d73ff]"
+                className="brand-cta-gradient rounded-xl px-6 py-3 text-sm font-semibold text-white transition"
               >
                 Contact now
               </Link>

@@ -5,13 +5,15 @@ export default function MarketingFooter() {
   return (
     <footer className="mx-auto mt-8 grid w-full max-w-[1240px] grid-cols-1 gap-10 border-t border-white/10 px-6 pb-14 pt-16 lg:grid-cols-[1.1fr_0.9fr]">
       <div className="reveal-up">
-        <p className="text-2xl text-neutral-400">MAX IT Consulting LLC digital platform for hiring and careers.</p>
+        <p className="text-2xl text-neutral-400">
+          MAX IT Consulting LLC technology, business consulting, and enterprise staffing partner.
+        </p>
         <div className="mt-8 inline-flex rounded-lg border border-white/10 bg-white p-3">
           <Image
-            src="/media/maxit-logo-clean-full.png"
+            src="/media/max-it-linkedin-logo.png"
             alt="MAX IT Consulting LLC logo"
-            width={280}
-            height={394}
+            width={160}
+            height={160}
             className="h-16 w-auto object-contain sm:h-20"
           />
         </div>
@@ -54,7 +56,7 @@ export default function MarketingFooter() {
             Instagram
           </a>
           <a
-            href="https://www.linkedin.com/company/maxitconsultingllc/"
+            href="https://in.linkedin.com/company/max-it-consulting"
             target="_blank"
             rel="noreferrer"
             className="block text-neutral-300 hover:text-white"

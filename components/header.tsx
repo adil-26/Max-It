@@ -19,7 +19,7 @@ const navItems = [
 
 const socialLinks = [
   {
-    href: 'https://www.linkedin.com/company/maxitconsultingllc/',
+    href: 'https://in.linkedin.com/company/max-it-consulting',
     label: 'LinkedIn',
     icon: Linkedin,
   },
@@ -65,10 +65,10 @@ export default function Header() {
             className="flex items-center text-foreground"
           >
             <Image
-              src="/max-it-logo.png"
+              src="/media/max-it-linkedin-logo.png"
               alt="MAX IT CONSULTING LLC logo"
-              width={170}
-              height={60}
+              width={140}
+              height={140}
               priority
               className="h-11 w-auto rounded-md border border-border/70 bg-white/95 p-1 object-contain sm:h-12"
             />

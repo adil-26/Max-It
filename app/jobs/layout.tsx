@@ -2,11 +2,16 @@ import type { Metadata } from 'next'
 import { createPageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'Career Opportunities in the United States',
+  title: 'Enterprise IT Hiring Domains',
   description:
-    'Search and apply to active IT jobs in software, cloud, data, cybersecurity, and enterprise technology.',
+    'View enterprise IT hiring domains across cloud, AI/data, cybersecurity, and ERP talent clusters.',
   path: '/jobs',
-  keywords: ['IT jobs', 'technology job board', 'software and cloud jobs'],
+  keywords: [
+    'enterprise IT hiring',
+    'cloud AI cybersecurity roles',
+    'technical staffing domains',
+    'IT talent clusters',
+  ],
 })
 
 export default function JobsLayout({

@@ -31,7 +31,7 @@ const rajdhani = Rajdhani({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${siteName} | IT Staffing and Consulting`,
+    default: `${siteName} | IT Consulting and Business Consulting Services`,
     template: `%s | ${siteName}`,
   },
   description: siteDescription,
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    title: `${siteName} | IT Staffing and Consulting`,
+    title: `${siteName} | IT Consulting and Business Consulting Services`,
     description: siteDescription,
     url: absoluteUrl('/'),
     siteName,
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${siteName} | IT Staffing and Consulting`,
+    title: `${siteName} | IT Consulting and Business Consulting Services`,
     description: siteDescription,
     images: [defaultOgImage],
   },

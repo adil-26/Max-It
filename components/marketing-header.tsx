@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { Linkedin } from 'lucide-react'
 
 const navItems = [
   { href: '/', label: 'Home' },
@@ -32,11 +33,11 @@ export default function MarketingHeader() {
           aria-label="MAX IT Consulting LLC"
         >
           <Image
-            src="/media/maxit-logo-clean-full.png"
+            src="/media/max-it-linkedin-logo.png"
             alt="MAX IT Consulting LLC logo"
-            width={180}
-            height={252}
-            className="h-9 w-auto object-contain"
+            width={140}
+            height={140}
+            className="h-10 w-auto object-contain"
             priority
           />
         </Link>
@@ -59,10 +60,19 @@ export default function MarketingHeader() {
           })}
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden items-center gap-2 md:flex">
+          <a
+            href="https://in.linkedin.com/company/max-it-consulting"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 bg-white/5 text-white transition hover:bg-white/10"
+            aria-label="MAX IT LinkedIn"
+          >
+            <Linkedin className="h-4 w-4" />
+          </a>
           <Link
             href="/contact"
-            className="rounded-xl bg-gradient-to-r from-[#ea3a45] to-[#2f63ff] px-5 py-2 text-sm font-semibold text-white transition hover:from-[#ff4c58] hover:to-[#3f72ff]"
+            className="brand-cta-gradient rounded-xl px-5 py-2 text-sm font-semibold text-white transition"
           >
             Contact
           </Link>
@@ -100,10 +110,19 @@ export default function MarketingHeader() {
             </nav>
             <Link
               href="/contact"
-              className="mt-3 block rounded-xl bg-gradient-to-r from-[#ea3a45] to-[#2f63ff] px-4 py-2.5 text-center text-sm font-semibold text-white"
+              className="brand-cta-gradient mt-3 block rounded-xl px-4 py-2.5 text-center text-sm font-semibold text-white"
             >
               Contact
             </Link>
+            <a
+              href="https://in.linkedin.com/company/max-it-consulting"
+              target="_blank"
+              rel="noreferrer"
+              className="mt-2 flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-2.5 text-sm font-semibold text-white"
+            >
+              <Linkedin className="h-4 w-4" />
+              LinkedIn
+            </a>
           </div>
         ) : null}
       </div>

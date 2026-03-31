@@ -269,7 +269,7 @@ export default function ServicesPage() {
                 <Button className="w-full font-display uppercase tracking-[0.12em]">Contact Team</Button>
               </Link>
               <a
-                href="https://www.linkedin.com/company/maxitconsultingllc/"
+                href="https://in.linkedin.com/company/max-it-consulting"
                 target="_blank"
                 rel="noreferrer"
                 className="block"

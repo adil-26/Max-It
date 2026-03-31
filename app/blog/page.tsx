@@ -64,7 +64,7 @@ export default function BlogPage() {
             </p>
           </div>
           <div className="flex justify-start xl:justify-end">
-            <Link href="/blog" className="rounded-xl bg-gradient-to-r from-[#ea3a45] to-[#2f63ff] px-6 py-3 text-sm font-semibold text-white hover:from-[#ff4c58] hover:to-[#3f72ff]">
+            <Link href="/blog" className="brand-cta-gradient rounded-xl px-6 py-3 text-sm font-semibold text-white">
               View blog
             </Link>
           </div>

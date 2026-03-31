@@ -11,6 +11,9 @@ type JobSitemapData = Pick<
 const staticRoutes = [
   { path: '/', changeFrequency: 'weekly', priority: 1 },
   { path: '/about', changeFrequency: 'monthly', priority: 0.7 },
+  { path: '/roles', changeFrequency: 'weekly', priority: 0.9 },
+  { path: '/hiring', changeFrequency: 'weekly', priority: 0.9 },
+  { path: '/blog', changeFrequency: 'weekly', priority: 0.6 },
   { path: '/services', changeFrequency: 'weekly', priority: 0.9 },
   { path: '/industries', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/jobs', changeFrequency: 'daily', priority: 0.9 },

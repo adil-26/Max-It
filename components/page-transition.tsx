@@ -15,11 +15,16 @@ export default function PageTransition({
 }>) {
   const pathname = usePathname()
   const previousPathname = useRef(pathname)
+  const latestChildren = useRef(children)
   const enterTimer = useRef<number | null>(null)
   const exitTimer = useRef<number | null>(null)
 
   const [displayedChildren, setDisplayedChildren] = useState(children)
   const [stage, setStage] = useState<TransitionStage>('entering')
+
+  useEffect(() => {
+    latestChildren.current = children
+  }, [children])
 
   useEffect(() => {
     if (stage === 'entering') {
@@ -41,9 +46,6 @@ export default function PageTransition({
 
   useEffect(() => {
     if (pathname === previousPathname.current) {
-      if (stage === 'rest') {
-        setDisplayedChildren(children)
-      }
       return
     }
 
@@ -55,7 +57,7 @@ export default function PageTransition({
     }
 
     exitTimer.current = window.setTimeout(() => {
-      setDisplayedChildren(children)
+      setDisplayedChildren(latestChildren.current)
       setStage('entering')
       window.scrollTo({ top: 0, behavior: 'auto' })
     }, EXIT_DURATION_MS)
@@ -65,7 +67,13 @@ export default function PageTransition({
         window.clearTimeout(exitTimer.current)
       }
     }
-  }, [children, pathname, stage])
+  }, [pathname])
+
+  useEffect(() => {
+    if (stage === 'rest') {
+      setDisplayedChildren(children)
+    }
+  }, [children, stage])
 
   const transitionClass =
     stage === 'exiting'

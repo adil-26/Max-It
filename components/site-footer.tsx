@@ -31,16 +31,16 @@ export default function SiteFooter() {
         <div>
           <div className="flex items-center gap-3">
             <Image
-              src="/max-it-logo.png"
+              src="/media/max-it-linkedin-logo.png"
               alt="MAX IT CONSULTING LLC logo"
-              width={190}
-              height={66}
+              width={140}
+              height={140}
               className="h-14 w-auto rounded-md border border-border/70 bg-white/95 p-1 object-contain"
             />
           </div>
           <p className="mt-4 max-w-xs text-sm text-muted-foreground">
-            New Jersey-based IT staffing and consulting company helping businesses grow by connecting
-            them with the right talent at the right time.
+            Branchburg, New Jersey-based consulting partner delivering IT consulting, business consulting,
+            software development, US recruitment, and IT staffing services.
           </p>
         </div>
 
@@ -84,7 +84,7 @@ export default function SiteFooter() {
               Privacy
             </Link>
             <a
-              href="https://www.linkedin.com/company/maxitconsultingllc/"
+              href="https://in.linkedin.com/company/max-it-consulting"
               target="_blank"
               rel="noreferrer"
               className="rounded-md border border-primary/30 bg-background/70 px-3 py-2 text-foreground hover:bg-primary/10"
