@@ -68,12 +68,12 @@ export default function ResourcesPage() {
       </section>
 
       <section className="mx-auto w-full max-w-[1240px] px-6 pb-16">
-        <MotionCard className="rounded-2xl border border-white/12 bg-[#0a1d3f] p-6 text-center">
+        <MotionCard className="rounded-2xl border border-white/12 bg-[#0a1d3f] p-6">
           <h2 className="font-display text-4xl leading-tight sm:text-5xl">Need role-specific insights?</h2>
-          <p className="mx-auto mt-3 max-w-3xl text-neutral-300">
+          <p className="mt-3 max-w-3xl text-neutral-300">
             Tell us your domain and hiring goals. We will share focused market guidance and talent recommendations for your team.
           </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-3">
+          <div className="mt-6 flex flex-wrap justify-start gap-3">
             <Link
               href="/contact"
               className="brand-cta-gradient inline-flex rounded-xl px-6 py-3 text-sm font-semibold text-white"

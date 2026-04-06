@@ -57,12 +57,12 @@ export default function ForCandidatesPage() {
       </section>
 
       <section className="mx-auto w-full max-w-[1240px] px-6 pb-16">
-        <MotionCard className="rounded-2xl border border-white/12 bg-[#2f2209] p-6 text-center">
+        <MotionCard className="rounded-2xl border border-white/12 bg-[#2f2209] p-6">
           <h2 className="font-display text-4xl leading-tight sm:text-5xl">Ready to submit your profile?</h2>
-          <p className="mx-auto mt-3 max-w-3xl text-neutral-300">
+          <p className="mt-3 max-w-3xl text-neutral-300">
             We match technology professionals with enterprise roles aligned to their skills, growth goals, and preferred work model.
           </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-3">
+          <div className="mt-6 flex flex-wrap justify-start gap-3">
             <Link
               href="/contact"
               className="inline-flex rounded-xl border border-[#e8a020]/50 bg-[#e8a020]/18 px-6 py-3 text-sm font-semibold text-white hover:bg-[#e8a020]/26"

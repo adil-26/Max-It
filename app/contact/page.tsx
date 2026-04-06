@@ -301,7 +301,7 @@ export default function ContactPage() {
             >
               {loading ? 'SUBMITTING...' : 'GET MY FREE TALENT AUDIT ->'}
             </button>
-            <p className="text-center text-xs text-neutral-500">No fee. No long-term commitment. Response within 4 business hours.</p>
+            <p className="text-xs text-neutral-500">No fee. No long-term commitment. Response within 4 business hours.</p>
           </form>
         </MotionCard>
       </section>

@@ -340,8 +340,8 @@ export default function HomePage() {
       </section>
 
       <section className="mx-auto w-full max-w-[1240px] px-6 py-8">
-        <div className="text-center">
-          <p className="mx-auto inline-flex rounded-full border border-[#d7c27a] bg-[#f3eddb] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-[#7f6720]">
+        <div className="max-w-4xl">
+          <p className="inline-flex rounded-full border border-[#d7c27a] bg-[#f3eddb] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-[#7f6720]">
             What We Do
           </p>
           <h2 className="mt-4 font-display text-4xl leading-[0.96] tracking-tight sm:text-5xl">
@@ -380,8 +380,8 @@ export default function HomePage() {
       </section>
 
       <section className="mx-auto w-full max-w-[1240px] px-6 py-8">
-        <div className="text-center">
-          <p className="mx-auto inline-flex rounded-full border border-[#d7c27a] bg-[#f3eddb] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-[#7f6720]">
+        <div className="max-w-4xl">
+          <p className="inline-flex rounded-full border border-[#d7c27a] bg-[#f3eddb] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-[#7f6720]">
             Why MAX IT
           </p>
           <h2 className="mt-4 font-display text-4xl leading-[0.96] tracking-tight sm:text-5xl">
@@ -441,7 +441,7 @@ export default function HomePage() {
         </MotionCard>
       </section>
 
-      <section className="mx-auto w-full max-w-[1240px] px-6 pb-16 pt-10 text-center">
+      <section className="mx-auto w-full max-w-[1240px] px-6 pb-16 pt-10">
         <MotionCard className="rounded-2xl border border-black/10 bg-white px-6 py-10">
           <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#7f6720]">Ready to Build Your Team?</p>
           <h2 className="mt-3 font-display text-4xl leading-[0.97] tracking-tight sm:text-5xl">
@@ -449,7 +449,7 @@ export default function HomePage() {
             <br />
             Capability Audit
           </h2>
-          <p className="mx-auto mt-4 max-w-3xl text-lg text-neutral-700">
+          <p className="mt-4 max-w-3xl text-lg text-neutral-700">
             Share your hiring priorities and we will return an execution-ready hiring roadmap with the right delivery model.
           </p>
           <Link

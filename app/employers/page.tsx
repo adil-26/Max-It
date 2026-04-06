@@ -250,14 +250,14 @@ export default function EmployersPage() {
       </section>
 
       <section className="mx-auto w-full max-w-[1240px] px-6 pb-16 pt-8">
-        <MotionCard className="rounded-[24px] border border-white/12 bg-[#06080d] px-6 py-10 text-center">
+        <MotionCard className="rounded-[24px] border border-white/12 bg-[#06080d] px-6 py-10">
           <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f63ff]">SLA Commitments</p>
           <h2 className="mt-3 font-display text-5xl leading-[0.95] tracking-tight sm:text-6xl">
             Operational standards
             <br />
             you can plan around.
           </h2>
-          <div className="mx-auto mt-5 max-w-3xl space-y-2">
+          <div className="mt-5 max-w-3xl space-y-2">
             {processBenefits.map((benefit, idx) => (
               <MotionCard
                 key={benefit}
@@ -268,7 +268,7 @@ export default function EmployersPage() {
               </MotionCard>
             ))}
           </div>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <div className="mt-8 flex flex-wrap justify-start gap-3">
             <Link
               href="/roles"
               className="rounded-xl bg-[#2f63ff] px-6 py-3 text-sm font-semibold text-white hover:bg-[#3f72ff]"

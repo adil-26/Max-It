@@ -165,7 +165,7 @@ export default function JobDetailPage() {
       <>
         <Header />
         <main className="pt-20 min-h-screen">
-          <div className="max-w-4xl mx-auto px-4 py-20 text-center">
+          <div className="max-w-4xl mx-auto px-4 py-20">
             <h1 className="text-3xl font-bold mb-4">Job Not Found</h1>
             <p className="text-text-secondary mb-6">
               The job you're looking for doesn't exist or has been removed.
@@ -316,7 +316,7 @@ export default function JobDetailPage() {
                     </form>
                   </>
                 ) : user ? (
-                  <div className="text-center py-4">
+                  <div className="py-4">
                     <p className="text-text-secondary text-sm mb-4">
                       You're signed in as an employer. Switch to a candidate account to apply.
                     </p>

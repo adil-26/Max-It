@@ -68,7 +68,7 @@ export default function ApplicationsPage() {
       {loading ? (
         <p className="text-text-secondary">Loading applications...</p>
       ) : applications.length === 0 ? (
-        <div className="bg-white border border-border rounded-lg p-12 text-center">
+        <div className="bg-white border border-border rounded-lg p-12">
           <p className="text-text-secondary mb-6">
             You haven't applied for any jobs yet.
           </p>

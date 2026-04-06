@@ -107,9 +107,9 @@ export default function CaseStudiesPage() {
       </section>
 
       <section className="mx-auto w-full max-w-[1240px] px-6 pb-16">
-        <MotionCard className="rounded-2xl border border-white/12 bg-[#0a1d3f] p-6 text-center">
+        <MotionCard className="rounded-2xl border border-white/12 bg-[#0a1d3f] p-6">
           <h2 className="font-display text-4xl leading-tight sm:text-5xl">Need Similar Hiring Results?</h2>
-          <p className="mx-auto mt-3 max-w-3xl text-neutral-300">
+          <p className="mt-3 max-w-3xl text-neutral-300">
             Share your hiring brief and we will map a delivery plan with timeline, shortlist strategy, and engagement model.
           </p>
           <Link

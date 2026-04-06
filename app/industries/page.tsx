@@ -91,12 +91,12 @@ export default function IndustriesPage() {
       </section>
 
       <section className="mx-auto w-full max-w-[1240px] px-6 pb-16">
-        <MotionCard className="rounded-2xl border border-black/10 bg-white p-6 text-center">
+        <MotionCard className="rounded-2xl border border-black/10 bg-white p-6">
           <h2 className="font-display text-4xl leading-tight text-black sm:text-5xl">Need industry-specific hiring support?</h2>
-          <p className="mx-auto mt-3 max-w-3xl text-neutral-700">
+          <p className="mt-3 max-w-3xl text-neutral-700">
             Share your industry context, role priorities, and timeline. We will tailor a domain-specific talent delivery plan.
           </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-3">
+          <div className="mt-6 flex flex-wrap justify-start gap-3">
             <Link href="/contact" className="inline-flex rounded-xl bg-[#111111] px-6 py-3 text-sm font-semibold text-[#d6bc63]">
               Request a Free Audit
             </Link>

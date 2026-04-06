@@ -122,7 +122,7 @@ export default function AdminDashboard() {
           <Button variant="outline">View All</Button>
         </div>
         {leads.length === 0 ? (
-          <Card className="p-8 text-center text-muted-foreground">
+          <Card className="p-8 text-muted-foreground">
             No contact leads yet
           </Card>
         ) : (

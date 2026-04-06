@@ -98,7 +98,7 @@ export default function EmployerDashboard() {
       <div>
         <h2 className="text-2xl font-bold mb-4">Your Job Postings</h2>
         {jobs.length === 0 ? (
-          <Card className="p-8 text-center">
+          <Card className="p-8">
             <p className="text-muted-foreground mb-4">No jobs posted yet</p>
             <Link href="/dashboard/jobs/new">
               <Button>Post Your First Job</Button>
