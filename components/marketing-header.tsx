@@ -11,19 +11,12 @@ const navItems = [
   { href: '/about', label: 'About' },
   { href: '/services', label: 'Services' },
   { href: '/industries', label: 'Industries' },
-  { href: '/roles', label: 'Roles' },
-  { href: '/hiring', label: 'Hiring Process' },
-  { href: '/resources', label: 'Resources' },
   { href: '/contact', label: 'Contact' },
 ]
 
 function isActivePath(pathname: string, href: string) {
   if (href === '/') {
     return pathname === '/' || pathname === '/home'
-  }
-
-  if (href === '/roles') {
-    return pathname === '/roles' || pathname.startsWith('/roles/') || pathname === '/role'
   }
 
   return pathname === href || pathname.startsWith(`${href}/`)
@@ -40,15 +33,15 @@ export default function MarketingHeader() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6">
       <div className="mx-auto w-full max-w-[1240px]">
-        <div className="rounded-2xl border border-white/10 bg-[#0b0c11]/92 px-3 backdrop-blur-md sm:px-4">
+        <div className="rounded-2xl border border-black/10 bg-white/95 px-3 shadow-[0_6px_24px_rgba(0,0,0,0.08)] backdrop-blur-md sm:px-4">
           <div className="flex h-14 items-center justify-between">
             <Link
               href="/"
-              className="inline-flex items-center rounded-lg border border-white/10 bg-white px-2 py-1"
+              className="inline-flex items-center rounded-lg border border-black/10 bg-white px-2 py-1"
               aria-label="MAX IT Consulting LLC"
             >
               <Image
-                src="/media/max-it-linkedin-logo.png"
+                src="/media/max-it-gold-logo.png"
                 alt="MAX IT Consulting LLC logo"
                 width={150}
                 height={42}
@@ -67,8 +60,8 @@ export default function MarketingHeader() {
                     href={item.href}
                     className={`rounded-md px-3 py-1.5 text-sm font-semibold transition ${
                       active
-                        ? 'bg-[#e8a020]/20 text-[#f4c36a]'
-                        : 'text-neutral-300 hover:bg-white/5 hover:text-white'
+                        ? 'bg-[#b89a3a]/14 text-[#7f6720]'
+                        : 'text-neutral-700 hover:bg-black/5 hover:text-black'
                     }`}
                   >
                     {item.label}
@@ -82,14 +75,14 @@ export default function MarketingHeader() {
                 href="https://in.linkedin.com/company/max-it-consulting"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 bg-white/5 text-white transition hover:bg-white/10"
+                className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-black/10 bg-white text-black transition hover:bg-black/5"
                 aria-label="MAX IT LinkedIn"
               >
                 <Linkedin className="h-4 w-4" />
               </a>
               <Link
                 href="/contact"
-                className="brand-cta-gradient inline-flex items-center gap-2 rounded-xl px-5 py-2 text-sm font-semibold text-white"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#111111] px-5 py-2 text-sm font-semibold text-[#d6bc63] hover:bg-black"
               >
                 Get a Free Audit
                 <ArrowRight className="h-4 w-4" />
@@ -100,7 +93,7 @@ export default function MarketingHeader() {
               <button
                 type="button"
                 onClick={() => setMenuOpen((prev) => !prev)}
-                className="rounded-xl border border-white/15 bg-[#111215] px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-white"
+                className="rounded-xl border border-black/10 bg-white px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-neutral-900"
                 aria-expanded={menuOpen}
                 aria-label="Toggle menu"
               >
@@ -113,14 +106,14 @@ export default function MarketingHeader() {
         <div className="mt-2 lg:hidden">
           <Link
             href="/contact"
-            className="brand-cta-gradient block rounded-xl px-4 py-2.5 text-center text-sm font-semibold text-white"
+            className="block rounded-xl bg-[#111111] px-4 py-2.5 text-center text-sm font-semibold text-[#d6bc63]"
           >
             Get a Free Audit
           </Link>
         </div>
 
         {menuOpen ? (
-          <div className="mt-2 rounded-2xl border border-white/10 bg-[#0b0c11]/95 p-3 backdrop-blur-md lg:hidden">
+          <div className="mt-2 rounded-2xl border border-black/10 bg-white/95 p-3 backdrop-blur-md lg:hidden">
             <nav className="space-y-1">
               {navItems.map((item) => {
                 const active = isActivePath(pathname, item.href)
@@ -131,8 +124,8 @@ export default function MarketingHeader() {
                     href={item.href}
                     className={`block rounded-lg px-3 py-2 text-sm font-semibold transition ${
                       active
-                        ? 'bg-[#e8a020]/20 text-[#f4c36a]'
-                        : 'text-neutral-300 hover:bg-white/5 hover:text-white'
+                        ? 'bg-[#b89a3a]/14 text-[#7f6720]'
+                        : 'text-neutral-700 hover:bg-black/5 hover:text-black'
                     }`}
                   >
                     {item.label}
@@ -144,7 +137,7 @@ export default function MarketingHeader() {
               href="https://in.linkedin.com/company/max-it-consulting"
               target="_blank"
               rel="noreferrer"
-              className="mt-3 flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-2.5 text-sm font-semibold text-white"
+              className="mt-3 flex items-center justify-center gap-2 rounded-xl border border-black/10 bg-white px-4 py-2.5 text-sm font-semibold text-black"
             >
               <Linkedin className="h-4 w-4" />
               LinkedIn
