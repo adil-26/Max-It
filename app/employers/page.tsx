@@ -75,10 +75,10 @@ const mncPath = [
 
 const processBenefits = [
   'First candidate submission: 48-72 hours for most enterprise roles',
-  'Shortlist size: 3-5 pre-vetted candidates per role',
-  'Client query response time: within 4 business hours',
-  'Replacement guarantee: free replacement within 30 days',
-  'Background check turnaround: 3-5 business days (24-hour expedited available)',
+  'Shortlist depth: 3-5 pre-vetted, interview-ready candidates per role',
+  'Client response SLA: within 4 business hours',
+  'Replacement coverage: free replacement within 30 days',
+  'Background checks: 3-5 business days, with 24-hour expedited option',
 ]
 
 const vettingStages = [
@@ -166,8 +166,8 @@ export default function EmployersPage() {
               Our Enterprise Hiring Process
             </h1>
             <p className="mt-4 max-w-4xl text-lg leading-relaxed text-neutral-300">
-              We combine speed with precision. From your first brief to placed consultant, this is exactly how MAX IT
-              delivers enterprise hiring outcomes.
+              We combine speed with precision. From intake to onboarding, this is exactly how MAX IT delivers
+              enterprise hiring outcomes with lower risk.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
@@ -189,7 +189,7 @@ export default function EmployersPage() {
             <div className="border-b border-white/10 px-5 py-4">
               <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#8fb1ff]">Founder Video</p>
               <p className="mt-1 text-sm text-neutral-300">
-                Hiring process walk-through and personalized delivery approach.
+                Executive walk-through of our hiring process and delivery model.
               </p>
             </div>
             <div className="px-4 pb-3 pt-4 sm:px-6">
@@ -273,7 +273,7 @@ export default function EmployersPage() {
               href="/roles"
               className="rounded-xl bg-[#2f63ff] px-6 py-3 text-sm font-semibold text-white hover:bg-[#3f72ff]"
             >
-              Explore Role Domains
+              Explore Enterprise Roles
             </Link>
             <Link
               href="/contact"

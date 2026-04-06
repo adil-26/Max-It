@@ -42,7 +42,7 @@ export default function ForCandidatesPage() {
           Looking for Your Next IT Role? Let's Talk.
         </h1>
         <p className="mt-4 max-w-4xl text-lg text-neutral-300">
-          Submit your resume and one of our specialist recruiters will review it within 24 hours.
+          Submit your resume and one of our specialist recruiters will review your profile within 24 hours.
         </p>
       </section>
 
@@ -60,7 +60,7 @@ export default function ForCandidatesPage() {
         <MotionCard className="rounded-2xl border border-white/12 bg-[#2f2209] p-6 text-center">
           <h2 className="font-display text-4xl leading-tight sm:text-5xl">Ready to submit your profile?</h2>
           <p className="mx-auto mt-3 max-w-3xl text-neutral-300">
-            We match candidates with enterprise roles aligned to skills, goals, and preferred work model.
+            We match technology professionals with enterprise roles aligned to their skills, growth goals, and preferred work model.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <Link

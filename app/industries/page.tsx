@@ -72,7 +72,7 @@ export default function IndustriesPage() {
         </p>
         <h1 className="mt-5 font-display text-4xl leading-[0.96] tracking-tight sm:text-5xl">Industries We Serve</h1>
         <p className="mt-4 max-w-4xl text-lg text-neutral-700">
-          MAX IT Consulting has placed IT professionals and delivered consulting engagements across major industry verticals.
+          MAX IT Consulting delivers staffing and consulting support across high-compliance and high-growth industry verticals.
         </p>
       </section>
 
@@ -94,7 +94,7 @@ export default function IndustriesPage() {
         <MotionCard className="rounded-2xl border border-black/10 bg-white p-6 text-center">
           <h2 className="font-display text-4xl leading-tight text-black sm:text-5xl">Need industry-specific hiring support?</h2>
           <p className="mx-auto mt-3 max-w-3xl text-neutral-700">
-            Share your industry, role priorities, and hiring timeline. We will tailor a domain-specific staffing plan.
+            Share your industry context, role priorities, and timeline. We will tailor a domain-specific talent delivery plan.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <Link href="/contact" className="inline-flex rounded-xl bg-[#111111] px-6 py-3 text-sm font-semibold text-[#d6bc63]">

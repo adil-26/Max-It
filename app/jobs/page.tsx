@@ -60,12 +60,12 @@ const highImpactDomains = [
 ]
 
 const candidateBenefits = [
-  'Access to exclusive roles not advertised publicly',
-  'Interview coaching and resume review',
-  'Transparent communication at every stage',
-  'W2 and Corp-to-Corp (C2C) options available',
-  'Benefits support for W2 contractors',
-  'Career growth guidance from specialist recruiters',
+  'Access to exclusive roles not publicly advertised',
+  'Resume refinement and interview coaching',
+  'Transparent communication at every hiring stage',
+  'W2 and Corp-to-Corp (C2C) engagement options',
+  'Benefits support for eligible W2 consultants',
+  'Career-path guidance from specialist recruiters',
 ]
 
 const roleShowcase = [
@@ -115,8 +115,8 @@ export default function JobsPage() {
             Enterprise IT Roles
           </h1>
           <p className="mt-4 max-w-4xl text-lg leading-relaxed text-neutral-300">
-            Whether you are hiring or looking, you have come to the right place. We specialize in placing enterprise
-            IT professionals across every major technology discipline.
+            Whether you are hiring or exploring your next move, we specialize in enterprise IT roles across core
+            technology disciplines.
           </p>
         </div>
       </section>
@@ -150,7 +150,7 @@ export default function JobsPage() {
 
       <section className="mx-auto w-full max-w-[1240px] px-6 pb-6 pt-4">
         <MotionCard className="rounded-[24px] border border-white/12 bg-[#06080d] p-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#8fb1ff]">Featured Open Roles</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#8fb1ff]">Featured Role Snapshot</p>
           <div className="mt-4 grid gap-3 md:grid-cols-3">
             {roleShowcase.map((role, idx) => (
               <MotionCard
@@ -184,8 +184,8 @@ export default function JobsPage() {
             <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#8fb1ff]">For Employers</p>
             <h2 className="mt-3 font-display text-4xl leading-tight">Need to Hire? We'll Find Your Next IT Star.</h2>
             <p className="mt-4 text-neutral-300">
-              Submit a job brief and our specialized recruiters get to work immediately. We typically deliver a
-              shortlist of pre-screened candidates within 48-72 hours.
+              Submit your job brief and our specialized recruiters begin immediately. We typically deliver a shortlist
+              of pre-screened candidates within 48-72 hours.
             </p>
             <Link
               href="/contact"
@@ -199,8 +199,8 @@ export default function JobsPage() {
             <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#f1bd5b]">For Candidates</p>
             <h2 className="mt-3 font-display text-4xl leading-tight">Looking for Your Next IT Role? Let's Talk.</h2>
             <p className="mt-4 text-neutral-300">
-              Submit your resume and one of our specialist recruiters will review it within 24 hours. We represent top
-              IT professionals across the US, UAE, and India and match roles to your skills, goals, and lifestyle.
+              Submit your resume and one of our specialist recruiters will review it within 24 hours. We match
+              professionals with enterprise roles aligned to skills, goals, and preferred work model.
             </p>
             <div className="mt-4 space-y-2">
               {candidateBenefits.map((benefit, idx) => (

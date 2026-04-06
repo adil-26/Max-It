@@ -43,18 +43,18 @@ const missionPillars = [
 ]
 
 const ourStory = [
-  'MAX IT Consulting LLC was founded in 2021 with a single mission: to bridge the gap between world-class IT talent and the enterprise organizations that need them most.',
-  'What began as a boutique US staffing firm has grown into a multi-continent operation, with offices in New Jersey, Dubai, and Noida, India.',
-  'Today, MAX IT Consulting serves clients across financial services, healthcare, retail, government, and technology.',
+  'MAX IT Consulting LLC was founded in 2021 to close the gap between enterprise demand and high-quality IT talent.',
+  'What started as a focused staffing operation in the US has scaled into a multi-continent delivery partner with offices in New Jersey, Dubai, and Noida.',
+  'Today we support clients across financial services, healthcare, retail, government, and technology with fast, structured, and compliance-ready hiring outcomes.',
 ]
 
 const companyTimeline = [
   { year: '2021', event: 'MAX IT Consulting LLC founded in Branchburg, New Jersey.' },
-  { year: '2022', event: 'Expanded internationally with Dubai office to serve Middle East clients.' },
-  { year: '2022-23', event: 'Opened Noida office and scaled specialist recruiter operations.' },
-  { year: '2024', event: 'Surpassed 100+ successful IT placements across geographies.' },
-  { year: '2025', event: 'Expanded Talent Capability Audit service for enterprise hiring leaders.' },
-  { year: '2026+', event: 'Continuing expansion across services, industries, and global delivery.' },
+  { year: '2022', event: 'Expanded internationally with a Dubai office for Middle East delivery coverage.' },
+  { year: '2022-23', event: 'Opened Noida office and scaled specialized recruiter and consulting operations.' },
+  { year: '2024', event: 'Crossed 100+ successful placements across multiple enterprise sectors.' },
+  { year: '2025', event: 'Launched Talent Capability Audit for structured enterprise hiring planning.' },
+  { year: '2026+', event: 'Expanding domain depth and strategic client partnerships across regions.' },
 ]
 
 const offices = [
@@ -95,7 +95,7 @@ export default function AboutPage() {
             About MAX IT Consulting LLC
           </h1>
           <p className="mt-4 max-w-4xl text-lg leading-relaxed text-neutral-700">
-            We are a technology staffing and consulting firm built on one belief: the right talent changes everything.
+            We are an IT staffing and consulting firm built on one belief: the right talent changes business outcomes.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
@@ -172,8 +172,8 @@ export default function AboutPage() {
               </div>
             </div>
             <p className="mt-4 text-base text-neutral-700">
-              Junaid Aamir founded MAX IT Consulting LLC in 2021 with a vision to build a global IT staffing firm
-              that combines boutique speed with enterprise-level delivery standards.
+              Junaid Aamir founded MAX IT Consulting LLC in 2021 to build a staffing and consulting partner that combines
+              boutique speed with enterprise-level process discipline.
             </p>
             <a
               href="https://in.linkedin.com/company/max-it-consulting"

@@ -4,38 +4,38 @@ import MarketingFooter from '@/components/marketing-footer'
 
 const posts = [
   {
-    title: 'Top 10 remote tech skills employers are looking for in 2025.',
-    date: 'JAN 13, 2025',
+    title: 'The 2026 IT Hiring Market: What Enterprise CTOs Need to Know',
+    date: 'APR 02, 2026',
     media: 'image',
     src: '/media/office-photo-pexels-4385545.jpg',
   },
   {
-    title: 'How to ace your remote tech job interview.',
-    date: 'JAN 10, 2025',
+    title: 'How to Hire a Cloud Engineer in 2026: Skills, Salary, and Red Flags',
+    date: 'MAR 24, 2026',
     media: 'video',
     src: '/media/office-video-7792304.mp4',
   },
   {
-    title: 'The future of remote work: trends every tech professional should know.',
-    date: 'NOV 15, 2024',
+    title: 'Staff Augmentation vs Direct Hire: Which Model Fits Your IT Team',
+    date: 'MAR 10, 2026',
     media: 'video',
     src: '/media/office-video-7792192.mp4',
   },
   {
-    title: 'Building a strong tech portfolio: Tips for standing out.',
-    date: 'OCT 10, 2024',
+    title: 'Top 10 Enterprise IT Roles in Highest Demand Across the US',
+    date: 'FEB 27, 2026',
     media: 'video',
     src: '/media/office-video-7792461.mp4',
   },
   {
-    title: '5 must-have tools for remote developers.',
-    date: 'SEP 26, 2024',
+    title: 'What Is a Talent Capability Audit and Why It Improves Hiring',
+    date: 'FEB 14, 2026',
     media: 'image',
     src: '/placeholder.jpg',
   },
   {
-    title: 'How to stay productive while working remotely in tech.',
-    date: 'SEP 17, 2024',
+    title: 'Remote vs On-Site IT Teams in 2026: What the Data Shows',
+    date: 'JAN 28, 2026',
     media: 'image',
     src: '/placeholder.jpg',
   },
@@ -55,17 +55,17 @@ export default function BlogPage() {
         <div className="grid items-end gap-8 xl:grid-cols-[1.05fr_0.95fr]">
           <div>
             <h1 className="hero-title-animated max-w-4xl font-display text-5xl leading-[0.95] tracking-tight sm:text-6xl">
-              Insights, trends, and
+              Hiring insights and
               <br />
-              career tips in tech.
+              market intelligence.
             </h1>
             <p className="mt-5 max-w-4xl text-2xl leading-relaxed text-neutral-300">
-              Stay updated with the latest news, industry trends, and expert advice to help you navigate the world of remote tech careers.
+              Practical content for enterprise hiring leaders, delivery managers, and technology professionals.
             </p>
           </div>
           <div className="flex justify-start xl:justify-end">
-            <Link href="/blog" className="brand-cta-gradient rounded-xl px-6 py-3 text-sm font-semibold text-white">
-              View blog
+            <Link href="/contact" className="brand-cta-gradient rounded-xl px-6 py-3 text-sm font-semibold text-white">
+              Request hiring guidance
             </Link>
           </div>
         </div>

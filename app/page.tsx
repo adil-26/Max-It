@@ -33,34 +33,34 @@ const serviceStack = [
   {
     title: 'IT Staffing & Talent Solutions',
     description:
-      'We source, screen, and place top-tier IT professionals for contract, contract-to-hire, and direct hire roles.',
+      'We source, screen, and place high-impact IT professionals for contract, contract-to-hire, and direct-hire roles.',
   },
   {
     title: 'Business & IT Consulting',
-    description: 'From strategy to transformation, we align technology decisions with measurable business outcomes.',
+    description: 'From technology strategy to execution planning, we align IT decisions with measurable business outcomes.',
   },
   {
     title: 'Custom Software Development',
-    description: 'We build scalable enterprise applications, APIs, and integrations tailored to business needs.',
+    description: 'We deliver scalable enterprise applications, APIs, and integrations designed for long-term growth.',
   },
 ]
 
 const enterprisePillars = [
   {
     title: 'Speed of Placement',
-    description: 'Pre-screened, interview-ready candidates within 48 to 72 hours for most enterprise roles.',
+    description: 'Pre-screened, interview-ready candidate submissions within 48 to 72 hours for most enterprise roles.',
   },
   {
     title: 'Pre-Vetted Talent',
-    description: 'Every candidate is screened through technical, background, culture-fit, and compliance checks.',
+    description: 'Every candidate is screened through technical, background, role-fit, and compliance checks.',
   },
   {
     title: 'Global Delivery',
-    description: 'With offices in the US, UAE, and India, we provide wide and reliable talent reach.',
+    description: 'With offices in the US, UAE, and India, we deliver broad and reliable access to specialized talent.',
   },
   {
     title: 'Dedicated Account Ownership',
-    description: 'A single accountable point-of-contact from intake to onboarding and post-placement support.',
+    description: 'A dedicated point-of-contact from intake through onboarding and post-placement support.',
   },
 ]
 
@@ -80,12 +80,12 @@ const industries = [
 const testimonials = [
   {
     quote:
-      'MAX IT Consulting found us three senior cloud engineers in under two weeks. The quality was strong and the process stayed efficient.',
+      'MAX IT Consulting delivered three senior cloud engineers in under two weeks. Candidate quality was strong and execution was highly organized.',
     attribution: 'VP of Engineering, NJ Fintech Company',
   },
   {
     quote:
-      'My recruiter understood exactly what I needed and helped me move quickly into my next role with full support.',
+      'My recruiter understood my goals clearly and moved me into the right enterprise role quickly, with support through every step.',
     attribution: 'Senior Software Engineer, New York',
   },
 ]
@@ -125,16 +125,16 @@ export default function HomePage() {
         <div className="grid items-start gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
           <div className="max-w-4xl">
             <p className="inline-flex rounded-full border border-[#d7c27a] bg-[#f3eddb] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-[#7f6720]">
-              Trusted technology partner for modern business growth
+              Enterprise IT Staffing, Consulting, and Delivery
             </p>
             <h1 className="mt-5 font-display text-4xl leading-[0.96] tracking-tight sm:text-5xl">
-              We Place Top IT
+              Build Stronger IT Teams
               <br />
-              Talent Fast.
+              Without Hiring Delays.
             </h1>
             <p className="mt-4 max-w-3xl text-lg leading-relaxed text-neutral-700">
-              Specialized IT staffing and consulting for enterprise teams across the US, UAE, and India. 100+
-              successful placements with quality-first delivery.
+              MAX IT Consulting helps enterprise teams hire faster and execute better through specialized IT staffing,
+              business consulting, and software delivery across the US, UAE, and India.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Link
@@ -211,7 +211,7 @@ export default function HomePage() {
           <h2 className="mt-4 font-display text-4xl leading-[0.96] tracking-tight sm:text-5xl">
             Comprehensive IT Solutions
             <br />
-            for Enterprise Teams
+            for Growth-Focused Enterprises
           </h2>
         </div>
         <div className="mt-7 grid gap-4 md:grid-cols-3">
@@ -295,7 +295,7 @@ export default function HomePage() {
             Capability Audit
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-lg text-neutral-700">
-            Tell us what you need and we will deliver a clear, execution-ready hiring roadmap.
+            Share your hiring priorities and we will return an execution-ready hiring roadmap with the right delivery model.
           </p>
           <Link
             href="/contact"

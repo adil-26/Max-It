@@ -104,8 +104,8 @@ export default function ContactPage() {
             Talent Capability Audit
           </h1>
           <p className="mt-4 text-lg text-neutral-700">
-            Our Talent Capability Audit is a free 30-minute consultation where we assess team gaps, hiring priorities,
-            and provide a custom recruitment roadmap with zero commitment.
+            Our Talent Capability Audit is a free 30-minute consultation where we assess team capability gaps, hiring
+            urgency, and provide a practical recruitment roadmap with zero commitment.
           </p>
 
           <MotionCard className="mt-8 rounded-2xl border border-black/10 bg-white p-4">
@@ -133,7 +133,7 @@ export default function ContactPage() {
                 Email: india@maxitconsultingllc.com
               </p>
               <p className="text-xs font-semibold uppercase tracking-[0.1em] text-[#7f6720]">
-                Response Time: Within 4 Business Hours
+                Response SLA: Within 4 Business Hours
               </p>
             </div>
           </MotionCard>
@@ -287,7 +287,7 @@ export default function ContactPage() {
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                placeholder="Share current hiring demand, target domains, locations, and timeline..."
+                placeholder="Share open roles, target skills, team size, location, and hiring timeline..."
                 rows={5}
                 className="w-full rounded-lg border border-black/10 bg-white px-4 py-3 text-base text-black placeholder:text-neutral-500"
                 required
@@ -301,6 +301,7 @@ export default function ContactPage() {
             >
               {loading ? 'SUBMITTING...' : 'GET MY FREE TALENT AUDIT ->'}
             </button>
+            <p className="text-center text-xs text-neutral-500">No fee. No long-term commitment. Response within 4 business hours.</p>
           </form>
         </MotionCard>
       </section>

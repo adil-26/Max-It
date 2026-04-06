@@ -49,7 +49,7 @@ export default function ResourcesPage() {
           IT Hiring Resources & Insights
         </h1>
         <p className="mt-4 max-w-4xl text-lg text-neutral-300">
-          Expert guides, market insights, and practical advice for IT hiring managers and technology professionals.
+          Expert guides, market insights, and practical playbooks for IT hiring leaders and technology teams.
         </p>
       </section>
 
@@ -60,7 +60,7 @@ export default function ResourcesPage() {
               <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#8fb1ff]">Resource Topic</p>
               <h2 className="mt-3 font-display text-3xl leading-tight">{topic}</h2>
               <p className="mt-2 text-sm text-neutral-300">
-                Published in MAX IT resources. Request the latest edition from our team or follow our updates.
+                Research-backed guidance from MAX IT. Request the latest edition or connect with our team for a focused brief.
               </p>
             </MotionCard>
           ))}
@@ -71,7 +71,7 @@ export default function ResourcesPage() {
         <MotionCard className="rounded-2xl border border-white/12 bg-[#0a1d3f] p-6 text-center">
           <h2 className="font-display text-4xl leading-tight sm:text-5xl">Need role-specific insights?</h2>
           <p className="mx-auto mt-3 max-w-3xl text-neutral-300">
-            Tell us your domain and hiring goals. We will share focused market guidance and talent recommendations.
+            Tell us your domain and hiring goals. We will share focused market guidance and talent recommendations for your team.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <Link

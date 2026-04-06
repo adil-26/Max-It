@@ -85,7 +85,7 @@ export default function ServicesPage() {
         </p>
         <h1 className="mt-5 font-display text-4xl leading-[0.96] tracking-tight sm:text-5xl">Our Services</h1>
         <p className="mt-4 max-w-4xl text-lg text-neutral-700">
-          From sourcing one specialist to staffing an entire technology division, MAX IT Consulting delivers at every scale.
+          From filling one critical role to scaling full technology teams, MAX IT Consulting delivers at enterprise scale.
         </p>
       </section>
 
@@ -94,8 +94,8 @@ export default function ServicesPage() {
           <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#7f6720]">Service 1</p>
           <h2 className="mt-2 font-display text-3xl leading-tight text-black sm:text-4xl">IT Staffing & Talent Solutions</h2>
           <p className="mt-3 text-neutral-700">
-            Our core service is connecting enterprise organizations with the IT talent they need fast through contract,
-            contract-to-hire, direct hire, and augmentation models.
+            Our core service is connecting enterprise organizations with high-quality IT talent through contract,
+            contract-to-hire, direct hire, and staff augmentation models.
           </p>
           <div className="mt-5 grid gap-2 md:grid-cols-2">
             {serviceRoles.map((role) => (
@@ -121,7 +121,7 @@ export default function ServicesPage() {
             <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#7f6720]">Service 2</p>
             <h2 className="mt-2 font-display text-3xl leading-tight text-black">Business & IT Consulting</h2>
             <p className="mt-3 text-neutral-700">
-              We align technology investments with business goals through practical consulting and transformation guidance.
+              We align technology investments with business priorities through practical advisory and transformation execution support.
             </p>
             <div className="mt-4 space-y-2">
               {consultingAreas.map((area) => (
@@ -136,7 +136,7 @@ export default function ServicesPage() {
             <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#7f6720]">Service 3</p>
             <h2 className="mt-2 font-display text-3xl leading-tight text-black">Custom Software Development</h2>
             <p className="mt-3 text-neutral-700">
-              When off-the-shelf software is not enough, MAX IT builds tailored enterprise applications and integrations.
+              When off-the-shelf software is not enough, MAX IT delivers custom enterprise applications, APIs, and integrations.
             </p>
             <div className="mt-4 space-y-2">
               {softwareBuildAreas.map((area) => (
@@ -153,7 +153,7 @@ export default function ServicesPage() {
         <MotionCard className="rounded-2xl border border-black/10 bg-white p-6 text-center">
           <h2 className="font-display text-4xl leading-tight text-black sm:text-5xl">Need immediate hiring support?</h2>
           <p className="mx-auto mt-3 max-w-3xl text-neutral-700">
-            Share your role priorities and we will return a delivery plan with timeline, engagement model, and shortlist approach.
+            Share your hiring priorities and we will provide a delivery plan with timeline, engagement model, and shortlist strategy.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <Link href="/contact" className="inline-flex rounded-xl bg-[#111111] px-6 py-3 text-sm font-semibold text-[#d6bc63]">

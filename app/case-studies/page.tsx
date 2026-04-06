@@ -18,14 +18,14 @@ const caseStudies = [
   {
     client: 'Leading Fintech Firm - New Jersey',
     challenge:
-      'Needed to fill 6 senior cloud engineering roles within 3 weeks to support a critical AWS migration.',
+      'Needed to fill 6 senior cloud engineering roles within 3 weeks to support a time-sensitive AWS migration.',
     actions: [
       'Activated US cloud talent network and outbound sourcing lanes',
       'Screened 40+ candidates with technical and behavioral checkpoints',
       'Delivered 6 pre-vetted profiles in 5 days',
     ],
     result:
-      'All 6 roles were filled in 19 days. Migration timelines stayed on track and engagement expanded for additional positions.',
+      'All 6 roles were filled in 19 days. Migration timelines stayed on track and the engagement expanded for additional positions.',
     metrics: ['19 Days to Fill', '6 Placements', '100% Start Rate'],
   },
   {
@@ -37,7 +37,7 @@ const caseStudies = [
       'Managed interview loops with structured feedback tracking',
     ],
     result:
-      'Shortlist quality improved and interview-to-offer conversion increased over two hiring sprints.',
+      'Shortlist quality improved and interview-to-offer conversion increased across two hiring sprints.',
     metrics: ['72-Hour First Submission', '8 Offers Accepted', 'Reduced Time-to-Hire'],
   },
   {
@@ -49,7 +49,7 @@ const caseStudies = [
       'Provided onboarding continuity and retention follow-up',
     ],
     result:
-      'Client achieved predictable release cadence with improved platform support coverage and permanent conversions.',
+      'Client achieved a predictable release cadence with improved support coverage and permanent conversions.',
     metrics: ['4 Critical Roles', '2 Permanent Conversions', 'On-Time Delivery'],
   },
 ]
@@ -73,8 +73,7 @@ export default function CaseStudiesPage() {
           Client Success Stories
         </h1>
         <p className="mt-4 max-w-4xl text-lg text-neutral-300">
-          Real results for real organizations. Here is how MAX IT Consulting has helped enterprise teams hire faster,
-          build smarter, and grow stronger.
+          Real outcomes for enterprise teams. See how MAX IT helped clients hire faster, reduce delivery risk, and scale with confidence.
         </p>
       </section>
 
@@ -111,7 +110,7 @@ export default function CaseStudiesPage() {
         <MotionCard className="rounded-2xl border border-white/12 bg-[#0a1d3f] p-6 text-center">
           <h2 className="font-display text-4xl leading-tight sm:text-5xl">Need Similar Hiring Results?</h2>
           <p className="mx-auto mt-3 max-w-3xl text-neutral-300">
-            Share your hiring brief and we will map a delivery plan with timeline, shortlist approach, and engagement model.
+            Share your hiring brief and we will map a delivery plan with timeline, shortlist strategy, and engagement model.
           </p>
           <Link
             href="/contact"
