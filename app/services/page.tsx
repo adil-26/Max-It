@@ -1,354 +1,188 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
-import Header from '@/components/header'
-import FuturisticBackground from '@/components/futuristic-background'
-import SiteFooter from '@/components/site-footer'
-import { Button } from '@/components/ui/button'
+import AnimatedAccentOrbs from '@/components/animated-accent-orbs'
+import MarketingFooter from '@/components/marketing-footer'
+import MarketingHeader from '@/components/marketing-header'
+import MotionCard from '@/components/motion-card'
 import { createPageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'IT Staffing and IT Consulting Services',
+  title: 'Our Services',
   description:
-    'Explore MAX IT Consulting LLC services including contract staffing, permanent hiring, consulting, workforce planning, and managed delivery support.',
+    'MAX IT Consulting LLC delivers IT staffing, business consulting, and custom software development for enterprise teams across the US, UAE, and India.',
   path: '/services',
   keywords: [
-    'contract IT staffing',
-    'permanent IT hiring',
-    'managed talent programs',
-    'IT consulting services USA',
-    'technology recruitment partner',
+    'IT staffing services',
+    'business IT consulting',
+    'custom software development',
+    'staff augmentation USA',
   ],
 })
 
-const services = [
-  {
-    title: 'IT Staffing Services',
-    desc: 'Contract staffing, contract-to-hire, and permanent recruitment for modern technology roles.',
-  },
-  {
-    title: 'IT Consulting',
-    desc: 'Cloud, data, cybersecurity, DevOps, and enterprise architecture support aligned to delivery goals.',
-  },
-  {
-    title: 'Talent Acquisition',
-    desc: 'End-to-end sourcing, screening, and interview coordination for enterprise technology teams.',
-  },
-  {
-    title: 'Managed Talent Programs',
-    desc: 'Structured workforce scaling models with continuous hiring and delivery oversight.',
-  },
-  {
-    title: 'Workforce Planning',
-    desc: 'Role demand forecasting and phased hiring roadmaps for short-term and long-term growth.',
-  },
-  {
-    title: 'Hiring Process Optimization',
-    desc: 'Interview loop design, candidate scoring models, and feedback workflows to reduce time-to-hire.',
-  },
-  {
-    title: 'Project-Based Teams',
-    desc: 'Rapid team assembly for migration, modernization, and transformation initiatives.',
-  },
-  {
-    title: 'Recruitment Operations Support',
-    desc: 'Pipeline management, candidate communication, and reporting support for internal hiring teams.',
-  },
+const serviceRoles = [
+  'Software Engineers (Java, Python, .NET, Node.js, React)',
+  'Cloud Engineers & Architects (AWS, Azure, GCP)',
+  'DevOps & SRE Engineers',
+  'Data Engineers & Data Scientists',
+  'Cybersecurity Analysts & Engineers',
+  'Project Managers & Scrum Masters',
+  'QA & Test Automation Engineers',
+  'ERP / SAP Consultants',
+  'IT Leadership: CTO, CIO, VP Engineering',
+  'Business Analysts',
+  'Network & Infrastructure Engineers',
+  'Full Stack Developers',
+  'Mobile Engineers (iOS, Android)',
+  'AI/ML Engineers',
 ]
 
 const engagementModels = [
   {
     title: 'Contract Staffing',
-    text: 'Flexible staffing for urgent projects, short-term programs, and specialized execution needs.',
+    text: 'Flexible, project-based placement for urgent skills gaps without long-term commitment.',
   },
   {
     title: 'Contract-to-Hire',
-    text: 'Evaluate role fit in active delivery environments before converting to full-time employment.',
+    text: 'Evaluate consultant performance on the job before making a full-time offer.',
   },
   {
-    title: 'Direct Hire',
-    text: 'Permanent placement for core technology roles and long-term team expansion.',
+    title: 'Direct Hire / Permanent',
+    text: 'Full-cycle recruitment for permanent roles including sourcing, screening, and offer support.',
   },
   {
-    title: 'Managed Hiring Pod',
-    text: 'Dedicated recruiter model for high-volume or multi-role hiring cycles.',
+    title: 'Staff Augmentation',
+    text: 'Embed MAX IT consultants into your team and scale based on project demand.',
   },
 ]
 
-const processSteps = [
-  {
-    step: '01',
-    title: 'Requirement Discovery',
-    text: 'Clarify must-have skills, preferred backgrounds, timeline, and interview plan.',
-  },
-  {
-    step: '02',
-    title: 'Sourcing and Screening',
-    text: 'Source targeted profiles and validate technical, communication, and role-fit readiness.',
-  },
-  {
-    step: '03',
-    title: 'Shortlist and Interviews',
-    text: 'Submit quality-matched candidates with concise notes for faster decision-making.',
-  },
-  {
-    step: '04',
-    title: 'Offer and Onboarding',
-    text: 'Coordinate closure, joining schedules, and onboarding support with minimal friction.',
-  },
+const consultingAreas = [
+  'IT Strategy & Roadmapping',
+  'Digital Transformation',
+  'Process Optimization',
+  'Technology Assessment',
+  'Vendor Selection & Management',
+  'Change Management',
 ]
 
-const outcomes = [
-  'Reduced time-to-submit and time-to-hire',
-  'Improved profile-to-interview conversion',
-  'Higher role-fit quality in shortlist pipelines',
-  'Consistent communication across hiring stages',
-  'Scalable support for multi-role hiring demand',
-]
-
-const servicesGallery = [
-  {
-    title: 'Recruitment Delivery Desk',
-    image: '/media/staffing-dashboard.svg',
-    text: 'Fast-moving recruiter operations to support urgent and niche requirements.',
-  },
-  {
-    title: 'Technical Interview Coordination',
-    image: '/media/collaboration-room.svg',
-    text: 'Structured interview scheduling and feedback loops for smoother hiring cycles.',
-  },
-  {
-    title: 'Candidate Readiness Support',
-    image: '/media/candidate-growth.svg',
-    text: 'Role-focused preparation to improve interview outcomes and joining success.',
-  },
-]
-
-const servicesVideos = [
-  {
-    title: 'Staffing Process Overview',
-    embed: 'https://www.youtube-nocookie.com/embed/M7lc1UVf-VE?rel=0&modestbranding=1',
-    watch: 'https://www.youtube.com/watch?v=M7lc1UVf-VE',
-  },
-  {
-    title: 'Consulting Delivery Snapshot',
-    embed: 'https://www.youtube-nocookie.com/embed/ysz5S6PUM-U?rel=0&modestbranding=1',
-    watch: 'https://www.youtube.com/watch?v=ysz5S6PUM-U',
-  },
+const softwareBuildAreas = [
+  'Enterprise Web Applications',
+  'REST and GraphQL APIs',
+  'System Integrations and Middleware',
+  'Cloud-Native Applications (AWS, Azure, GCP)',
+  'Data Pipelines and Analytics Dashboards',
+  'Mobile Applications (iOS and Android)',
+  'ERP Customizations and Extensions',
+  'Legacy System Modernization',
 ]
 
 export default function ServicesPage() {
   return (
-    <>
-      <Header />
-      <main className="relative overflow-hidden pt-24">
-        <FuturisticBackground subtle />
+    <main className="relative min-h-screen overflow-hidden bg-black text-white">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-[920px] bg-[radial-gradient(circle_at_14%_12%,rgba(234,58,69,0.28)_0%,rgba(234,58,69,0.08)_36%,transparent_60%),radial-gradient(circle_at_84%_18%,rgba(47,99,255,0.28)_0%,rgba(47,99,255,0.08)_40%,transparent_62%)]"
+      />
+      <AnimatedAccentOrbs />
 
-        <section className="mx-auto w-full max-w-[1440px] px-4 py-12 sm:px-8 lg:px-20">
-          <div className="glass-panel p-5 sm:p-10">
-            <p className="text-xs uppercase tracking-[0.22em] text-primary">Services</p>
-            <h1 className="mt-2 text-3xl leading-tight sm:text-5xl">Technology staffing and consulting solutions</h1>
-            <p className="mt-4 max-w-3xl text-muted-foreground">
-              MAX IT Consulting LLC delivers enterprise-grade staffing and consulting support for organizations
-              building secure, scalable, and outcome-focused technology operations.
-            </p>
-            <p className="mt-3 max-w-3xl text-muted-foreground">
-              We support employers through every stage of hiring: demand planning, sourcing, screening,
-              interview coordination, offer closure, and onboarding transition.
-            </p>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Link href="/contact">
-                <Button className="font-display uppercase tracking-[0.12em]">Hire Talent</Button>
-              </Link>
-              <Link href="/employers">
-                <Button variant="outline" className="font-display uppercase tracking-[0.12em]">
-                  Employer Solutions
-                </Button>
-              </Link>
-            </div>
+      <MarketingHeader />
 
-            <div className="mt-6 grid gap-3 sm:grid-cols-3">
-              <div className="rounded-xl border border-border/70 bg-background/80 px-4 py-3">
-                <p className="font-display text-2xl tracking-[0.03em]">Contract</p>
-                <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">Flexible Hiring</p>
+      <section className="mx-auto w-full max-w-[1240px] px-6 pb-10 pt-24 sm:pt-28">
+        <p className="inline-flex rounded-full border border-[#2f63ff]/60 bg-black/55 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-white">
+          Our Services
+        </p>
+        <h1 className="hero-title-animated mt-5 font-display text-4xl leading-[0.96] tracking-tight sm:text-5xl">
+          Our Services
+        </h1>
+        <p className="mt-4 max-w-4xl text-lg text-neutral-300">
+          From sourcing one specialist to staffing an entire technology division, MAX IT Consulting delivers at every scale.
+        </p>
+      </section>
+
+      <section className="mx-auto w-full max-w-[1240px] px-6 pb-8">
+        <MotionCard className="rounded-2xl border border-white/12 bg-[#06080d] p-6">
+          <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#8fb1ff]">Service 1</p>
+          <h2 className="mt-2 font-display text-4xl leading-tight sm:text-5xl">IT Staffing & Talent Solutions</h2>
+          <p className="mt-3 text-neutral-300">
+            Our core service is connecting enterprise organizations with the IT talent they need fast through contract,
+            contract-to-hire, direct hire, and augmentation models. Every profile is screened through our 5-step vetting
+            process before client submission.
+          </p>
+          <div className="mt-5 grid gap-2 md:grid-cols-2">
+            {serviceRoles.map((role) => (
+              <div key={role} className="rounded-lg border border-white/10 bg-black/45 px-3 py-2 text-sm text-neutral-200">
+                {role}
               </div>
-              <div className="rounded-xl border border-border/70 bg-background/80 px-4 py-3">
-                <p className="font-display text-2xl tracking-[0.03em]">Direct Hire</p>
-                <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">Core Team Building</p>
-              </div>
-              <div className="rounded-xl border border-border/70 bg-background/80 px-4 py-3">
-                <p className="font-display text-2xl tracking-[0.03em]">Consulting</p>
-                <p className="text-xs uppercase tracking-[0.14em] text-muted-foreground">Delivery Support</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="mx-auto w-full max-w-[1440px] px-4 py-8 sm:px-8 lg:px-20">
-          <div className="mb-6">
-            <p className="text-xs uppercase tracking-[0.2em] text-primary">Service Portfolio</p>
-            <h2 className="mt-2 text-2xl sm:text-4xl">Comprehensive support across hiring and consulting</h2>
-          </div>
-
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {services.map((service, index) => (
-              <article
-                key={service.title}
-                className="glass-panel reveal-up rounded-xl p-5 sm:p-6"
-                style={{ animationDelay: `${index * 90}ms` }}
-              >
-                <p className="text-xs uppercase tracking-[0.16em] text-secondary">Offering</p>
-                <h3 className="mt-2 font-display text-xl uppercase tracking-[0.06em] sm:text-2xl">{service.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{service.desc}</p>
-              </article>
             ))}
           </div>
-        </section>
-
-        <section className="mx-auto w-full max-w-[1440px] px-4 py-8 sm:px-8 lg:px-20">
-          <div className="glass-panel p-5 sm:p-10">
-            <p className="text-xs uppercase tracking-[0.2em] text-primary">Engagement Models</p>
-            <h2 className="mt-2 text-2xl sm:text-4xl">Flexible ways to partner with MAX IT</h2>
-            <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-              {engagementModels.map((model) => (
-                <article
-                  key={model.title}
-                  className="rounded-xl border border-border/70 bg-background/80 p-5"
-                >
-                  <h3 className="font-display text-xl uppercase tracking-[0.05em] text-foreground">
-                    {model.title}
-                  </h3>
-                  <p className="mt-3 text-sm text-muted-foreground">{model.text}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="mx-auto w-full max-w-[1440px] px-4 py-8 sm:px-8 lg:px-20">
-          <div className="mb-6">
-            <p className="text-xs uppercase tracking-[0.2em] text-primary">Delivery Process</p>
-            <h2 className="mt-2 text-2xl sm:text-4xl">From intake to onboarding, built for execution speed</h2>
-          </div>
-          <div className="grid gap-4 lg:grid-cols-4">
-            {processSteps.map((step) => (
-              <article key={step.step} className="glass-panel rounded-xl p-5 sm:p-6">
-                <p className="text-xs uppercase tracking-[0.16em] text-secondary">Step {step.step}</p>
-                <h3 className="mt-2 font-display text-xl uppercase tracking-[0.05em] sm:text-2xl">{step.title}</h3>
-                <p className="mt-3 text-sm text-muted-foreground">{step.text}</p>
-              </article>
+          <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+            {engagementModels.map((model) => (
+              <MotionCard key={model.title} className="rounded-xl border border-white/10 bg-black/45 p-4">
+                <h3 className="font-display text-2xl leading-tight">{model.title}</h3>
+                <p className="mt-2 text-sm text-neutral-300">{model.text}</p>
+              </MotionCard>
             ))}
           </div>
-        </section>
+        </MotionCard>
+      </section>
 
-        <section className="mx-auto grid w-full max-w-[1440px] gap-6 px-4 py-10 sm:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:px-20">
-          <article className="glass-panel p-5 sm:p-9">
-            <p className="text-xs uppercase tracking-[0.2em] text-primary">Expected Outcomes</p>
-            <h2 className="mt-2 text-3xl sm:text-4xl">What clients gain from our service model</h2>
-            <ul className="mt-5 space-y-3 text-sm leading-relaxed text-muted-foreground">
-              {outcomes.map((outcome) => (
-                <li key={outcome} className="rounded-lg border border-border/70 bg-background/80 px-4 py-3">
-                  {outcome}
-                </li>
-              ))}
-            </ul>
-          </article>
-
-          <article className="glass-panel p-5 sm:p-9">
-            <p className="text-xs uppercase tracking-[0.2em] text-primary">Need a Hiring Partner?</p>
-            <h2 className="mt-2 text-3xl sm:text-4xl">Let us support your next hiring cycle</h2>
-            <p className="mt-4 text-muted-foreground">
-              Whether you need one critical specialist or a full project team, MAX IT Consulting LLC can
-              provide practical, scalable support tailored to your timeline and business priorities.
+      <section className="mx-auto w-full max-w-[1240px] px-6 pb-8">
+        <div className="grid gap-4 md:grid-cols-2">
+          <MotionCard className="rounded-2xl border border-white/12 bg-[#06080d] p-6">
+            <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#8fb1ff]">Service 2</p>
+            <h2 className="mt-2 font-display text-4xl leading-tight">Business & IT Consulting</h2>
+            <p className="mt-3 text-neutral-300">
+              We align technology investments with business goals through practical consulting and transformation guidance.
             </p>
-            <p className="mt-3 text-muted-foreground">
-              Share your requirements and we will propose a focused delivery plan.
-            </p>
-            <div className="mt-6 space-y-3">
-              <Link href="/contact" className="block">
-                <Button className="w-full font-display uppercase tracking-[0.12em]">Contact Team</Button>
-              </Link>
-              <a
-                href="https://in.linkedin.com/company/max-it-consulting"
-                target="_blank"
-                rel="noreferrer"
-                className="block"
-              >
-                <Button variant="outline" className="w-full font-display uppercase tracking-[0.12em]">
-                  LinkedIn
-                </Button>
-              </a>
-            </div>
-          </article>
-        </section>
-
-        <section className="mx-auto w-full max-w-[1440px] px-4 py-8 sm:px-8 lg:px-20">
-          <div className="mb-6">
-            <p className="text-xs uppercase tracking-[0.2em] text-primary">Service Visuals</p>
-            <h2 className="mt-2 text-2xl sm:text-4xl">How our delivery model works on the ground</h2>
-          </div>
-          <div className="grid gap-5 md:grid-cols-3">
-            {servicesGallery.map((item, idx) => (
-              <article
-                key={item.title}
-                className="glass-panel reveal-up overflow-hidden rounded-[1.5rem]"
-                style={{ animationDelay: `${idx * 90}ms` }}
-              >
-                <div className="relative h-52 w-full">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
+            <div className="mt-4 space-y-2">
+              {consultingAreas.map((area) => (
+                <div key={area} className="rounded-lg border border-white/10 bg-black/45 px-3 py-2 text-sm text-neutral-200">
+                  {area}
                 </div>
-                <div className="p-5">
-                  <h3 className="font-display text-2xl uppercase tracking-[0.05em]">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.text}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-
-        <section className="mx-auto w-full max-w-[1440px] px-4 py-8 sm:px-8 lg:px-20">
-          <div className="glass-panel p-5 sm:p-8">
-            <p className="text-xs uppercase tracking-[0.2em] text-primary">Service Videos</p>
-            <h2 className="mt-2 text-2xl sm:text-4xl">Staffing and consulting explainer videos</h2>
-            <div className="mt-5 grid gap-5 md:grid-cols-2">
-              {servicesVideos.map((video) => (
-                <article key={video.title} className="rounded-xl border border-border/70 bg-background/80 p-4">
-                  <p className="mb-3 text-xs uppercase tracking-[0.16em] text-secondary">{video.title}</p>
-                  <div className="relative aspect-video overflow-hidden rounded-xl border border-border/70">
-                    <iframe
-                      src={video.embed}
-                      title={video.title}
-                      className="h-full w-full"
-                      loading="lazy"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      referrerPolicy="strict-origin-when-cross-origin"
-                      allowFullScreen
-                    />
-                  </div>
-                  <p className="mt-3 text-xs text-muted-foreground">
-                    Video not loading?{' '}
-                    <a
-                      href={video.watch}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-secondary underline-offset-4 hover:underline"
-                    >
-                      Open video in new tab
-                    </a>
-                  </p>
-                </article>
               ))}
             </div>
+          </MotionCard>
+
+          <MotionCard className="rounded-2xl border border-white/12 bg-[#06080d] p-6">
+            <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#8fb1ff]">Service 3</p>
+            <h2 className="mt-2 font-display text-4xl leading-tight">Custom Software Development</h2>
+            <p className="mt-3 text-neutral-300">
+              When off-the-shelf software is not enough, MAX IT builds tailored enterprise applications and integrations.
+            </p>
+            <div className="mt-4 space-y-2">
+              {softwareBuildAreas.map((area) => (
+                <div key={area} className="rounded-lg border border-white/10 bg-black/45 px-3 py-2 text-sm text-neutral-200">
+                  {area}
+                </div>
+              ))}
+            </div>
+          </MotionCard>
+        </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-[1240px] px-6 pb-16">
+        <MotionCard className="rounded-2xl border border-white/12 bg-[#0a1d3f] p-6 text-center">
+          <h2 className="font-display text-4xl leading-tight sm:text-5xl">Need immediate hiring support?</h2>
+          <p className="mx-auto mt-3 max-w-3xl text-neutral-300">
+            Share your role priorities and we will return a delivery plan with timeline, engagement model, and shortlist approach.
+          </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
+            <Link
+              href="/contact"
+              className="brand-cta-gradient inline-flex rounded-xl px-6 py-3 text-sm font-semibold text-white"
+            >
+              Request a Free Audit
+            </Link>
+            <Link
+              href="/hiring"
+              className="inline-flex rounded-xl border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10"
+            >
+              View Hiring Process
+            </Link>
           </div>
-        </section>
-      </main>
-      <SiteFooter />
-    </>
+        </MotionCard>
+      </section>
+
+      <MarketingFooter />
+    </main>
   )
 }

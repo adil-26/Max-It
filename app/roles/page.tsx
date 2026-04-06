@@ -5,14 +5,15 @@ import { createPageMetadata } from '@/lib/seo'
 export const metadata: Metadata = createPageMetadata({
   title: 'Enterprise IT Roles',
   description:
-    'Explore enterprise role domains at MAX IT Consulting LLC: Cloud/DevOps, AI/Data Science, Cybersecurity, and SAP/Oracle ERP talent.',
+    'Explore enterprise IT roles at MAX IT Consulting LLC across software engineering, cloud, data, cybersecurity, ERP, QA, and IT leadership.',
   path: '/roles',
   keywords: [
     'enterprise IT roles',
+    'IT role categories',
+    'software engineering staffing',
     'cloud devops staffing',
-    'AI data science recruitment',
     'cybersecurity talent acquisition',
-    'SAP Oracle ERP staffing',
+    'enterprise IT recruitment',
   ],
 })
 

@@ -7,43 +7,127 @@ import MotionCard from '@/components/motion-card'
 const mncPath = [
   {
     step: '01',
-    title: 'AI-Database Filtering',
+    title: 'Discovery Call (Day 1)',
     description:
-      'Role intelligence filters run across our 50,000+ candidate database to generate precise longlists by skill, certifications, industry relevance, and availability.',
+      'We run a focused discovery session to understand role scope, technical requirements, hiring timeline, team structure, and budget context.',
     outcomes: [
-      'Role-to-skill matrix alignment',
-      'Experience and stack compatibility scoring',
-      'Fast parallel-pipeline generation',
+      '30-minute intake with hiring stakeholders',
+      'Role brief + priorities documented',
+      'No-cost consultation to align expectations',
     ],
   },
   {
     step: '02',
-    title: 'Peer-to-Peer Technical Testing',
+    title: 'Requirements Brief (Day 1-2)',
     description:
-      'Domain practitioners evaluate shortlisted candidates through structured technical assessments and practical scenario validation before client submission.',
+      'We finalize mandatory skills, optional skills, compensation range, engagement model, and location requirements before sourcing starts.',
     outcomes: [
-      'Hands-on technical capability checks',
-      'Collaboration and communication validation',
-      'Only top 3% candidate submissions',
+      'Approval-ready role documentation',
+      'Clear must-have vs nice-to-have criteria',
+      'Aligned interview expectations',
     ],
   },
   {
     step: '03',
-    title: 'Enterprise Compliance Verification',
+    title: 'Talent Search & Sourcing (Day 2-4)',
     description:
-      'Final candidates are processed through enterprise background, legal, and security checkpoints aligned to MNC governance requirements.',
+      'Our recruiters activate US, UAE, and India pipelines using direct outreach, referrals, LinkedIn sourcing, and internal candidate intelligence.',
     outcomes: [
-      'Identity and background verification workflows',
-      'Compliance evidence and audit-ready packaging',
-      'Offer readiness aligned to enterprise policy',
+      'Proactive talent outreach',
+      'Parallel sourcing pipelines',
+      'Role-matched longlist generation',
+    ],
+  },
+  {
+    step: '04',
+    title: 'Screening & Vetting (Day 3-5)',
+    description:
+      'Every candidate is evaluated through technical checks, recruiter behavioral screening, background verification, references, and compliance checks.',
+    outcomes: [
+      '5-point vetting methodology',
+      'Only qualified profiles proceed',
+      'Compliance-ready candidate packaging',
+    ],
+  },
+  {
+    step: '05',
+    title: 'Client Interviews (Day 5-7)',
+    description:
+      'You receive 3-5 pre-vetted candidates with recruiter notes. We coordinate interviews, manage feedback loops, and keep candidates engaged.',
+    outcomes: [
+      'First shortlist in 48-72 hours',
+      'Structured interview scheduling',
+      'Fast feedback and iteration support',
+    ],
+  },
+  {
+    step: '06',
+    title: 'Placement & Onboarding (Day 7+)',
+    description:
+      'Once selected, we drive offer coordination, onboarding paperwork, and post-placement support to ensure smooth integration and delivery continuity.',
+    outcomes: [
+      'Offer and joining coordination',
+      'Contractor payroll/compliance support',
+      'Post-placement follow-up',
     ],
   },
 ]
 
 const processBenefits = [
-  'Reduced time-to-hire without sacrificing quality',
-  'Lower technical mismatch risk in final interviews',
-  'Stronger onboarding readiness for enterprise controls',
+  'First candidate submission: 48-72 hours for most enterprise roles',
+  'Shortlist size: 3-5 pre-vetted candidates per role',
+  'Client query response time: within 4 business hours',
+  'Replacement guarantee: free replacement within 30 days',
+  'Background check turnaround: 3-5 business days (24-hour expedited available)',
+]
+
+const vettingStages = [
+  {
+    title: '1. Technical Assessment',
+    check:
+      'Role-specific technical test or live coding, architecture review, or practical case study based on role seniority.',
+  },
+  {
+    title: '2. Recruiter Interview',
+    check:
+      'Structured 30-45 minute conversation assessing communication, collaboration, problem-solving, and role alignment.',
+  },
+  {
+    title: '3. Background Verification',
+    check: 'Employment verification, education checks, identity validation, and security screening where required.',
+  },
+  {
+    title: '4. Reference Check',
+    check:
+      'At least two professional references reviewed with structured performance and reliability validation questions.',
+  },
+  {
+    title: '5. Compliance & Work Authorization',
+    check: 'US W2/C2C/H1B and I-9 checks, plus local labor-law compliance for UAE and India placements.',
+  },
+]
+
+const engagementModels = [
+  {
+    title: 'Contract Staffing',
+    details:
+      'Consultants are engaged for a defined period while remaining on MAX IT payroll. We handle taxes, payroll, benefits, and compliance.',
+  },
+  {
+    title: 'Contract-to-Hire',
+    details:
+      'Start as contract and convert to full-time after evaluation. Ideal where on-the-job fit confirmation is important.',
+  },
+  {
+    title: 'Direct Hire / Permanent',
+    details:
+      'Full-cycle recruitment for permanent positions with shortlist management, offer coordination, and replacement support.',
+  },
+  {
+    title: 'Staff Augmentation',
+    details:
+      'Embed one or more consultants into your team and scale up or down based on project phases and capacity demand.',
+  },
 ]
 
 const hiringHeroPhotos = [
@@ -72,20 +156,18 @@ export default function EmployersPage() {
 
       <MarketingHeader />
 
-      <section className="mx-auto w-full max-w-[1240px] px-6 pb-12 pt-24 sm:pt-28">
+      <section className="mx-auto w-full max-w-[1240px] px-6 pb-10 pt-20 sm:pt-24">
         <div className="grid items-start gap-7 xl:grid-cols-[minmax(0,1fr)_500px]">
           <div className="max-w-5xl">
             <p className="inline-flex rounded-full border border-[#2f63ff]/60 bg-black/55 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-white">
-              Owner-Led Hiring Framework
+              Enterprise Hiring Process
             </p>
-            <h1 className="hero-title-animated mt-6 font-display text-5xl leading-[0.94] tracking-tight sm:text-6xl">
-              A personalized hiring process
-              <br />
-              built for enterprise outcomes.
+            <h1 className="hero-title-animated mt-5 font-display text-4xl leading-[0.96] tracking-tight sm:text-5xl">
+              Our Enterprise Hiring Process
             </h1>
-            <p className="mt-5 max-w-4xl text-xl leading-relaxed text-neutral-300">
-              Watch how our owner-led team runs AI shortlisting, technical validation, and compliance checkpoints to
-              deliver hiring decisions faster without lowering standards.
+            <p className="mt-4 max-w-4xl text-lg leading-relaxed text-neutral-300">
+              We combine speed with precision. From your first brief to placed consultant, this is exactly how MAX IT
+              delivers enterprise hiring outcomes.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
@@ -169,11 +251,11 @@ export default function EmployersPage() {
 
       <section className="mx-auto w-full max-w-[1240px] px-6 pb-16 pt-8">
         <MotionCard className="rounded-[24px] border border-white/12 bg-[#06080d] px-6 py-10 text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f63ff]">Delivery Confidence</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f63ff]">SLA Commitments</p>
           <h2 className="mt-3 font-display text-5xl leading-[0.95] tracking-tight sm:text-6xl">
-            From role intake to compliant onboarding,
+            Operational standards
             <br />
-            one accountable partner.
+            you can plan around.
           </h2>
           <div className="mx-auto mt-5 max-w-3xl space-y-2">
             {processBenefits.map((benefit, idx) => (
@@ -199,6 +281,44 @@ export default function EmployersPage() {
             >
               Request Talent Capability Audit
             </Link>
+          </div>
+        </MotionCard>
+      </section>
+
+      <section className="mx-auto w-full max-w-[1240px] px-6 py-6">
+        <MotionCard className="rounded-[24px] border border-white/12 bg-[#06080d] p-8">
+          <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f63ff]">
+            5-Point Candidate Vetting Methodology
+          </p>
+          <div className="mt-5 grid gap-3 md:grid-cols-2">
+            {vettingStages.map((stage, idx) => (
+              <MotionCard
+                key={stage.title}
+                delay={idx * 0.06}
+                className="rounded-xl border border-white/10 bg-black/45 p-4"
+              >
+                <h3 className="font-display text-2xl leading-tight">{stage.title}</h3>
+                <p className="mt-2 text-sm text-neutral-300">{stage.check}</p>
+              </MotionCard>
+            ))}
+          </div>
+        </MotionCard>
+      </section>
+
+      <section className="mx-auto w-full max-w-[1240px] px-6 pb-16 pt-6">
+        <MotionCard className="rounded-[24px] border border-white/12 bg-[#06080d] p-8">
+          <p className="text-sm font-semibold uppercase tracking-[0.12em] text-[#2f63ff]">Engagement Models</p>
+          <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+            {engagementModels.map((model, idx) => (
+              <MotionCard
+                key={model.title}
+                delay={idx * 0.05}
+                className="rounded-xl border border-white/10 bg-black/45 p-4"
+              >
+                <h3 className="font-display text-2xl leading-tight">{model.title}</h3>
+                <p className="mt-2 text-sm text-neutral-300">{model.details}</p>
+              </MotionCard>
+            ))}
           </div>
         </MotionCard>
       </section>

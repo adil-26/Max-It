@@ -5,13 +5,13 @@ import { createPageMetadata } from '@/lib/seo'
 export const metadata: Metadata = createPageMetadata({
   title: 'Enterprise Hiring Process',
   description:
-    'Understand the MAX IT Consulting LLC MNC Path: AI database filtering, peer technical testing, and enterprise compliance verification.',
+    'Understand the MAX IT Consulting LLC 6-step enterprise hiring process, SLA commitments, and structured vetting methodology.',
   path: '/hiring',
   keywords: [
     'enterprise hiring process',
-    'MNC path staffing',
+    '48-72 hour candidate submission',
     'technical vetting process',
-    'compliance-first recruitment',
+    'enterprise staffing SLA',
   ],
 })
 
