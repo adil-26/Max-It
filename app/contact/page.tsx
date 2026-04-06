@@ -1,9 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import AnimatedAccentOrbs from '@/components/animated-accent-orbs'
-import MarketingHeader from '@/components/marketing-header'
 import MarketingFooter from '@/components/marketing-footer'
+import MarketingHeader from '@/components/marketing-header'
 import MotionCard from '@/components/motion-card'
 import { supabase } from '@/lib/supabase'
 
@@ -91,45 +90,27 @@ export default function ContactPage() {
   }
 
   return (
-    <main className="marketing-light relative min-h-screen overflow-hidden bg-black text-white">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-[860px] bg-[radial-gradient(circle_at_14%_10%,rgba(235,58,69,0.3)_0%,rgba(235,58,69,0.08)_32%,transparent_58%),radial-gradient(circle_at_86%_18%,rgba(47,99,255,0.26)_0%,rgba(47,99,255,0.08)_40%,transparent_62%)]"
-      />
-      <AnimatedAccentOrbs />
-
+    <main className="min-h-screen bg-[#f7f6f2] text-[#191919]">
       <MarketingHeader />
 
       <section className="mx-auto grid w-full max-w-[1240px] gap-8 px-6 pb-14 pt-24 sm:pt-28 lg:grid-cols-[0.95fr_1.05fr]">
-        <aside className="reveal-up">
-          <h1 className="hero-title-animated font-display text-4xl leading-[0.96] tracking-tight sm:text-5xl">
+        <aside>
+          <p className="inline-flex rounded-full border border-[#d7c27a] bg-[#f3eddb] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-[#7f6720]">
+            Contact
+          </p>
+          <h1 className="mt-5 font-display text-4xl leading-[0.96] tracking-tight sm:text-5xl">
             Request a Free
             <br />
             Talent Capability Audit
           </h1>
-          <p className="mt-4 text-lg text-neutral-300">
+          <p className="mt-4 text-lg text-neutral-700">
             Our Talent Capability Audit is a free 30-minute consultation where we assess team gaps, hiring priorities,
             and provide a custom recruitment roadmap with zero commitment.
           </p>
 
-          <div className="mt-10">
-            <p className="text-4xl font-semibold leading-tight">What happens next:</p>
-            <div className="mt-6 space-y-3 text-xl text-neutral-300">
-              <MotionCard className="rounded-xl border border-white/10 bg-black/35 px-4 py-3">
-                1. Initial scope review with your hiring stakeholders.
-              </MotionCard>
-              <MotionCard delay={0.06} className="rounded-xl border border-white/10 bg-black/35 px-4 py-3">
-                2. Domain-based talent coverage analysis.
-              </MotionCard>
-              <MotionCard delay={0.12} className="rounded-xl border border-white/10 bg-black/35 px-4 py-3">
-                3. Recommended execution model: onshore, nearshore, offshore.
-              </MotionCard>
-            </div>
-          </div>
-
-          <MotionCard className="mt-8 rounded-2xl border border-white/10 bg-black/35 p-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#8fb1ff]">Contact Information</p>
-            <div className="mt-3 space-y-3 text-sm text-neutral-300">
+          <MotionCard className="mt-8 rounded-2xl border border-black/10 bg-white p-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#7f6720]">Contact Information</p>
+            <div className="mt-3 space-y-3 text-sm text-neutral-700">
               <p>
                 US: 25 Oak Tavern Circle, Branchburg, New Jersey 08876, USA
                 <br />
@@ -151,74 +132,94 @@ export default function ContactPage() {
                 <br />
                 Email: india@maxitconsultingllc.com
               </p>
-              <p className="text-xs font-semibold uppercase tracking-[0.1em] text-[#8fb1ff]">
+              <p className="text-xs font-semibold uppercase tracking-[0.1em] text-[#7f6720]">
                 Response Time: Within 4 Business Hours
               </p>
             </div>
           </MotionCard>
+
+          <MotionCard className="mt-4 overflow-hidden rounded-2xl border border-black/10 bg-white">
+            <div className="border-b border-black/10 px-4 py-3">
+              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#7f6720]">Founder Message Video</p>
+            </div>
+            <div className="p-4">
+              <div className="mx-auto w-full max-w-[240px] overflow-hidden rounded-xl border border-black/10 bg-[#f9f9f9]">
+                <div className="relative aspect-[9/16]">
+                  <video
+                    className="h-full w-full object-contain"
+                    src="/media/hiring-owner-message-portrait.mp4"
+                    controls
+                    controlsList="nodownload noplaybackrate noremoteplayback"
+                    disablePictureInPicture
+                    disableRemotePlayback
+                    playsInline
+                    preload="metadata"
+                  />
+                </div>
+              </div>
+            </div>
+          </MotionCard>
         </aside>
 
-        <MotionCard className="rounded-[18px] border border-white/10 bg-[#07080a] p-5 sm:p-6">
+        <MotionCard className="rounded-[18px] border border-black/10 bg-white p-5 sm:p-6">
           <form onSubmit={handleSubmit} className="space-y-4">
             {success ? (
-              <div className="rounded-xl border border-emerald-400/40 bg-emerald-500/15 p-3 text-sm text-emerald-100">
+              <div className="rounded-xl border border-emerald-400/40 bg-emerald-500/10 p-3 text-sm text-emerald-700">
                 Thank you. Your capability audit request was submitted successfully.
               </div>
             ) : null}
 
             {error ? (
-              <div className="rounded-xl border border-red-400/40 bg-red-500/15 p-3 text-sm text-red-100">
-                {error}
-              </div>
+              <div className="rounded-xl border border-red-400/40 bg-red-500/10 p-3 text-sm text-red-700">{error}</div>
             ) : null}
 
-            <div className="reveal-zoom">
-              <label className="mb-2 block text-sm text-neutral-300">Name</label>
+            <div>
+              <label className="mb-2 block text-sm text-neutral-700">Name</label>
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Alex Morgan"
-                className="h-12 w-full rounded-lg border border-white/10 bg-black/35 px-4 text-base text-white placeholder:text-neutral-500"
+                className="h-12 w-full rounded-lg border border-black/10 bg-white px-4 text-base text-black placeholder:text-neutral-500"
                 required
               />
             </div>
 
-            <div className="reveal-zoom">
-              <label className="mb-2 block text-sm text-neutral-300">Company</label>
+            <div>
+              <label className="mb-2 block text-sm text-neutral-700">Company</label>
               <input
                 type="text"
                 name="company"
                 value={formData.company}
                 onChange={handleChange}
                 placeholder="Global Enterprise Inc."
-                className="h-12 w-full rounded-lg border border-white/10 bg-black/35 px-4 text-base text-white placeholder:text-neutral-500"
+                className="h-12 w-full rounded-lg border border-black/10 bg-white px-4 text-base text-black placeholder:text-neutral-500"
                 required
               />
             </div>
 
-            <div className="reveal-zoom">
-              <label className="mb-2 block text-sm text-neutral-300">Your Role / Title</label>
+            <div>
+              <label className="mb-2 block text-sm text-neutral-700">Your Role / Title</label>
               <input
                 type="text"
                 name="roleTitle"
                 value={formData.roleTitle}
                 onChange={handleChange}
                 placeholder="VP Engineering, HR Director, CTO"
-                className="h-12 w-full rounded-lg border border-white/10 bg-black/35 px-4 text-base text-white placeholder:text-neutral-500"
+                className="h-12 w-full rounded-lg border border-black/10 bg-white px-4 text-base text-black placeholder:text-neutral-500"
                 required
               />
             </div>
 
-            <div className="reveal-zoom">
-              <label className="mb-2 block text-sm text-neutral-300">Phone</label>
+            <div>
+              <label className="mb-2 block text-sm text-neutral-700">Phone</label>
               <div className="grid grid-cols-[120px_1fr] gap-2">
                 <select
                   name="phoneCountry"
                   value={formData.phoneCountry}
                   onChange={handleChange}
-                  className="h-12 rounded-lg border border-white/10 bg-black/35 px-3 text-sm text-white"
+                  className="h-12 rounded-lg border border-black/10 bg-white px-3 text-sm text-black"
                 >
                   <option value="+1">+1 US</option>
                   <option value="+971">+971 UAE</option>
@@ -230,31 +231,31 @@ export default function ContactPage() {
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="555 000 1234"
-                  className="h-12 w-full rounded-lg border border-white/10 bg-black/35 px-4 text-base text-white placeholder:text-neutral-500"
+                  className="h-12 w-full rounded-lg border border-black/10 bg-white px-4 text-base text-black placeholder:text-neutral-500"
                 />
               </div>
             </div>
 
-            <div className="reveal-zoom">
-              <label className="mb-2 block text-sm text-neutral-300">Business Email</label>
+            <div>
+              <label className="mb-2 block text-sm text-neutral-700">Business Email</label>
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="alex@enterprise.com"
-                className="h-12 w-full rounded-lg border border-white/10 bg-black/35 px-4 text-base text-white placeholder:text-neutral-500"
+                className="h-12 w-full rounded-lg border border-black/10 bg-white px-4 text-base text-black placeholder:text-neutral-500"
                 required
               />
             </div>
 
-            <div className="reveal-zoom">
-              <label className="mb-2 block text-sm text-neutral-300">How Can We Help?</label>
+            <div>
+              <label className="mb-2 block text-sm text-neutral-700">How Can We Help?</label>
               <select
                 name="helpType"
                 value={formData.helpType}
                 onChange={handleChange}
-                className="h-12 w-full rounded-lg border border-white/10 bg-black/35 px-4 text-base text-white"
+                className="h-12 w-full rounded-lg border border-black/10 bg-white px-4 text-base text-black"
               >
                 <option value="IT Staffing (Contract)">IT Staffing (Contract)</option>
                 <option value="IT Staffing (Direct Hire)">IT Staffing (Direct Hire)</option>
@@ -265,13 +266,13 @@ export default function ContactPage() {
               </select>
             </div>
 
-            <div className="reveal-zoom">
-              <label className="mb-2 block text-sm text-neutral-300">Inquiry Category</label>
+            <div>
+              <label className="mb-2 block text-sm text-neutral-700">Inquiry Category</label>
               <select
                 name="subject"
                 value={formData.subject}
                 onChange={handleChange}
-                className="h-12 w-full rounded-lg border border-white/10 bg-black/35 px-4 text-base text-white"
+                className="h-12 w-full rounded-lg border border-black/10 bg-white px-4 text-base text-black"
               >
                 <option value="staffing">Talent Capability Audit</option>
                 <option value="general">General Inquiry</option>
@@ -280,109 +281,27 @@ export default function ContactPage() {
               </select>
             </div>
 
-            <div className="reveal-zoom">
-              <label className="mb-2 block text-sm text-neutral-300">Number of Positions</label>
-              <select
-                name="positions"
-                value={formData.positions}
-                onChange={handleChange}
-                className="h-12 w-full rounded-lg border border-white/10 bg-black/35 px-4 text-base text-white"
-              >
-                <option value="">Select...</option>
-                <option value="1">1</option>
-                <option value="2-5">2-5</option>
-                <option value="6-10">6-10</option>
-                <option value="10+">10+</option>
-                <option value="Not sure yet">Not sure yet</option>
-              </select>
-            </div>
-
-            <div className="reveal-zoom">
-              <label className="mb-2 block text-sm text-neutral-300">Technology / Skills Needed</label>
-              <textarea
-                name="techSkills"
-                value={formData.techSkills}
-                onChange={handleChange}
-                placeholder="AWS engineers, React developers, Data Scientists..."
-                rows={3}
-                className="w-full rounded-lg border border-white/10 bg-black/35 px-4 py-3 text-base text-white placeholder:text-neutral-500"
-              />
-            </div>
-
-            <div className="reveal-zoom">
-              <label className="mb-2 block text-sm text-neutral-300">Hiring Timeline</label>
-              <select
-                name="timeline"
-                value={formData.timeline}
-                onChange={handleChange}
-                className="h-12 w-full rounded-lg border border-white/10 bg-black/35 px-4 text-base text-white"
-              >
-                <option value="">Select...</option>
-                <option value="ASAP (within 2 weeks)">ASAP (within 2 weeks)</option>
-                <option value="Within 1 month">Within 1 month</option>
-                <option value="1-3 months">1-3 months</option>
-                <option value="3-6 months">3-6 months</option>
-                <option value="Planning ahead">Planning ahead</option>
-              </select>
-            </div>
-
-            <div className="reveal-zoom">
-              <label className="mb-2 block text-sm text-neutral-300">Message</label>
+            <div>
+              <label className="mb-2 block text-sm text-neutral-700">Message</label>
               <textarea
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="Share current hiring demand, target domains, locations, and timeline..."
                 rows={5}
-                className="w-full rounded-lg border border-white/10 bg-black/35 px-4 py-3 text-base text-white placeholder:text-neutral-500"
+                className="w-full rounded-lg border border-black/10 bg-white px-4 py-3 text-base text-black placeholder:text-neutral-500"
                 required
               />
-            </div>
-
-            <div className="reveal-zoom">
-              <label className="mb-2 block text-sm text-neutral-300">How did you hear about us?</label>
-              <select
-                name="source"
-                value={formData.source}
-                onChange={handleChange}
-                className="h-12 w-full rounded-lg border border-white/10 bg-black/35 px-4 text-base text-white"
-              >
-                <option value="">Select...</option>
-                <option value="LinkedIn">LinkedIn</option>
-                <option value="Google">Google</option>
-                <option value="Referral">Referral</option>
-                <option value="Job Board">Job Board</option>
-                <option value="Other">Other</option>
-              </select>
             </div>
 
             <button
               type="submit"
               disabled={loading}
-              className="brand-cta-gradient reveal-zoom w-full rounded-full px-6 py-3 text-sm font-semibold text-white transition disabled:cursor-not-allowed disabled:opacity-60"
+              className="w-full rounded-xl bg-[#111111] px-6 py-3 text-sm font-semibold text-[#d6bc63] transition disabled:cursor-not-allowed disabled:opacity-60"
             >
               {loading ? 'SUBMITTING...' : 'GET MY FREE TALENT AUDIT ->'}
             </button>
           </form>
-        </MotionCard>
-      </section>
-
-      <section className="mx-auto w-full max-w-[1240px] px-6 pb-14">
-        <MotionCard className="rounded-[18px] border border-white/10 bg-[#07080a] p-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#8fb1ff]">
-            Prefer to book directly? Pick a time that works for you.
-          </p>
-          <p className="mt-2 text-sm text-neutral-300">
-            Free Talent Capability Audit - 30 minutes - video call format.
-          </p>
-          <div className="mt-4 overflow-hidden rounded-xl border border-white/10 bg-black/35">
-            <iframe
-              src="https://calendly.com/maxitconsultingllc/talent-audit"
-              title="Book Talent Capability Audit"
-              className="h-[680px] w-full"
-              loading="lazy"
-            />
-          </div>
         </MotionCard>
       </section>
 
