@@ -46,6 +46,21 @@ const processBenefits = [
   'Stronger onboarding readiness for enterprise controls',
 ]
 
+const hiringHeroPhotos = [
+  {
+    src: '/media/hiring-hero-photo-1.jpg',
+    alt: 'Interview candidate presenting documents across a glass meeting table.',
+  },
+  {
+    src: '/media/hiring-hero-photo-2.jpg',
+    alt: 'Candidate and hiring manager reviewing role expectations in an interview room.',
+  },
+  {
+    src: '/media/hiring-hero-photo-3.jpg',
+    alt: 'Professional interview discussion between a hiring lead and candidate.',
+  },
+]
+
 export default function EmployersPage() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-black text-white">
@@ -57,20 +72,71 @@ export default function EmployersPage() {
 
       <MarketingHeader />
 
-      <section className="mx-auto w-full max-w-[1240px] px-6 pb-12 pt-36">
-        <div className="max-w-5xl">
-          <p className="inline-flex rounded-full border border-[#2f63ff]/60 bg-black/55 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-white">
-            The MNC Path
-          </p>
-          <h1 className="hero-title-animated mt-6 font-display text-6xl leading-[0.92] tracking-tight sm:text-8xl">
-            Hiring process designed
-            <br />
-            for enterprise rigor.
-          </h1>
-          <p className="mt-5 max-w-4xl text-xl leading-relaxed text-neutral-300">
-            Our process combines speed, technical depth, and compliance control so enterprise teams can hire with
-            confidence at scale.
-          </p>
+      <section className="mx-auto w-full max-w-[1240px] px-6 pb-12 pt-24 sm:pt-28">
+        <div className="grid items-start gap-7 xl:grid-cols-[minmax(0,1fr)_500px]">
+          <div className="max-w-5xl">
+            <p className="inline-flex rounded-full border border-[#2f63ff]/60 bg-black/55 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-white">
+              Owner-Led Hiring Framework
+            </p>
+            <h1 className="hero-title-animated mt-6 font-display text-6xl leading-[0.92] tracking-tight sm:text-8xl">
+              A personalized hiring process
+              <br />
+              built for enterprise outcomes.
+            </h1>
+            <p className="mt-5 max-w-4xl text-xl leading-relaxed text-neutral-300">
+              Watch how our owner-led team runs AI shortlisting, technical validation, and compliance checkpoints to
+              deliver hiring decisions faster without lowering standards.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                href="/contact"
+                className="rounded-xl bg-[#2f63ff] px-6 py-3 text-sm font-semibold text-white hover:bg-[#3f72ff]"
+              >
+                Book Hiring Strategy Call
+              </Link>
+              <Link
+                href="/roles"
+                className="rounded-xl border border-white/20 bg-white/5 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10"
+              >
+                Explore Role Domains
+              </Link>
+            </div>
+          </div>
+
+          <MotionCard className="overflow-hidden rounded-[24px] border border-white/12 bg-[#06080d]/90">
+            <div className="border-b border-white/10 px-5 py-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#8fb1ff]">Founder Video</p>
+              <p className="mt-1 text-sm text-neutral-300">
+                Hiring process walk-through and personalized delivery approach.
+              </p>
+            </div>
+            <div className="px-4 pb-3 pt-4 sm:px-6">
+              <div className="mx-auto w-full max-w-[320px] overflow-hidden rounded-2xl border border-white/10 bg-black/45">
+                <div className="relative aspect-[9/16]">
+                  <video
+                    className="h-full w-full object-contain"
+                    src="/media/hiring-owner-message-portrait.mp4"
+                    controls
+                    controlsList="nodownload noplaybackrate noremoteplayback"
+                    disablePictureInPicture
+                    disableRemotePlayback
+                    playsInline
+                    preload="metadata"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="grid grid-cols-3 gap-2 p-4 pt-2">
+              {hiringHeroPhotos.map((photo) => (
+                <div key={photo.src} className="overflow-hidden rounded-lg border border-white/10 bg-black/35">
+                  <img src={photo.src} alt={photo.alt} className="h-full w-full object-cover" loading="lazy" />
+                </div>
+              ))}
+            </div>
+            <p className="px-4 pb-4 text-[11px] text-neutral-400">
+              Photos sourced from Wikimedia Commons (amtec_photos, CC BY-SA 2.0). Player controls hide download.
+            </p>
+          </MotionCard>
         </div>
       </section>
 
