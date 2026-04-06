@@ -189,36 +189,76 @@ export default function HomePage() {
 
       <MarketingHeader />
 
-      <section className="mx-auto w-full max-w-[1240px] px-6 pb-14 pt-36">
-        <div className="max-w-5xl">
-          <p className="inline-flex rounded-full border border-[#2f63ff]/60 bg-black/55 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-white">
-            Staffing at the Speed of Business
-          </p>
-          <h1 className="hero-title-animated mt-6 font-display text-6xl leading-[0.92] tracking-tight sm:text-8xl">
-            Trusted technology partner
-            <br />
-            for modern business growth.
-          </h1>
-          <p className="mt-5 max-w-4xl text-xl leading-relaxed text-neutral-300">
-            Welcome to Max IT Consulting LLC. We help organizations navigate the evolving landscape of technology and
-            innovation through practical IT and business consulting, specialized staffing, and delivery-focused
-            engineering support.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href="/contact"
-              className="brand-cta-gradient inline-flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-semibold text-white"
-            >
-              Request a Talent Capability Audit
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link
-              href="/roles"
-              className="rounded-xl border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10"
-            >
-              Explore Enterprise Roles
-            </Link>
+      <section className="mx-auto w-full max-w-[1240px] px-6 pb-14 pt-28 sm:pt-32">
+        <div className="grid items-start gap-8 xl:grid-cols-[minmax(0,1fr)_430px]">
+          <div className="max-w-5xl">
+            <p className="inline-flex rounded-full border border-[#2f63ff]/60 bg-black/55 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-white">
+              Staffing at the Speed of Business
+            </p>
+            <h1 className="hero-title-animated mt-6 font-display text-5xl leading-[0.94] tracking-tight sm:text-6xl">
+              Trusted technology partner
+              <br />
+              for modern business growth.
+            </h1>
+            <p className="mt-5 max-w-4xl text-xl leading-relaxed text-neutral-300">
+              Welcome to Max IT Consulting LLC. We help organizations navigate the evolving landscape of technology and
+              innovation through practical IT and business consulting, specialized staffing, and delivery-focused
+              engineering support.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                href="/contact"
+                className="brand-cta-gradient inline-flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-semibold text-white"
+              >
+                Request a Talent Capability Audit
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                href="/roles"
+                className="rounded-xl border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10"
+              >
+                Explore Enterprise Roles
+              </Link>
+            </div>
           </div>
+
+          <MotionCard className="overflow-hidden rounded-[24px] border border-white/12 bg-[#06080d]/90">
+            <div className="border-b border-white/10 px-4 py-3">
+              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#8fb1ff]">Founder Videos</p>
+            </div>
+            <div className="grid grid-cols-2 gap-3 px-4 pb-4 pt-4">
+              <div className="overflow-hidden rounded-2xl border border-white/10 bg-black/40">
+                <div className="relative aspect-[9/16]">
+                  <video
+                    className="h-full w-full object-contain"
+                    src="/media/hiring-owner-message-portrait.mp4"
+                    controls
+                    controlsList="nodownload noplaybackrate noremoteplayback"
+                    disablePictureInPicture
+                    disableRemotePlayback
+                    playsInline
+                    preload="metadata"
+                  />
+                </div>
+                <p className="px-2 py-2 text-[11px] text-neutral-400">Video 1: Hiring overview</p>
+              </div>
+              <div className="overflow-hidden rounded-2xl border border-white/10 bg-black/40">
+                <div className="relative aspect-[9/16]">
+                  <video
+                    className="h-full w-full object-contain"
+                    src="/media/hiring-owner-message-2.mp4"
+                    controls
+                    controlsList="nodownload noplaybackrate noremoteplayback"
+                    disablePictureInPicture
+                    disableRemotePlayback
+                    playsInline
+                    preload="metadata"
+                  />
+                </div>
+                <p className="px-2 py-2 text-[11px] text-neutral-400">Video 2: Personalized process</p>
+              </div>
+            </div>
+          </MotionCard>
         </div>
 
         <div className="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">

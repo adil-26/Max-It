@@ -77,9 +77,9 @@ export default function ContactPage() {
 
       <MarketingHeader />
 
-      <section className="mx-auto grid w-full max-w-[1240px] gap-8 px-6 pb-14 pt-36 lg:grid-cols-[0.95fr_1.05fr]">
+      <section className="mx-auto grid w-full max-w-[1240px] gap-8 px-6 pb-14 pt-28 sm:pt-32 lg:grid-cols-[0.95fr_1.05fr]">
         <aside className="reveal-up">
-          <h1 className="hero-title-animated font-display text-7xl leading-[0.9] tracking-tight">
+          <h1 className="hero-title-animated font-display text-5xl leading-[0.95] tracking-tight sm:text-6xl">
             Request a Talent
             <br />
             Capability Audit.

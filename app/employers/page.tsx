@@ -78,7 +78,7 @@ export default function EmployersPage() {
             <p className="inline-flex rounded-full border border-[#2f63ff]/60 bg-black/55 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-white">
               Owner-Led Hiring Framework
             </p>
-            <h1 className="hero-title-animated mt-6 font-display text-6xl leading-[0.92] tracking-tight sm:text-8xl">
+            <h1 className="hero-title-animated mt-6 font-display text-5xl leading-[0.94] tracking-tight sm:text-6xl">
               A personalized hiring process
               <br />
               built for enterprise outcomes.

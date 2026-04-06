@@ -20,9 +20,9 @@ export default function TermsAndConditionsPage() {
 
       <MarketingHeader />
 
-      <section className="mx-auto w-full max-w-[1040px] px-6 pb-16 pt-36">
+      <section className="mx-auto w-full max-w-[1040px] px-6 pb-16 pt-28 sm:pt-32">
         <p className="text-sm font-semibold uppercase tracking-[0.14em] text-[#ea3a45]">Legal</p>
-        <h1 className="hero-title-animated mt-2 font-display text-6xl tracking-tight sm:text-7xl">
+        <h1 className="hero-title-animated mt-2 font-display text-4xl tracking-tight sm:text-5xl">
           Terms and Conditions
         </h1>
         <p className="mt-4 text-xl text-neutral-300">

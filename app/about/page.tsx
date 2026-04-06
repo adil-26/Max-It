@@ -76,12 +76,12 @@ export default function AboutPage() {
 
       <MarketingHeader />
 
-      <section className="mx-auto w-full max-w-[1240px] px-6 pb-12 pt-36">
+      <section className="mx-auto w-full max-w-[1240px] px-6 pb-12 pt-28 sm:pt-32">
         <div className="max-w-5xl">
           <p className="inline-flex rounded-full border border-[#2f63ff]/60 bg-black/55 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-white">
             About MAX IT Consulting LLC
           </p>
-          <h1 className="hero-title-animated mt-6 font-display text-6xl leading-[0.92] tracking-tight sm:text-8xl">
+          <h1 className="hero-title-animated mt-6 font-display text-5xl leading-[0.94] tracking-tight sm:text-6xl">
             Trusted advisors for
             <br />
             technology and growth.

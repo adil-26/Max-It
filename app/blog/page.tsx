@@ -51,10 +51,10 @@ export default function BlogPage() {
 
       <MarketingHeader />
 
-      <section className="reveal-up mx-auto w-full max-w-[1240px] px-6 pb-10 pt-36">
+      <section className="reveal-up mx-auto w-full max-w-[1240px] px-6 pb-10 pt-28 sm:pt-32">
         <div className="grid items-end gap-8 xl:grid-cols-[1.05fr_0.95fr]">
           <div>
-            <h1 className="hero-title-animated max-w-4xl font-display text-7xl leading-[0.9] tracking-tight">
+            <h1 className="hero-title-animated max-w-4xl font-display text-5xl leading-[0.95] tracking-tight sm:text-6xl">
               Insights, trends, and
               <br />
               career tips in tech.
