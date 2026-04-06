@@ -216,7 +216,7 @@ export default function HomePage() {
               <br />
               Without Hiring Delays.
             </h1>
-            <p className="mt-3 max-w-3xl text-base leading-relaxed text-neutral-700 sm:text-lg">
+            <p className="mt-3 max-w-[60ch] text-base leading-relaxed text-neutral-700 text-pretty sm:text-lg">
               MAX IT Consulting helps enterprise teams hire faster and execute better through specialized IT staffing,
               business consulting, and software delivery across the US, UAE, and India.
             </p>
