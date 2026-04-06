@@ -246,6 +246,19 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
+
+            <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {companySignals.map((item, idx) => (
+                <MotionCard
+                  key={item.value + item.label}
+                  delay={idx * 0.06}
+                  className="rounded-xl border border-black/10 bg-white p-4"
+                >
+                  <p className="font-display text-2xl leading-tight text-black">{item.value}</p>
+                  <p className="mt-2 text-xs font-semibold uppercase tracking-[0.12em] text-[#7f6720]">{item.label}</p>
+                </MotionCard>
+              ))}
+            </div>
           </div>
 
           <MotionCard className="overflow-hidden rounded-2xl border border-black/10 bg-white shadow-[0_8px_24px_rgba(0,0,0,0.08)]">
@@ -279,14 +292,6 @@ export default function HomePage() {
           </MotionCard>
         </div>
 
-        <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-          {companySignals.map((item, idx) => (
-            <MotionCard key={item.value + item.label} delay={idx * 0.06} className="rounded-xl border border-black/10 bg-white p-4">
-              <p className="font-display text-2xl leading-tight text-black">{item.value}</p>
-              <p className="mt-2 text-xs font-semibold uppercase tracking-[0.12em] text-[#7f6720]">{item.label}</p>
-            </MotionCard>
-          ))}
-        </div>
       </section>
 
       <section className="mx-auto w-full max-w-[1240px] px-6 py-8">
