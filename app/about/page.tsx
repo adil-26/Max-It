@@ -190,11 +190,11 @@ export default function AboutPage() {
             <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#7f6720]">Global Offices</p>
             <div className="mt-4 grid gap-3 md:grid-cols-3">
               {offices.map((office) => (
-                <div key={office.name} className="rounded-xl border border-black/10 bg-[#fafafa] p-4">
+                <div key={office.name} className="min-w-0 rounded-xl border border-black/10 bg-[#fafafa] p-4">
                   <h4 className="text-lg font-semibold text-black">{office.name}</h4>
                   <p className="mt-2 text-sm text-neutral-700">{office.address}</p>
                   <p className="mt-2 text-xs font-semibold uppercase tracking-[0.08em] text-[#7f6720]">{office.phone}</p>
-                  <p className="mt-2 text-xs font-semibold uppercase tracking-[0.08em] text-neutral-700">{office.email}</p>
+                  <p className="mt-2 break-all text-xs font-semibold tracking-[0.04em] text-neutral-700">{office.email}</p>
                   <p className="mt-1 text-xs text-neutral-500">{office.timezone}</p>
                 </div>
               ))}
