@@ -29,6 +29,27 @@ const companySignals = [
   { value: '10+', label: 'Verticals Served' },
 ]
 
+const heroHighlights = [
+  'Enterprise-first screening and compliance process',
+  'Fast shortlist delivery for urgent business timelines',
+  'Coverage across software, cloud, data, cybersecurity, and ERP',
+]
+
+const heroShowcasePhotos = [
+  {
+    src: '/media/hiring-hero-photo-1.jpg',
+    alt: 'Hiring manager and candidate discussing role fit in a meeting room.',
+  },
+  {
+    src: '/media/hiring-hero-photo-2.jpg',
+    alt: 'Recruiter reviewing candidate details during an interview process.',
+  },
+  {
+    src: '/media/hiring-hero-photo-3.jpg',
+    alt: 'Professional hiring interview with role expectations discussion.',
+  },
+]
+
 const serviceStack = [
   {
     title: 'IT Staffing & Talent Solutions',
@@ -90,6 +111,69 @@ const testimonials = [
   },
 ]
 
+const deliveryFramework = [
+  {
+    title: '1. Discovery and Role Mapping',
+    description:
+      'We align role expectations, delivery timelines, budget, and must-have skills with hiring stakeholders before sourcing starts.',
+  },
+  {
+    title: '2. Targeted Sourcing and Vetting',
+    description:
+      'We run multi-channel sourcing and apply structured technical and behavioral vetting before client submission.',
+  },
+  {
+    title: '3. Interview and Feedback Management',
+    description:
+      'We coordinate interview loops, track decision feedback, and optimize shortlist quality with each cycle.',
+  },
+  {
+    title: '4. Placement and Onboarding Continuity',
+    description:
+      'From offer closure to onboarding and post-placement follow-up, we stay accountable for delivery continuity.',
+  },
+]
+
+const marketInsights = [
+  {
+    title: 'Software Roles Continue to Expand',
+    stat: '15% Growth',
+    detail: 'BLS projects software developer employment growth from 2024 to 2034.',
+    source: 'https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm',
+  },
+  {
+    title: 'Cybersecurity Talent Demand Remains High',
+    stat: '29% Growth',
+    detail: 'BLS projects information security analyst employment growth from 2024 to 2034.',
+    source: 'https://www.bls.gov/ooh/computer-and-information-technology/information-security-analysts.htm',
+  },
+  {
+    title: 'Data and AI Teams Are Scaling Fast',
+    stat: '34% Growth',
+    detail: 'BLS projects data scientist employment growth from 2024 to 2034.',
+    source: 'https://www.bls.gov/ooh/math/data-scientists.htm',
+  },
+]
+
+const faqItems = [
+  {
+    q: 'How fast can MAX IT submit candidates?',
+    a: 'For most enterprise roles, we target first candidate submissions within 48 to 72 hours after role alignment.',
+  },
+  {
+    q: 'Do you support contract, permanent, and augmentation models?',
+    a: 'Yes. We support contract staffing, contract-to-hire, direct hire, and staff augmentation based on your program needs.',
+  },
+  {
+    q: 'Which regions do you serve?',
+    a: 'We serve clients across the US, UAE, and India with multi-region sourcing and delivery support.',
+  },
+  {
+    q: 'Can you support compliance-focused hiring environments?',
+    a: 'Yes. Our process includes structured vetting and compliance checkpoints suitable for enterprise and regulated sectors.',
+  },
+]
+
 const clientLogos = [
   { src: '/company-logos/ibm.png', alt: 'IBM partner ecosystem logo' },
   { src: '/company-logos/wipro.png', alt: 'Wipro partner ecosystem logo' },
@@ -121,18 +205,18 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homePageJsonLd) }} />
       <MarketingHeader />
 
-      <section className="mx-auto w-full max-w-[1240px] px-6 pb-10 pt-24 sm:pt-28">
-        <div className="grid items-start gap-6 xl:grid-cols-[minmax(0,1fr)_360px]">
+      <section className="mx-auto w-full max-w-[1240px] px-6 pb-8 pt-24 sm:pt-28">
+        <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_340px] xl:grid-cols-[minmax(0,1fr)_360px]">
           <div className="max-w-4xl">
             <p className="inline-flex rounded-full border border-[#d7c27a] bg-[#f3eddb] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-[#7f6720]">
               Enterprise IT Staffing, Consulting, and Delivery
             </p>
-            <h1 className="mt-5 font-display text-4xl leading-[0.96] tracking-tight sm:text-5xl">
+            <h1 className="mt-4 font-display text-[2.35rem] leading-[0.96] tracking-tight sm:text-5xl lg:text-[3.35rem]">
               Build Stronger IT Teams
               <br />
               Without Hiring Delays.
             </h1>
-            <p className="mt-4 max-w-3xl text-lg leading-relaxed text-neutral-700">
+            <p className="mt-3 max-w-3xl text-base leading-relaxed text-neutral-700 sm:text-lg">
               MAX IT Consulting helps enterprise teams hire faster and execute better through specialized IT staffing,
               business consulting, and software delivery across the US, UAE, and India.
             </p>
@@ -151,13 +235,24 @@ export default function HomePage() {
                 View Services
               </Link>
             </div>
+
+            <div className="mt-5 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+              {heroHighlights.map((item) => (
+                <div
+                  key={item}
+                  className="rounded-lg border border-black/10 bg-white px-3 py-2 text-sm font-semibold text-neutral-700"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
           </div>
 
           <MotionCard className="overflow-hidden rounded-2xl border border-black/10 bg-white shadow-[0_8px_24px_rgba(0,0,0,0.08)]">
             <div className="border-b border-black/10 px-4 py-3">
               <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#7f6720]">Founder Message</p>
             </div>
-            <div className="px-4 pb-4 pt-4">
+            <div className="px-4 pb-3 pt-4">
               <div className="mx-auto w-full max-w-[260px] overflow-hidden rounded-2xl border border-black/10 bg-[#f9f9f9]">
                 <div className="relative aspect-[9/16]">
                   <video
@@ -173,10 +268,18 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
+            <div className="grid grid-cols-3 gap-2 px-4 pb-4">
+              {heroShowcasePhotos.map((photo) => (
+                <div key={photo.src} className="overflow-hidden rounded-lg border border-black/10 bg-[#fafafa]">
+                  <img src={photo.src} alt={photo.alt} className="h-full w-full object-cover" loading="lazy" />
+                </div>
+              ))}
+            </div>
+            <p className="px-4 pb-4 text-[11px] text-neutral-500">Selected hiring and interview visuals from public business stock sources.</p>
           </MotionCard>
         </div>
 
-        <div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+        <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {companySignals.map((item, idx) => (
             <MotionCard key={item.value + item.label} delay={idx * 0.06} className="rounded-xl border border-black/10 bg-white p-4">
               <p className="font-display text-2xl leading-tight text-black">{item.value}</p>
@@ -204,6 +307,34 @@ export default function HomePage() {
       </section>
 
       <section className="mx-auto w-full max-w-[1240px] px-6 py-8">
+        <MotionCard className="rounded-2xl border border-black/10 bg-white p-6">
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#7f6720]">Market Insights</p>
+          <h2 className="mt-3 font-display text-4xl leading-[0.96] tracking-tight sm:text-5xl">
+            IT Talent Outlook
+            <br />
+            2024-2034
+          </h2>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {marketInsights.map((item, idx) => (
+              <MotionCard key={item.title} delay={idx * 0.05} className="rounded-xl border border-black/10 bg-[#fafafa] p-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.1em] text-[#7f6720]">{item.title}</p>
+                <p className="mt-2 font-display text-3xl text-black">{item.stat}</p>
+                <p className="mt-2 text-sm text-neutral-700">{item.detail}</p>
+                <a
+                  href={item.source}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-3 inline-flex text-xs font-semibold uppercase tracking-[0.08em] text-[#7f6720] hover:text-black"
+                >
+                  Source
+                </a>
+              </MotionCard>
+            ))}
+          </div>
+        </MotionCard>
+      </section>
+
+      <section className="mx-auto w-full max-w-[1240px] px-6 py-8">
         <div className="text-center">
           <p className="mx-auto inline-flex rounded-full border border-[#d7c27a] bg-[#f3eddb] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-[#7f6720]">
             What We Do
@@ -222,6 +353,25 @@ export default function HomePage() {
             </MotionCard>
           ))}
         </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-[1240px] px-6 py-8">
+        <MotionCard className="rounded-2xl border border-black/10 bg-white p-6">
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#7f6720]">Delivery Framework</p>
+          <h2 className="mt-3 font-display text-4xl leading-[0.96] tracking-tight sm:text-5xl">
+            How We Execute
+            <br />
+            Hiring Programs
+          </h2>
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            {deliveryFramework.map((item, idx) => (
+              <MotionCard key={item.title} delay={idx * 0.05} className="rounded-xl border border-black/10 bg-[#fafafa] p-4">
+                <h3 className="font-display text-2xl leading-tight text-black">{item.title}</h3>
+                <p className="mt-2 text-sm text-neutral-700">{item.description}</p>
+              </MotionCard>
+            ))}
+          </div>
+        </MotionCard>
       </section>
 
       <section className="mx-auto w-full max-w-[1240px] px-6 py-8">
@@ -304,6 +454,25 @@ export default function HomePage() {
             Get My Free Talent Audit
             <ArrowRight className="h-4 w-4" />
           </Link>
+        </MotionCard>
+      </section>
+
+      <section className="mx-auto w-full max-w-[1240px] px-6 pb-16">
+        <MotionCard className="rounded-2xl border border-black/10 bg-white p-6">
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#7f6720]">FAQ</p>
+          <h2 className="mt-3 font-display text-4xl leading-[0.96] tracking-tight sm:text-5xl">
+            Frequently Asked
+            <br />
+            Questions
+          </h2>
+          <div className="mt-6 grid gap-3 md:grid-cols-2">
+            {faqItems.map((item, idx) => (
+              <MotionCard key={item.q} delay={idx * 0.04} className="rounded-xl border border-black/10 bg-[#fafafa] p-4">
+                <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[#7f6720]">{item.q}</p>
+                <p className="mt-2 text-sm text-neutral-700">{item.a}</p>
+              </MotionCard>
+            ))}
+          </div>
         </MotionCard>
       </section>
 
