@@ -66,7 +66,7 @@ export default function IndustriesPage() {
     <main className="min-h-screen bg-[#f7f6f2] text-[#191919]">
       <MarketingHeader />
 
-      <section className="mx-auto w-full max-w-[1240px] px-6 pb-10 pt-24 sm:pt-28">
+      <section className="mx-auto w-full max-w-[1240px] px-6 pb-10 pt-32 sm:pt-28">
         <p className="inline-flex rounded-full border border-[#d7c27a] bg-[#f3eddb] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-[#7f6720]">
           Industries We Serve
         </p>

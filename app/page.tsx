@@ -205,7 +205,7 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homePageJsonLd) }} />
       <MarketingHeader />
 
-      <section className="mx-auto w-full max-w-[1240px] px-6 pb-8 pt-24 sm:pt-28">
+      <section className="mx-auto w-full max-w-[1240px] px-6 pb-8 pt-32 sm:pt-28">
         <div className="grid items-start gap-6 lg:grid-cols-[minmax(0,1fr)_340px] xl:grid-cols-[minmax(0,1fr)_360px]">
           <div className="max-w-4xl">
             <p className="inline-flex rounded-full border border-[#d7c27a] bg-[#f3eddb] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-[#7f6720]">

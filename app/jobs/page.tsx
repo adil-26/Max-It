@@ -106,7 +106,7 @@ export default function JobsPage() {
 
       <MarketingHeader />
 
-      <section className="mx-auto w-full max-w-[1240px] px-6 pb-10 pt-24 sm:pt-28">
+      <section className="mx-auto w-full max-w-[1240px] px-6 pb-10 pt-32 sm:pt-28">
         <div className="max-w-5xl">
           <p className="inline-flex rounded-full border border-[#2f63ff]/60 bg-black/55 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-white">
             Enterprise IT Roles

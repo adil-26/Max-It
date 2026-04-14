@@ -93,7 +93,7 @@ export default function ContactPage() {
     <main className="min-h-screen bg-[#f7f6f2] text-[#191919]">
       <MarketingHeader />
 
-      <section className="mx-auto grid w-full max-w-[1240px] gap-8 px-6 pb-14 pt-24 sm:pt-28 lg:grid-cols-[0.95fr_1.05fr]">
+      <section className="mx-auto grid w-full max-w-[1240px] gap-8 px-6 pb-14 pt-32 sm:pt-28 lg:grid-cols-[0.95fr_1.05fr]">
         <aside>
           <p className="inline-flex rounded-full border border-[#d7c27a] bg-[#f3eddb] px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-[#7f6720]">
             Contact
