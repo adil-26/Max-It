@@ -270,7 +270,7 @@ export default function HomePage() {
                 <div className="relative aspect-[9/16]">
                   <video
                     className="h-full w-full object-contain"
-                    src="/media/hiring-owner-message-portrait.mp4"
+                    src="/media/home.mp4"
                     controls
                     controlsList="nodownload noplaybackrate noremoteplayback"
                     disablePictureInPicture
