@@ -153,11 +153,11 @@ export default function AboutPage() {
       </section>
 
       <section className="mx-auto w-full max-w-[1240px] px-6 py-8">
-        <div className="grid gap-4 lg:grid-cols-[0.8fr_1.2fr]">
-          <MotionCard className="rounded-2xl border border-black/10 bg-white p-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#7f6720]">Founder & Director</p>
-            <div className="mt-4 flex items-center gap-4">
-              <div className="overflow-hidden rounded-2xl border border-black/10 bg-[#f7f7f7]">
+        <div className="flex justify-center">
+          <MotionCard className="rounded-2xl bg-white p-6 max-w-2xl w-full !border-0">
+            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#7f6720] text-center">Founder & Director</p>
+            <div className="mt-4 flex flex-col items-center gap-4">
+              <div className="overflow-hidden rounded-2xl bg-[#f7f7f7]">
                 <Image
                   src="/placeholder-user.jpg"
                   alt="Junaid Aamir founder headshot placeholder"
@@ -166,41 +166,45 @@ export default function AboutPage() {
                   className="h-20 w-20 object-cover"
                 />
               </div>
-              <div>
+              <div className="text-center">
                 <h3 className="font-display text-3xl leading-tight text-black">Junaid Aamir</h3>
                 <p className="mt-1 text-sm text-neutral-700">Founder & Director, MAX IT Consulting LLC</p>
               </div>
             </div>
-            <p className="mt-4 text-base text-neutral-700">
+            <p className="mt-4 text-base text-neutral-700 text-center">
               Junaid Aamir founded MAX IT Consulting LLC in 2021 to build a staffing and consulting partner that combines
               boutique speed with enterprise-level process discipline.
             </p>
-            <a
-              href="https://in.linkedin.com/company/max-it-consulting"
-              target="_blank"
-              rel="noreferrer"
-              className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#7f6720] hover:text-black"
-            >
-              <Linkedin className="h-4 w-4" />
-              View LinkedIn
-            </a>
-          </MotionCard>
-
-          <MotionCard className="rounded-2xl border border-black/10 bg-white p-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#7f6720]">Global Offices</p>
-            <div className="mt-4 grid gap-3 md:grid-cols-3">
-              {offices.map((office) => (
-                <div key={office.name} className="min-w-0 rounded-xl border border-black/10 bg-[#fafafa] p-4">
-                  <h4 className="text-lg font-semibold text-black">{office.name}</h4>
-                  <p className="mt-2 text-sm text-neutral-700">{office.address}</p>
-                  <p className="mt-2 text-xs font-semibold uppercase tracking-[0.08em] text-[#7f6720]">{office.phone}</p>
-                  <p className="mt-2 break-all text-xs font-semibold tracking-[0.04em] text-neutral-700">{office.email}</p>
-                  <p className="mt-1 text-xs text-neutral-500">{office.timezone}</p>
-                </div>
-              ))}
+            <div className="mt-5 flex justify-center">
+              <a
+                href="https://in.linkedin.com/company/max-it-consulting"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-[#7f6720] hover:text-black"
+              >
+                <Linkedin className="h-4 w-4" />
+                View LinkedIn
+              </a>
             </div>
           </MotionCard>
         </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-[1240px] px-6 pb-16 pt-4">
+        <MotionCard className="rounded-2xl bg-white p-6 !border-0">
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#7f6720]">Global Offices</p>
+          <div className="mt-4 grid gap-3 md:grid-cols-3">
+            {offices.map((office) => (
+              <div key={office.name} className="min-w-0 rounded-xl bg-[#fafafa] p-4">
+                <h4 className="text-lg font-semibold text-black">{office.name}</h4>
+                <p className="mt-2 text-sm text-neutral-700">{office.address}</p>
+                <p className="mt-2 text-xs font-semibold uppercase tracking-[0.08em] text-[#7f6720]">{office.phone}</p>
+                <p className="mt-2 break-all text-xs font-semibold tracking-[0.04em] text-neutral-700">{office.email}</p>
+                <p className="mt-1 text-xs text-neutral-500">{office.timezone}</p>
+              </div>
+            ))}
+          </div>
+        </MotionCard>
       </section>
 
       <section className="mx-auto w-full max-w-[1240px] px-6 pb-16 pt-4">

@@ -35,21 +35,6 @@ const heroHighlights = [
   'Coverage across software, cloud, data, cybersecurity, and ERP',
 ]
 
-const heroShowcasePhotos = [
-  {
-    src: '/media/hiring-hero-photo-1.jpg',
-    alt: 'Hiring manager and candidate discussing role fit in a meeting room.',
-  },
-  {
-    src: '/media/hiring-hero-photo-2.jpg',
-    alt: 'Recruiter reviewing candidate details during an interview process.',
-  },
-  {
-    src: '/media/hiring-hero-photo-3.jpg',
-    alt: 'Professional hiring interview with role expectations discussion.',
-  },
-]
-
 const serviceStack = [
   {
     title: 'IT Staffing & Talent Solutions',
@@ -261,34 +246,24 @@ export default function HomePage() {
             </div>
           </div>
 
-          <MotionCard className="overflow-hidden rounded-2xl border border-black/10 bg-white shadow-[0_8px_24px_rgba(0,0,0,0.08)]">
-            <div className="border-b border-black/10 px-4 py-3">
+          <MotionCard className="overflow-hidden rounded-2xl bg-white shadow-none before:[box-shadow:none] hover:before:opacity-0">
+            <div className="px-4 pb-2 pt-4 text-center">
               <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#7f6720]">Founder Message</p>
             </div>
             <div className="px-4 pb-3 pt-4">
-              <div className="mx-auto w-full max-w-[260px] overflow-hidden rounded-2xl border border-black/10 bg-[#f9f9f9]">
-                <div className="relative aspect-[9/16]">
-                  <video
-                    className="h-full w-full object-contain"
-                    src="/media/home.mp4"
-                    controls
-                    controlsList="nodownload noplaybackrate noremoteplayback"
-                    disablePictureInPicture
-                    disableRemotePlayback
-                    playsInline
-                    preload="metadata"
-                  />
-                </div>
+              <div className="mx-auto w-full max-w-[240px] overflow-hidden rounded-2xl bg-[#f9f9f9]">
+                <video
+                  className="block h-auto max-h-[420px] w-full bg-white object-contain"
+                  src="/media/home.mp4"
+                  controls
+                  controlsList="nodownload noplaybackrate noremoteplayback"
+                  disablePictureInPicture
+                  disableRemotePlayback
+                  playsInline
+                  preload="metadata"
+                />
               </div>
             </div>
-            <div className="grid grid-cols-3 gap-2 px-4 pb-4">
-              {heroShowcasePhotos.map((photo) => (
-                <div key={photo.src} className="overflow-hidden rounded-lg border border-black/10 bg-[#fafafa]">
-                  <img src={photo.src} alt={photo.alt} className="h-full w-full object-cover" loading="lazy" />
-                </div>
-              ))}
-            </div>
-            <p className="px-4 pb-4 text-[11px] text-neutral-500">Selected hiring and interview visuals from public business stock sources.</p>
           </MotionCard>
         </div>
 
