@@ -114,9 +114,9 @@ export default function ContactPage() {
               <p>
                 US: 25 Oak Tavern Circle, Branchburg, New Jersey 08876, USA
                 <br />
-                Phone: +1-908-449-3000
+                Phone: +1-908-728-8642
                 <br />
-                Email: us@maxitconsultingllc.com
+                Email: info@maxitconsultingllc.com
               </p>
               <p>
                 UAE: Dubai 32223, United Arab Emirates
