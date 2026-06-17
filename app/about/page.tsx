@@ -61,8 +61,8 @@ const offices = [
   {
     name: 'US Headquarters',
     address: '25 Oak Tavern Circle, Branchburg, New Jersey 08876, USA',
-    phone: '+1-908-449-3000',
-    email: 'us@maxitconsultingllc.com',
+    phone: '+1-908-728-8642',
+    email: 'info@maxitconsultingllc.com',
     timezone: 'EST (UTC-5)',
   },
   {

@@ -97,7 +97,7 @@ export const organizationJsonLd = {
   slogan: 'Hire Smart Grow Fast',
   description: siteDescription,
   email: 'info@maxitconsultingllc.com',
-  telephone: '+1-908-449-3000',
+  telephone: '+1-908-728-8642',
   foundingDate: '2018',
   industry: 'Business Consulting and Services',
   numberOfEmployees: {
@@ -125,7 +125,7 @@ export const organizationJsonLd = {
       '@type': 'ContactPoint',
       contactType: 'sales',
       email: 'info@maxitconsultingllc.com',
-      telephone: '+1-908-449-3000',
+      telephone: '+1-908-728-8642',
       areaServed: 'US',
       availableLanguage: ['English'],
     },

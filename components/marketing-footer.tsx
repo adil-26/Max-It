@@ -15,8 +15,8 @@ const officeContacts = [
   {
     region: 'US',
     address: '25 Oak Tavern Circle, Branchburg, NJ 08876',
-    phone: '+1-908-449-3000',
-    email: 'us@maxitconsultingllc.com',
+    phone: '+1-908-728-8642',
+    email: 'info@maxitconsultingllc.com',
   },
   {
     region: 'UAE',
@@ -70,11 +70,11 @@ export default function MarketingFooter() {
               info@maxitconsultingllc.com
             </a>
             <a
-              href="tel:+19084493000"
+              href="tel:+19087288642"
               className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-3 py-1.5 text-xs font-semibold text-black hover:bg-black/5"
             >
               <Phone className="h-3.5 w-3.5" />
-              +1-908-449-3000
+              +1-908-728-8642
             </a>
           </div>
         </section>
