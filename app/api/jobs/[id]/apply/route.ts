@@ -10,9 +10,10 @@ function getSupabaseClient() {
 
 export async function POST(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const supabase = getSupabaseClient();
     if (!supabase) {
       return NextResponse.json(
@@ -27,7 +28,7 @@ export async function POST(
     const { data: existing } = await supabase
       .from('job_applications')
       .select('id')
-      .eq('job_id', params.id)
+      .eq('job_id', id)
       .eq('candidate_id', candidateId)
       .single();
 
@@ -42,7 +43,7 @@ export async function POST(
     const { data, error } = await supabase
       .from('job_applications')
       .insert({
-        job_id: params.id,
+        job_id: id,
         candidate_id: candidateId,
         cover_letter: coverletter,
         status: 'applied'
@@ -54,7 +55,7 @@ export async function POST(
 
     // Update job applications count
     await supabase.rpc('increment_applications_count', {
-      job_id: params.id
+      job_id: id
     });
 
     return NextResponse.json(data, { status: 201 });
