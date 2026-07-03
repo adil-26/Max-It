@@ -72,7 +72,31 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section className="space-y-2">
-            <h2 className="font-display text-3xl text-white">6. Contact</h2>
+            <h2 className="font-display text-3xl text-white">6. SMS Consent and Messaging</h2>
+            <div className="space-y-4">
+              <div>
+                <h3 className="text-xl font-semibold text-white">SMS Consent</h3>
+                <p>
+                  We will not share your opt-in to an SMS campaign with any third party for purposes unrelated to providing you with the services of that campaign. We may share your Personal Data, including your SMS opt-in or consent status, with third parties that help us provide our messaging services, including but not limited to platform providers, phone companies, and any other vendors who assist us in the delivery of text messages.
+                </p>
+                <p className="mt-2">
+                  All of the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-white">Opt-Out Process</h3>
+                <p>
+                  You may choose to stop receiving text messages from MAX IT Consulting LLC at any time.
+                  To opt out, simply reply STOP or UNSUBSCRIBE to any text message you receive from us.
+                  Once we receive your opt-out request, you will be immediately removed from our messaging list and will no longer receive SMS messages from us.
+                  For assistance, reply HELP or contact us at info@maxitconsultingllc.com.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section className="space-y-2">
+            <h2 className="font-display text-3xl text-white">7. Contact</h2>
             <p>
               If you have privacy questions, contact: MAX IT CONSULTING LLC, 25 Oak Tavern Cir, Branchburg, NJ 08876,
               United States, info@maxitconsultingllc.com.

@@ -27,6 +27,7 @@ export default function ContactPage() {
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState('')
+  const [smsOptIn, setSmsOptIn] = useState(false)
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -49,6 +50,7 @@ export default function ContactPage() {
         formData.techSkills ? `Technology/Skills Needed: ${formData.techSkills}` : '',
         formData.timeline ? `Hiring Timeline: ${formData.timeline}` : '',
         formData.source ? `Source: ${formData.source}` : '',
+        `SMS Opt-In Consent: ${smsOptIn ? 'Accepted' : 'Not Selected'}`
       ]
         .filter(Boolean)
         .join('\n')
@@ -65,6 +67,7 @@ export default function ContactPage() {
       if (dbError) throw dbError
 
       setSuccess(true)
+      setSmsOptIn(false)
       setFormData({
         name: '',
         company: '',
@@ -213,7 +216,7 @@ export default function ContactPage() {
             </div>
 
             <div>
-              <label className="mb-2 block text-sm text-neutral-700">Phone</label>
+              <label className="mb-2 block text-sm text-neutral-700">Phone (Optional)</label>
               <div className="grid grid-cols-[120px_1fr] gap-2">
                 <select
                   name="phoneCountry"
@@ -292,6 +295,27 @@ export default function ContactPage() {
                 className="w-full rounded-lg border border-black/10 bg-white px-4 py-3 text-base text-black placeholder:text-neutral-500"
                 required
               />
+            </div>
+
+            <div className="flex items-start gap-3 rounded-lg border border-black/5 bg-[#fcfbfa] p-3">
+              <input
+                id="smsOptIn"
+                type="checkbox"
+                checked={smsOptIn}
+                onChange={(e) => setSmsOptIn(e.target.checked)}
+                className="mt-1 h-4 w-4 rounded border-gray-300 text-neutral-900 focus:ring-neutral-900"
+              />
+              <label htmlFor="smsOptIn" className="text-xs text-neutral-600 leading-relaxed select-none">
+                By opting in for text messages, you agree to receive an appointment reminders and important updates from MAX IT Consulting LLC at the number provided. Message frequency varies. Msg & data rates may apply. Reply STOP to unsubscribe. Reply HELP for help. View our{' '}
+                <a href="/privacy-policy" className="underline hover:text-black font-semibold">
+                  Privacy Policy
+                </a>{' '}
+                and{' '}
+                <a href="/terms-and-conditions" className="underline hover:text-black font-semibold">
+                  Terms & Conditions
+                </a>{' '}
+                for more information.
+              </label>
             </div>
 
             <button

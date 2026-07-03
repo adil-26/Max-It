@@ -79,7 +79,36 @@ export default function TermsAndConditionsPage() {
           </section>
 
           <section className="space-y-2">
-            <h2 className="font-display text-3xl text-white">7. Contact</h2>
+            <h2 className="font-display text-3xl text-white">7. SMS Terms & Conditions</h2>
+            <div className="space-y-4">
+              <p>
+                By opting in to receive SMS/text messages from MAX IT Consulting LLC, you agree to the following terms:
+              </p>
+              <ul className="list-disc pl-5 space-y-2">
+                <li>
+                  <strong>Program Description:</strong> We send text messages to provide appointment reminders, scheduling updates, and important business communications related to the services you have requested from MAX IT Consulting LLC.
+                </li>
+                <li>
+                  <strong>Opt-Out:</strong> You can cancel the SMS service at any time. Just reply <strong>STOP</strong> or <strong>UNSUBSCRIBE</strong> to any text message you receive from us. Once you send the SMS message STOP or UNSUBSCRIBE, we will send you an SMS confirmation of your opt-out. After this, you will no longer receive SMS messages from us. If you want to opt-in again, you can sign up as you did initially.
+                </li>
+                <li>
+                  <strong>Help:</strong> If you are experiencing issues with our messaging program, you can reply with the keyword <strong>HELP</strong> for more assistance, or contact us directly at <strong>info@maxitconsultingllc.com</strong>.
+                </li>
+                <li>
+                  <strong>Message Frequency:</strong> Message frequency varies based on your interactions and requests with us.
+                </li>
+                <li>
+                  <strong>Rates:</strong> As always, message and data rates may apply for any messages sent to you from us and to us from you. If you have any questions about your text plan or data plan, please contact your wireless provider.
+                </li>
+                <li>
+                  <strong>Carrier Disclaimer:</strong> Mobile carriers are not liable for delayed or undelivered messages.
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <section className="space-y-2">
+            <h2 className="font-display text-3xl text-white">8. Contact</h2>
             <p>
               For questions regarding these terms, contact info@maxitconsultingllc.com.
             </p>
