@@ -1,4 +1,4 @@
-﻿'use client'
+'use client'
 
 import { useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
@@ -6,7 +6,7 @@ import Link from 'next/link'
 import Header from '@/components/header'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { supabase } from '@/lib/supabase'
+import { supabase, isSupabaseConfigured } from '@/lib/supabase'
 import { useAuth } from '@/lib/auth-context'
 import type { Database } from '@/lib/supabase'
 import { siteName, siteUrl } from '@/lib/seo'
@@ -106,7 +106,7 @@ export default function JobDetailPage() {
   }
 
   const checkIfApplied = async () => {
-    if (!user || !profile) return
+    if (!user || !profile || !isSupabaseConfigured()) return
     try {
       const { data } = await supabase
         .from('job_applications')
@@ -128,22 +128,37 @@ export default function JobDetailPage() {
       setApplying(true)
       setApplicationError('')
 
-      const { error } = await supabase.from('job_applications').insert({
-        job_id: jobId,
-        candidate_id: profile.id,
-        cover_letter: coverLetter || null,
-      })
+      let apiError = null
 
-      if (error) throw error
+      if (isSupabaseConfigured()) {
+        const { error } = await supabase.from('job_applications').insert({
+          job_id: jobId,
+          candidate_id: profile.id,
+          cover_letter: coverLetter || null,
+        })
+        apiError = error
+      } else {
+        console.warn('Supabase is not configured. Simulating a successful job application in demo/mock mode.')
+        console.log('Submitted Job Application:', {
+          job_id: jobId,
+          candidate_id: profile.id,
+          cover_letter: coverLetter || null,
+        })
+        await new Promise((resolve) => setTimeout(resolve, 800))
+      }
+
+      if (apiError) throw apiError
 
       setApplicationSuccess(true)
       setCoverLetter('')
       setHasApplied(true)
       setTimeout(() => setApplicationSuccess(false), 5000)
     } catch (error) {
-      setApplicationError(
-        error instanceof Error ? error.message : 'An error occurred'
-      )
+      if (error && typeof error === 'object' && 'message' in error) {
+        setApplicationError((error as any).message)
+      } else {
+        setApplicationError('An error occurred')
+      }
     } finally {
       setApplying(false)
     }

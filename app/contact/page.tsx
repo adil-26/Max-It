@@ -4,7 +4,7 @@ import { useState } from 'react'
 import MarketingFooter from '@/components/marketing-footer'
 import MarketingHeader from '@/components/marketing-header'
 import MotionCard from '@/components/motion-card'
-import { supabase } from '@/lib/supabase'
+import { supabase, isSupabaseConfigured } from '@/lib/supabase'
 
 type InquiryType = 'general' | 'job_inquiry' | 'staffing' | 'partnership'
 
@@ -55,14 +55,31 @@ export default function ContactPage() {
         .filter(Boolean)
         .join('\n')
 
-      const { error: dbError } = await supabase.from('contact_leads').insert({
-        name: formData.name,
-        email: formData.email,
-        company: formData.company || null,
-        phone: formData.phone ? `${formData.phoneCountry} ${formData.phone}` : null,
-        message: `${formData.message}\n\n${detailBlocks}`,
-        inquiry_type: formData.subject,
-      })
+      let dbError = null
+
+      if (isSupabaseConfigured()) {
+        const { error } = await supabase.from('contact_leads').insert({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company || null,
+          phone: formData.phone ? `${formData.phoneCountry} ${formData.phone}` : null,
+          message: `${formData.message}\n\n${detailBlocks}`,
+          inquiry_type: formData.subject,
+        })
+        dbError = error
+      } else {
+        // Fallback demo/mock mode when Supabase is not configured
+        console.warn('Supabase is not configured. Simulating successful form submission in demo mode.')
+        console.log('Submitted Contact Lead:', {
+          name: formData.name,
+          email: formData.email,
+          company: formData.company || null,
+          phone: formData.phone ? `${formData.phoneCountry} ${formData.phone}` : null,
+          message: `${formData.message}\n\n${detailBlocks}`,
+          inquiry_type: formData.subject,
+        })
+        await new Promise((resolve) => setTimeout(resolve, 800))
+      }
 
       if (dbError) throw dbError
 
@@ -86,7 +103,11 @@ export default function ContactPage() {
 
       setTimeout(() => setSuccess(false), 5000)
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'An error occurred while submitting the form')
+      if (err && typeof err === 'object' && 'message' in err) {
+        setError((err as any).message)
+      } else {
+        setError('An error occurred while submitting the form')
+      }
     } finally {
       setLoading(false)
     }

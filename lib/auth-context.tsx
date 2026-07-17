@@ -9,7 +9,7 @@ import {
   type ReactNode,
 } from 'react'
 import type { User } from '@supabase/supabase-js'
-import { supabase, type Database } from '@/lib/supabase'
+import { supabase, isSupabaseConfigured, type Database } from '@/lib/supabase'
 
 export type Profile = Database['public']['Tables']['profiles']['Row']
 
@@ -49,6 +49,13 @@ function useAuthState() {
 
   useEffect(() => {
     let mounted = true
+
+    if (!isSupabaseConfigured()) {
+      setUser(null)
+      setProfile(null)
+      setLoading(false)
+      return
+    }
 
     const bootstrap = async () => {
       try {
